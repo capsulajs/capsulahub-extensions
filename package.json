@@ -1,0 +1,28 @@
+{
+  "name": "@capsulajs/web-components",
+  "version": "0.0.1",
+  "description": "Capsula JS - web components",
+  "scripts": {
+    "bootstrap": "lerna bootstrap --npm-client=yarn",
+    "build": "lerna run build",
+    "start": "lerna run start"
+  },
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/capsulajs/web-components.git"
+  },
+  "author": "Capsula JS",
+  "bugs": {
+    "url": "https://github.com/capsulajs/web-components/issues"
+  },
+  "homepage": "https://github.com/capsulajs/web-components#readme",
+  "devDependencies": {
+    "lerna": "^3.13.2",
+    "parcel-bundler": "^1.12.3",
+    "typescript": "^3.4.3"
+  }
+}

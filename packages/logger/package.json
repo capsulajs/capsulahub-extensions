@@ -1,0 +1,17 @@
+{
+  "name": "@capsulajs/web-components-logger",
+  "version": "0.0.1",
+  "description": "CapsulaJS - Web components logger",
+  "private": true,
+  "capsula": {
+    "template": "service"
+  },
+  "license": "MIT",
+  "scripts": {
+    "build": "parcel build index.ts",
+    "start": "parcel start index.html"
+  },
+  "author": "Markets Pulse",
+  "dependencies": {},
+  "devDependencies": {}
+}
