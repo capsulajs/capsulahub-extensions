@@ -18,22 +18,17 @@ export const dataComponentHoc = (Component: any, data$: any) => {
   };
 };
 
-export const mapServiceMethods = methods => {
-  const serviceGroups = groupBy(methods, "serviceName");
-  const mapServiceMethod = service => ({
-    id: service,
-    name: service,
-    children: serviceGroups[service].map(({ methodName }) => ({
-      id: methodName,
-      name: methodName
-    }))
-  });
+export const importFake = (modules: object, path: string): Promise<any> => {
+  return Promise.resolve({ default: modules[path] });
+};
 
-  return [
-    {
-      id: "root",
-      name: "Services",
-      children: Object.keys(serviceGroups).map(mapServiceMethod)
-    }
-  ];
+export const prepareWebComponent = ({ name, path, componentModules }) => {
+  return importFake(componentModules, path)
+    .then((module: any) => module.default)
+    .then(WebComponent => {
+      customElements.define(name, WebComponent);
+      const webComponent = new WebComponent();
+      typeof webComponent.setProps === "function" && webComponent.setProps();
+      return webComponent;
+    });
 };

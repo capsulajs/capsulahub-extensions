@@ -17,7 +17,10 @@
     "test": "npm-run-all -p -r start cypress"
   },
   "author": "Markets Pulse",
-  "dependencies": {},
+  "dependencies": {
+    "react": "^16.0.0",
+    "react-dom": "^16.8.6"
+  },
   "devDependencies": {
     "@types/node": "^11.13.4",
     "cypress": "^3.2.0",
