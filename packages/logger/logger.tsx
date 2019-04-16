@@ -1,9 +1,9 @@
-import * as ReactDOM from "react-dom";
-import * as React from "react";
-import { Observable } from "rxjs";
-import { Logger as LoggerUI } from "@capsulajs/capsulahub-ui";
-import { dataComponentHoc } from "@capsulajs/web-components-utils";
-import { Event } from "./types";
+import * as ReactDOM from 'react-dom';
+import * as React from 'react';
+import { Observable } from 'rxjs';
+import { Logger as LoggerUI } from '@capsulajs/capsulahub-ui';
+import { dataComponentHoc } from '@capsulajs/web-components-utils';
+import { Event } from './types';
 
 interface LoggerProps {
   logs: Observable<Event>[];
@@ -11,7 +11,7 @@ interface LoggerProps {
   height: number;
 }
 
-const mountPoint = "web-logger";
+const mountPoint = 'web-logger';
 
 export default class Logger extends HTMLElement {
   public props$?: Observable<any>;
@@ -22,9 +22,7 @@ export default class Logger extends HTMLElement {
   }
 
   public connectedCallback() {
-    const Component: any = this.props$
-      ? dataComponentHoc(LoggerUI, this.props$)
-      : LoggerUI;
+    const Component: any = this.props$ ? dataComponentHoc(LoggerUI, this.props$) : LoggerUI;
     ReactDOM.render(<Component />, document.getElementById(mountPoint));
   }
 }
