@@ -2,13 +2,14 @@
   "name": "@capsulajs/web-components-logger",
   "version": "0.0.1",
   "description": "CapsulaJS - Web components logger",
+  "main": "./lib/index.js",
   "private": true,
   "capsula": {
     "template": "service"
   },
   "license": "MIT",
   "scripts": {
-    "build": "parcel build index.ts",
+    "build": "parcel build index.ts --out-dir lib",
     "cypress": "cypress run",
     "start": "parcel start index.html",
     "lint": "tslint -p tsconfig.json --fix",
