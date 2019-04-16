@@ -1,4 +1,4 @@
-export type Type = 'request' | 'response';
+export type Type = "request" | "response";
 export interface Event {
   timestamp: number;
   correlationId: string;

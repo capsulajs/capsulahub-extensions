@@ -25,10 +25,10 @@ export const importFake = (modules: object, path: string): Promise<any> => {
 export const prepareWebComponent = ({ name, path, componentModules }) => {
   return importFake(componentModules, path)
     .then((module: any) => module.default)
-    .then((WebComponent) => {
+    .then(WebComponent => {
       customElements.define(name, WebComponent);
       const webComponent = new WebComponent();
-      typeof webComponent.setProps === 'function' && webComponent.setProps();
+      typeof webComponent.setProps === "function" && webComponent.setProps();
       return webComponent;
     });
 };
