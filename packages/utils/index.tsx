@@ -1,10 +1,10 @@
-import * as React from 'react';
-import { groupBy } from 'lodash';
+import * as React from "react";
+import { groupBy } from "lodash";
 
 export const dataComponentHoc = (Component: any, data$: any) => {
   return class HOC extends React.Component {
     public componentDidMount() {
-      data$.subscribe((data) => {
+      data$.subscribe(data => {
         this.setState(data);
       });
     }
@@ -18,19 +18,22 @@ export const dataComponentHoc = (Component: any, data$: any) => {
   };
 };
 
-export const mapServiceMethods = (methods) => {
-  const serviceGroups = groupBy(methods, 'serviceName');
-  const mapServiceMethod = (service) => ({
+export const mapServiceMethods = methods => {
+  const serviceGroups = groupBy(methods, "serviceName");
+  const mapServiceMethod = service => ({
     id: service,
     name: service,
-    children: serviceGroups[service].map(({ methodName }) => ({ id: methodName, name: methodName })),
+    children: serviceGroups[service].map(({ methodName }) => ({
+      id: methodName,
+      name: methodName
+    }))
   });
 
   return [
     {
-      id: 'root',
-      name: 'Services',
-      children: Object.keys(serviceGroups).map(mapServiceMethod),
-    },
+      id: "root",
+      name: "Services",
+      children: Object.keys(serviceGroups).map(mapServiceMethod)
+    }
   ];
 };
