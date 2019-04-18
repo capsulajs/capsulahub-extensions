@@ -14,15 +14,8 @@ describe("Logger TCs", () => {
         expect(
           isValidateTimestamp(row.find("[data-cy=logger-timestamp]").text())
         ).to.eq(true);
-        expect(row.find("[data-cy=logger-title]").text()).to.eq(
-          "AdeleService/hello$"
-        );
-        expect(
-          row
-            .find("[data-cy=logger-content]")
-            .find(".string-value")
-            .text()
-        ).to.eq('"Hello, it\'s me"');
+        expect(row.find("[data-cy=logger-title]").text()).to.eq('AdeleService/hello$');
+        expect(row.find("[data-cy=logger-content]").find('.string-value').text()).to.eq("\"Hello, it's me\"");
       });
   });
 });
