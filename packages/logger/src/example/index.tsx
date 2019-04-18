@@ -1,10 +1,10 @@
-import Logger from "./logger";
+import { Logger } from "../logger";
 import { prepareWebComponent } from "@capsulajs/web-components-utils";
-import { getProps } from "./cypress/integration/utils";
+import { props$ } from "./utils";
 
 class LogsWithData extends Logger {
   public setProps() {
-    this.props$ = getProps();
+    this.props$ = props$;
   }
 }
 

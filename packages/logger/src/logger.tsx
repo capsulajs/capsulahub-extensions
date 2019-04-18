@@ -3,16 +3,12 @@ import * as React from "react";
 import { Observable } from "rxjs";
 import { Logger as LoggerUI } from "@capsulajs/capsulahub-ui";
 import { dataComponentHoc } from "@capsulajs/web-components-utils";
-import { Event } from "./types";
-
-interface LoggerProps {
-  logs$: Observable<Event>;
-}
+import { LoggerProps } from "./types";
 
 const mountPoint = "web-logger";
 
-export default class Logger extends HTMLElement {
-  public props$?: Observable<any>;
+export class Logger extends HTMLElement {
+  public props$?: Observable<LoggerProps>;
 
   constructor() {
     super();
