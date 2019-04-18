@@ -37,7 +37,8 @@ const getLogs = (): Observable<Event> =>
     createSupportEvent("No", 10000)
   );
 
-export const isValidateTimestamp = (text) => /^([0-9]{2})\:([0-9]{2}):([0-9]{2})$/.test(text);
+export const isValidateTimestamp = text =>
+  /^([0-9]{2})\:([0-9]{2}):([0-9]{2})$/.test(text);
 export const getProps = () =>
   of({
     logs$: getLogs()
