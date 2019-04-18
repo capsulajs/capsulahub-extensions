@@ -14,12 +14,15 @@ describe("Logger TCs", () => {
         expect(
           isValidateTimestamp(row.find("[data-cy=logger-timestamp]").text())
         ).to.eq(true);
-
-        console.log(row.get("[data-cy=logger-title]"));
-
-        // console.log(row.get("[data-cy=logger-title]"));
-
-        expect(1 + 1).to.eq(2);
+        expect(row.find("[data-cy=logger-title]").text()).to.eq(
+          "AdeleService/hello$"
+        );
+        expect(
+          row
+            .find("[data-cy=logger-content]")
+            .find(".string-value")
+            .text()
+        ).to.eq('"Hello, it\'s me"');
       });
   });
 });
