@@ -27,16 +27,18 @@ const getLogs = (): Observable<Event> =>
     createAdeleEvent("Hello, it's me", 0),
     createAdeleEvent(
       "I was wondering if after all these years you'd like to meet",
-      3000
+      2500
     ),
     createAdeleEvent(
       "They say that time's supposed to heal ya, but I ain't done much healing",
-      6000
+      5000
     ),
-    createAdeleEvent("Hello, can you hear me?", 9000),
-    createSupportEvent("No", 12000)
+    createAdeleEvent("Hello, can you hear me?", 7500),
+    createSupportEvent("No", 10000)
   );
 
+export const isValidateTimestamp = text =>
+  /^([0-9]{2})\:([0-9]{2}):([0-9]{2})$/.test(text);
 export const getProps = () =>
   of({
     logs$: getLogs()
