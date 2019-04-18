@@ -1,0 +1,35 @@
+Scenario: Events are logged (check the format)
+  Given Logger web component
+  When Logger is initialized
+  Then at each polling interval of X seconds an event is logged
+  And each log has the correct model
+    | property    | type                 |
+    | timestamp   | number               |
+    | type        | 'request'/'response' |
+    | serviceName | string               |
+    | methodName  | string               |
+    | data        | object.              |
+
+Scenario: Check delete cross to remove all logs
+  Given Logger web component
+  And Logger is initialized
+  When click on the delete cross
+  Then all recorded logs are removed
+  And logs continue to be recorded at each polling interval of X seconds
+
+Scenario: Check arrows icon color to correspond to the event type
+  Given Logger web component
+  And Logger is initialized
+  When some logs are recorded
+  Then the arrows icon have the correspondent color
+    | type of event | color |
+    | response      | green |
+    | request       | red   |
+
+Scenario: Hovering on the dot near to log will change the color of all the dots of the logs with the same service/method name
+  Given Logger web component
+  And Logger is initialized
+  And some logs are recorded
+  When hover on the dot near to log
+  Then the dot is changing its color
+  And all the dots near to logs with the same service/method name are changing its color

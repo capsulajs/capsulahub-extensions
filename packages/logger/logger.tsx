@@ -6,9 +6,7 @@ import { dataComponentHoc } from "@capsulajs/web-components-utils";
 import { Event } from "./types";
 
 interface LoggerProps {
-  logs: Observable<Event>[];
-  width: number;
-  height: number;
+  logs$: Observable<Event>;
 }
 
 const mountPoint = "web-logger";

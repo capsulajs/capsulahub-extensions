@@ -711,12 +711,11 @@
     lodash "^4.17.11"
     to-fast-properties "^2.0.0"
 
-"@capsulajs/capsulahub-ui@^0.2.9":
-  version "0.2.9"
-  resolved "https://registry.npmjs.org/@capsulajs/capsulahub-ui/-/capsulahub-ui-0.2.9.tgz#aee3ce7aa8cca4552941fb4a8cae9360ad6e0e79"
-  integrity sha512-alxvOBJYkzqktDM9XvIfrsuBKah3UCzyhTbMjccZqP1KWonPfPHBPPnPFb8H5ZPx7/qOvEz58nFcqZDErH27ug==
+"@capsulajs/capsulahub-ui@^0.3.0":
+  version "0.3.0"
+  resolved "https://registry.npmjs.org/@capsulajs/capsulahub-ui/-/capsulahub-ui-0.3.0.tgz#7299ab996734083cca55f60db2728040786c58e5"
+  integrity sha512-PMRmJYJNqVmjjtEAW0fuQdIgMRX/kGmx+bXUL0xiqIdTfn/u6twkb/LOCxPJRvW183wrx21IsN09vjncpt8d2Q==
   dependencies:
-    json-literal "^1.1.0"
     lodash "^4.17.11"
     react "^16.8.1"
     react-ace "^6.1.4"
@@ -3452,11 +3451,6 @@ esprima@^4.0.0:
   resolved "https://registry.npmjs.org/esprima/-/esprima-4.0.1.tgz#13b04cdb3e6c5d19df91ab6987a8695619b0aa71"
   integrity sha512-eGuFFw7Upda+g4p+QHvnW0RyTX/SVeJBDM/gCtMARO0cLuT2HcEKnTPvhjV6aGeqrCB/sbNop0Kszm0jsaWU4A==
 
-esprima@~1.0.3:
-  version "1.0.4"
-  resolved "https://registry.npmjs.org/esprima/-/esprima-1.0.4.tgz#9f557e08fc3b4d26ece9dd34f8fbf476b62585ad"
-  integrity sha1-n1V+CPw7TSbs6d00+Pv0drYlha0=
-
 estraverse@^4.2.0:
   version "4.2.0"
   resolved "https://registry.npmjs.org/estraverse/-/estraverse-4.2.0.tgz#0dee3fed31fcd469618ce7342099fc1afa0bdb13"
@@ -4883,14 +4877,6 @@ jsesc@~0.5.0:
   version "0.5.0"
   resolved "https://registry.npmjs.org/jsesc/-/jsesc-0.5.0.tgz#e7dee66e35d6fc16f710fe91d5cf69f70f08911d"
   integrity sha1-597mbjXW/Bb3EP6R1c9p9w8IkR0=
-
-json-literal@^1.1.0:
-  version "1.1.0"
-  resolved "https://registry.npmjs.org/json-literal/-/json-literal-1.1.0.tgz#60bd4fc601c1408814922d2e42ac4f23da657406"
-  integrity sha1-YL1PxgHBQIgUki0uQqxPI9pldAY=
-  dependencies:
-    esprima "~1.0.3"
-    type-of "~2.0.0"
 
 json-parse-better-errors@^1.0.0, json-parse-better-errors@^1.0.1:
   version "1.0.2"
@@ -8569,11 +8555,6 @@ type-check@~0.3.2:
   integrity sha1-WITKtRLPHTVeP7eE8wgEsrUg23I=
   dependencies:
     prelude-ls "~1.1.2"
-
-type-of@~2.0.0:
-  version "2.0.1"
-  resolved "https://registry.npmjs.org/type-of/-/type-of-2.0.1.tgz#e72a1741896568e9f628378d816d6912f7f23972"
-  integrity sha1-5yoXQYllaOn2KDeNgW1pEvfyOXI=
 
 typedarray@^0.0.6:
   version "0.0.6"
