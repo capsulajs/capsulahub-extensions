@@ -3,5 +3,4 @@ node_modules
 dist
 lib
 yarn-error.log
-fixtures
 screenshots
