@@ -72,4 +72,36 @@ describe("Logger TCs", () => {
         .should(row => checkRow(row, logs[4]));
     });
   });
+
+  it.only("Hovering on the dot near to log will change the color of all the dots of the logs with the same service/method name", () => {
+    cy.fixture("logs.json").then(logs => {
+      return cy
+        .visit("/")
+        .wait(logs[0].delay)
+        .wait(logs[1].delay)
+        .wait(logs[2].delay)
+        .wait(logs[3].delay)
+        .wait(logs[4].delay)
+        .get("[data-cy=logger-row-0]")
+        .find("[data-cy=logger-point-not-active]")
+        .trigger("mouseover")
+        .get("[data-cy=logger-point-active]")
+        .should("have.length", 4)
+        .get("[data-cy=logger-row-4]")
+        .find("[data-cy=logger-point-not-active]")
+        .trigger("mouseover")
+        .get("[data-cy=logger-point-active]")
+        .should("have.length", 1)
+        .get("[data-cy=logger-row-0]")
+        .find("[data-cy=logger-point-not-active]")
+        .click()
+        .get("[data-cy=logger-point-active]")
+        .should("have.length", 4)
+        .get("[data-cy=logger-row-4]")
+        .find("[data-cy=logger-point-not-active]")
+        .click()
+        .get("[data-cy=logger-point-active]")
+        .should("have.length", 1);
+    });
+  });
 });
