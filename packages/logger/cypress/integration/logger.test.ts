@@ -41,7 +41,9 @@ describe("Logger TCs", () => {
         .should(row => checkRow(row, logs[2]))
         .wait(logs[3].delay)
         .get("[data-cy=logger-row-3]")
-        .should(row => checkRow(row, logs[3]));
+        .should(row => checkRow(row, logs[3]))
+        .wait(logs[4].delay)
+        .get("[data-cy=logger-row-4]");
     });
   });
 
@@ -73,7 +75,7 @@ describe("Logger TCs", () => {
     });
   });
 
-  it.only("Hovering on the dot near to log will change the color of all the dots of the logs with the same service/method name", () => {
+  it("Hovering on the dot near to log will change the color of all the dots of the logs with the same service/method name", () => {
     cy.fixture("logs.json").then(logs => {
       return cy
         .visit("/")
@@ -101,7 +103,14 @@ describe("Logger TCs", () => {
         .find("[data-cy=logger-point-not-active]")
         .click()
         .get("[data-cy=logger-point-active]")
-        .should("have.length", 1);
+        .should("have.length", 1)
+        .get("[data-cy=logger-row-4]")
+        .find("[data-cy=logger-point-active]")
+        .click()
+        .get("[data-cy=logger-clear]")
+        .trigger("mouseover")
+        .get("[data-cy=logger-point-not-active]")
+        .should("have.length", 5);
     });
   });
 });

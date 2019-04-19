@@ -8,7 +8,7 @@ Scenario: Events are logged (check the format)
     | type        | 'request'/'response' |
     | serviceName | string               |
     | methodName  | string               |
-    | data        | object.              |
+    | data        | object               |
   Then the arrows icon have the correspondent color
 
 Scenario: Check delete cross to remove all logs
