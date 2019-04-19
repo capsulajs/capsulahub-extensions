@@ -12,7 +12,7 @@ Scenario: Events are logged (check the format)
     | data        | object               |
   And the arrows icons have correspondent color according to the type (green for request, red for response)
   And there is an inactive dot at the beggining of each log row
-  
+
 Scenario: Check delete cross to remove all logs
   Given Logger web component
   And  Logger is initialized
