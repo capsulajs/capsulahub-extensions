@@ -28,4 +28,4 @@ Scenario: Hover/click on the dot next to a log - all dots of the logs with same 
   When hover/click on the dot near to a log
   Then the dot becomes active, and all dots of the logs with same correlationId become active
   And  the dots of the logs with other correlationId are inactive
-  And  if unhover/click again on the dot or anywhere on the screen - will make the active dots inactive
+  And  if unhover/click again on the dot will make the active dots inactive
