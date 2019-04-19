@@ -6,9 +6,9 @@ const validateTimeFormat = text =>
 const checkRow = (row, log) => {
   const { type, serviceName, methodName, content } = log;
 
-  type === 'request'
-   ? row.find("[data-cy=logger-arrows-green]")
-   : row.find("[data-cy=logger-arrows-red]");
+  type === "request"
+    ? row.find("[data-cy=logger-arrows-green]")
+    : row.find("[data-cy=logger-arrows-red]");
   row.find("[data-cy=logger-point-not-active]");
 
   expect(
@@ -59,13 +59,17 @@ describe("Logger TCs", () => {
         .get("[data-cy=logger-row-3]")
         .get("[data-cy=logger-clear]")
         .click()
-        .get("[data-cy=logger-row-0]").should('not.exist')
-        .get("[data-cy=logger-row-1]").should('not.exist')
-        .get("[data-cy=logger-row-2]").should('not.exist')
-        .get("[data-cy=logger-row-3]").should('not.exist')
+        .get("[data-cy=logger-row-0]")
+        .should("not.exist")
+        .get("[data-cy=logger-row-1]")
+        .should("not.exist")
+        .get("[data-cy=logger-row-2]")
+        .should("not.exist")
+        .get("[data-cy=logger-row-3]")
+        .should("not.exist")
         .wait(logs[4].delay)
         .get("[data-cy=logger-row-0]")
-        .should(row => checkRow(row, logs[4]))
+        .should(row => checkRow(row, logs[4]));
     });
   });
 });
