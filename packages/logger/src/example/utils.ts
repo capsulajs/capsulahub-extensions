@@ -13,7 +13,7 @@ export const props$ = of({
           methodName,
           timestamp: new Date().getTime(),
           data: { content }
-        }).pipe(delayWhen(() => timer(i * delay)))
+        }).pipe(delayWhen(() => timer(delay * (i + 1))))
     )
   )
 });
