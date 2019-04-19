@@ -1,27 +1,31 @@
 Scenario: Events are logged (check the format)
   Given Logger web component
-  When Logger is initialized
-  Then at each polling interval of X seconds an event is logged
-  And each log has the correct model
+  And  Logger is initialized
+  When each time a new log event occurs
+  Then the log is recorded in the Logger
+  And  each log has the correct model
     | property    | type                 |
     | timestamp   | number               |
     | type        | 'request'/'response' |
     | serviceName | string               |
     | methodName  | string               |
     | data        | object               |
-  Then the arrows icon have the correspondent color
-
+  And the arrows icons have correspondent color according to the type (green for request, red for response)
+  And there is an inactive dot at the beggining of each log row
+  
 Scenario: Check delete cross to remove all logs
   Given Logger web component
-  And Logger is initialized
+  And  Logger is initialized
+  And  several logs are recorded
   When click on the delete cross
   Then all recorded logs are removed
-  And logs continue to be recorded at each polling interval of X seconds
+  And  other logs continue to be recorded afterwards
 
-Scenario: Hovering on the dot near to log will change the color of all the dots of the logs with the same service/method name
+Scenario: Hover/click on the dot next to a log - all dots of the logs with same correlationId become active
   Given Logger web component
-  And Logger is initialized
-  And some logs are recorded
-  When hover on the dot near to log
-  Then the dot is changing its color
-  And all the dots near to logs with the same service/method name are changing its color
+  And  Logger is initialized
+  And  several logs with different correlationId are recorded
+  When hover/click on the dot near to a log
+  Then the dot becomes active, and all dots of the logs with same correlationId become active
+  And  the dots of the logs with other correlationId are inactive
+  And  if unhover/click again on the dot or anywhere on the screen - will make the active dots inactive
