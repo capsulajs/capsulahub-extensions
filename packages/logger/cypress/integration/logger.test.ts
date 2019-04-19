@@ -103,7 +103,7 @@ describe("Logger TCs", () => {
         .find("[data-cy=logger-point-not-active]")
         .click()
         .get("[data-cy=logger-point-not-active]")
-        .should("have.length", 5)
+        .should("have.length", 5);
     });
   });
 });
