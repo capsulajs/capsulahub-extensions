@@ -32,7 +32,7 @@
     "content": "Hello, can you hear me?"
   },
   {
-    "delay": 500,
+    "delay": 1000,
     "correlationId": "Support",
     "type": "response",
     "serviceName": "PhoneService",
