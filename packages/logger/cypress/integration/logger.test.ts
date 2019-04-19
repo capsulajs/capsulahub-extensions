@@ -102,13 +102,6 @@ describe("Logger TCs", () => {
         .get("[data-cy=logger-row-4]")
         .find("[data-cy=logger-point-not-active]")
         .click()
-        .get("[data-cy=logger-point-active]")
-        .should("have.length", 1)
-        .get("[data-cy=logger-row-4]")
-        .find("[data-cy=logger-point-active]")
-        .click()
-        .get("[data-cy=logger-clear]")
-        .trigger("mouseover")
         .get("[data-cy=logger-point-not-active]")
         .should("have.length", 5);
     });
