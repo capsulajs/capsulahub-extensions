@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "target": "es2015",
+    "module": "es6",
+    "lib": ["dom", "es2015", "es2016"],
+    "declaration": false,
+    "outDir": "./lib",
+    "strict": true,
+    "moduleResolution": "node",
+    "jsx": "react",
+    "types": ["jest", "node", "react", "react-dom"],
+    "baseUrl": "./src",
+    "esModuleInterop": true,
+    "noImplicitAny": false
+  },
+  "include": ["src/**/*"]
+}

@@ -728,6 +728,22 @@
     styled-components "^3.4.5"
     typeface-montserrat "^0.0.54"
 
+"@capsulajs/capsulahub-ui@^0.4.0":
+  version "0.4.0"
+  resolved "https://registry.yarnpkg.com/@capsulajs/capsulahub-ui/-/capsulahub-ui-0.4.0.tgz#9d417e50d716105de55bb1626f57f81f9a0aa6f1"
+  integrity sha512-HyjcazmwebproEzQX7V20IoRVrbQRX9krwvRlI1AQxmWOjBBDvzps4GgoF7Ma+rP5YIQiCCbavu/GCW/LnI+Zg==
+  dependencies:
+    lodash "^4.17.11"
+    react "^16.8.1"
+    react-ace "^6.1.4"
+    react-beautiful-dnd "^10.1.0"
+    react-click-outside "^3.0.1"
+    react-json-view "^1.19.1"
+    react-reflex "^2.2.9"
+    rxjs "^6.3.3"
+    styled-components "^3.4.5"
+    typeface-montserrat "^0.0.54"
+
 "@cypress/listr-verbose-renderer@0.4.1":
   version "0.4.1"
   resolved "https://registry.npmjs.org/@cypress/listr-verbose-renderer/-/listr-verbose-renderer-0.4.1.tgz#a77492f4b11dcc7c446a34b3e28721afd33c642a"
@@ -7155,6 +7171,16 @@ react-click-outside@^3.0.1:
   dependencies:
     hoist-non-react-statics "^2.1.1"
 
+react-dom@^16.8.6:
+  version "16.8.6"
+  resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-16.8.6.tgz#71d6303f631e8b0097f56165ef608f051ff6e10f"
+  integrity sha512-1nL7PIq9LTL3fthPqwkvr2zY7phIPjYrT0jp4HjyEQrEROnw4dG41VVwi/wfoCneoleqrNX7iAD+pXebJZwrwA==
+  dependencies:
+    loose-envify "^1.1.0"
+    object-assign "^4.1.1"
+    prop-types "^15.6.2"
+    scheduler "^0.13.6"
+
 react-is@^16.3.1, react-is@^16.6.0, react-is@^16.7.0, react-is@^16.8.1:
   version "16.8.6"
   resolved "https://registry.npmjs.org/react-is/-/react-is-16.8.6.tgz#5bbc1e2d29141c9fbdfed456343fe2bc430a6a16"
@@ -7217,7 +7243,7 @@ react-textarea-autosize@^6.1.0:
 
 react@^16.8.1, react@^16.8.6:
   version "16.8.6"
-  resolved "https://registry.npmjs.org/react/-/react-16.8.6.tgz#ad6c3a9614fd3a4e9ef51117f54d888da01f2bbe"
+  resolved "https://registry.yarnpkg.com/react/-/react-16.8.6.tgz#ad6c3a9614fd3a4e9ef51117f54d888da01f2bbe"
   integrity sha512-pC0uMkhLaHm11ZSJULfOBqV4tIZkx87ZLvbbQYunNixAAvjnC+snJCg0XQXn9VIsttVsbZP/H/ewzgsd5fxKXw==
   dependencies:
     loose-envify "^1.1.0"
