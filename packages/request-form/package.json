@@ -11,7 +11,7 @@
   "scripts": {
     "build": "rimraf .cache && npm-run-all build:commonJS build:es build:umd",
     "build:commonJS": "rimraf lib && tsc --module commonjs --target es5 --outDir lib",
-    "build:es": "rimraf es && tsc --module esnext --target es2015 --outDir es",
+    "build:es": "rimraf es && tsc --module esnext --target es2015 --outDir es --declaration false",
     "build:umd": "rimraf dist && parcel build src/index.ts --experimental-scope-hoisting --out-dir dist --global requestForm --no-cache",
     "lint": "tslint -p tsconfig.json --fix",
     "prettier": "prettier --write 'src/**/*.{ts,tsx}'"
