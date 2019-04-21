@@ -2,14 +2,10 @@
   "name": "@capsulajs/web-components-utils",
   "version": "0.0.1",
   "description": "CapsulaJS - Web components utils",
-  "main": "./lib/index.js",
+  "module": "index.tsx",
   "private": true,
-  "capsula": {
-    "template": "service"
-  },
   "license": "MIT",
   "scripts": {
-    "build": "parcel build index.tsx --out-dir lib",
     "lint": "tslint -p tsconfig.json --fix",
     "prettier": "prettier --write '{src,tests}/**/*.{ts,tsx}'"
   },
@@ -19,7 +15,6 @@
     "react": "^16.8.6"
   },
   "devDependencies": {
-    "parcel-bundler": "^1.12.3",
     "tslint": "^5.15.0",
     "typescript": "^3.4.3"
   }

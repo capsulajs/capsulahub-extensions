@@ -28,7 +28,6 @@ export default class RequestFormWithData extends RequestForm {
           ? `${selectedMethod.serviceName}/${selectedMethod.methodName}`
           : 'Not selected',
         onSubmit: (data: SubmittedData) => {
-          // tslint:disable-next-line
           console.log('the data from RequestForm has been submitted', data);
         },
       })),

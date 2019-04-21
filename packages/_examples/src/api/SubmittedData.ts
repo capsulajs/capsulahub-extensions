@@ -1,4 +1,4 @@
-import { Language } from './index';
+import { Language } from '.';
 
 /** The data that is received in the callback function after a user has submitted a form */
 export default interface SubmittedData {

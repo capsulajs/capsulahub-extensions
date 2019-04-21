@@ -1,4 +1,4 @@
-import { SubmittedData, Language } from './index';
+import { SubmittedData, Language } from '.';
 
 export default interface RequestFormUIProps {
   /** Callback that will be triggered after a user has submitted a valid data in the form */

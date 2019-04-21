@@ -16,7 +16,7 @@ export default class RequestForm extends HTMLElement {
   }
 
   public connectedCallback() {
-    const Component: any = this.props$ ? dataComponentHoc(RequestFormUI, this.props$) : RequestFormUI;
+    const Component: React.Component = this.props$ ? dataComponentHoc(RequestFormUI, this.props$) : RequestFormUI;
     ReactDOM.render(<Component />, document.getElementById(mountPoint));
   }
 }
