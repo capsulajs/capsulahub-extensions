@@ -1,5 +1,5 @@
 {
-  "name": "@capsulajs/web-components-logger",
+  "name": "@capsulajs-web-components/logger",
   "version": "0.0.1",
   "description": "CapsulaJS - Web components logger",
   "main": "./lib/index.js",
