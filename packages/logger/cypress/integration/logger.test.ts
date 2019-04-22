@@ -28,22 +28,13 @@ const checkRow = (row, log) => {
 describe("Logger TCs", () => {
   it("Events are logged (check the format)", () => {
     cy.fixture("logs.json").then(logs => {
-      return cy
-        .visit("/")
-        .wait(logs[0].delay)
-        .get("[data-cy=logger-row-0]")
-        .should(row => checkRow(row, logs[0]))
-        .wait(logs[1].delay)
-        .get("[data-cy=logger-row-1]")
-        .should(row => checkRow(row, logs[1]))
-        .wait(logs[2].delay)
-        .get("[data-cy=logger-row-2]")
-        .should(row => checkRow(row, logs[2]))
-        .wait(logs[3].delay)
-        .get("[data-cy=logger-row-3]")
-        .should(row => checkRow(row, logs[3]))
-        .wait(logs[4].delay)
-        .get("[data-cy=logger-row-4]");
+      logs.forEach((log, i) => {
+        return cy
+          .visit("/")
+          .wait(log.delay)
+          .get(`[data-cy=logger-row-${i}]`)
+          .should(row => checkRow(row, log));
+      });
     });
   });
 
@@ -51,13 +42,10 @@ describe("Logger TCs", () => {
     cy.fixture("logs.json").then(logs => {
       return cy
         .visit("/")
-        .wait(logs[0].delay)
-        .get("[data-cy=logger-row-0]")
-        .wait(logs[1].delay)
-        .get("[data-cy=logger-row-1]")
         .wait(logs[2].delay)
+        .get("[data-cy=logger-row-0]")
+        .get("[data-cy=logger-row-1]")
         .get("[data-cy=logger-row-2]")
-        .wait(logs[3].delay)
         .get("[data-cy=logger-row-3]")
         .get("[data-cy=logger-clear]")
         .click()
@@ -69,7 +57,7 @@ describe("Logger TCs", () => {
         .should("not.exist")
         .get("[data-cy=logger-row-3]")
         .should("not.exist")
-        .wait(logs[4].delay)
+        .wait(logs[0].delay)
         .get("[data-cy=logger-row-0]")
         .should(row => checkRow(row, logs[4]));
     });
@@ -79,10 +67,6 @@ describe("Logger TCs", () => {
     cy.fixture("logs.json").then(logs => {
       return cy
         .visit("/")
-        .wait(logs[0].delay)
-        .wait(logs[1].delay)
-        .wait(logs[2].delay)
-        .wait(logs[3].delay)
         .wait(logs[4].delay)
         .get("[data-cy=logger-row-0]")
         .find("[data-cy=logger-point-not-active]")

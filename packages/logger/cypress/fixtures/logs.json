@@ -8,7 +8,7 @@
     "content": "Hello, it`s me"
   },
   {
-    "delay": 500,
+    "delay": 1000,
     "correlationId": "Adele",
     "type": "request",
     "serviceName": "AdeleService",
@@ -16,7 +16,7 @@
     "content": "I was wondering if after all these years you'd like to meet"
   },
   {
-    "delay": 500,
+    "delay": 1500,
     "correlationId": "Adele",
     "type": "request",
     "serviceName": "AdeleService",
@@ -24,7 +24,7 @@
     "content": "They say that time's supposed to heal ya, but I ain't done much healing"
   },
   {
-    "delay": 500,
+    "delay": 2000,
     "correlationId": "Adele",
     "type": "request",
     "serviceName": "AdeleService",
@@ -32,7 +32,7 @@
     "content": "Hello, can you hear me?"
   },
   {
-    "delay": 1000,
+    "delay": 2500,
     "correlationId": "Support",
     "type": "response",
     "serviceName": "PhoneService",
