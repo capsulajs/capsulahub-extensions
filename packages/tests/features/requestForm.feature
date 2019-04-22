@@ -23,8 +23,8 @@ Scenario: Submit with a valid request (check the model of data received)
     And   Submit button is enabled
     When  user click on Submit button
     Then  request is sent
-    And   object received contain the following data
-          |data       |
+    And   the object received contains the following <property>
+          |<property> |
           |language   |
           |requestArgs|
 
