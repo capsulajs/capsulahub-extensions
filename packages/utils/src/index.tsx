@@ -1,8 +1,10 @@
 import * as React from 'react';
+import { Observable } from 'rxjs';
 import { groupBy } from 'lodash';
+import { JSXElementConstructor } from 'react';
 
-export const dataComponentHoc = (Component: any, data$: any) => {
-  return class HOC extends React.Component {
+export const dataComponentHoc = (Component: JSXElementConstructor<any>, data$: Observable<any>) => {
+  return class HOC extends React.PureComponent {
     public componentDidMount() {
       data$.subscribe((data) => {
         this.setState(data);
