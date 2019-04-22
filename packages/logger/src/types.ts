@@ -10,5 +10,5 @@ export interface LogEvent {
 }
 
 export interface LoggerProps {
-  logs$: Observable<LogEvent>;
+  logs$?: Observable<LogEvent>;
 }

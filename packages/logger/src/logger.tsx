@@ -7,6 +7,7 @@ import { LoggerProps } from "./types";
 
 export class Logger extends HTMLElement {
   public props$?: Observable<LoggerProps>;
+  private mountPoint: string;
 
   constructor() {
     super();
@@ -16,7 +17,7 @@ export class Logger extends HTMLElement {
   }
 
   public connectedCallback() {
-    const Component: React.Component<LoggerProps> = this.props$
+    const Component: React.ReactType = this.props$
       ? dataComponentHoc(LoggerUI, this.props$)
       : LoggerUI;
     ReactDOM.render(<Component />, document.getElementById(this.mountPoint));
