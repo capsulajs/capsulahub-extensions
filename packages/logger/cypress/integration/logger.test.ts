@@ -33,7 +33,7 @@ describe("Logger TCs", () => {
           .visit("/")
           .wait(log.delay)
           .get(`[data-cy=logger-row-${i}]`)
-          .should(row => checkRow(row, log));
+          .should(row => checkRow(row, log))
       });
     });
   });
