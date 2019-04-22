@@ -1,6 +1,6 @@
 import { Observable } from "rxjs";
 
-export interface Event {
+export interface LogEvent {
   timestamp: number;
   correlationId: string;
   type: "request" | "response";
@@ -10,5 +10,5 @@ export interface Event {
 }
 
 export interface LoggerProps {
-  logs$: Observable<Event>;
+  logs$: Observable<LogEvent>;
 }

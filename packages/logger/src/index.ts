@@ -1,2 +1,2 @@
 export { Logger } from "./logger";
-export { LoggerProps, Event } from "./types";
+export { LoggerProps, LogEvent } from "./types";
