@@ -8,7 +8,7 @@
     "strict": true,
     "moduleResolution": "node",
     "jsx": "react",
-    "types": ["jest", "node", "react", "react-dom"],
+    "types": ["cypress", "node", "react", "react-dom"],
     "baseUrl": "./src",
     "esModuleInterop": true,
     "noImplicitAny": false
