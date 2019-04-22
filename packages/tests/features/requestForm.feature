@@ -75,4 +75,10 @@ Scenario: Validation errors of the selected language should be displayed next to
     And   one of the existing languages is selected
     When  user types an invalid input
     Then  a validation error of the selected language is displayed next to the line with wrong input
+
+Scenario: Removing the arguments number doesnt remove the existing editors and content
+   Given Request Form web component is split in few editors
+   And   each editor has some content inside 
+   When  user removes via the keyboard the arguments number 
+   Then  the existing editors and their content is still available
     
