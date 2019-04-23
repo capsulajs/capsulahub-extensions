@@ -1,9 +1,9 @@
-import { Observable } from "rxjs";
+import { Observable } from 'rxjs';
 
 export interface LogEvent {
   timestamp: number;
   correlationId: string;
-  type: "request" | "response";
+  type: 'request' | 'response';
   serviceName: string;
   methodName: string;
   data: any;

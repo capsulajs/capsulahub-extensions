@@ -1,3 +1,4 @@
+// prettier-ignore
 module.exports = [
   {
     delay: 500,
@@ -40,4 +41,4 @@ module.exports = [
     methodName: "goodbye$",
     content: "No"
   }
-];
+]
