@@ -7,7 +7,7 @@ import { LoggerProps } from './types';
 
 export class Logger extends HTMLElement {
   private mountPoint: string;
-  private props$;
+  public props$;
 
   constructor() {
     super();

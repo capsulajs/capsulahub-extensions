@@ -16,8 +16,8 @@ before_script:
 
 script:
   - yarn lint
-  - yarn test
   - yarn build
+  - yarn test
 
 notifications:
   email:
