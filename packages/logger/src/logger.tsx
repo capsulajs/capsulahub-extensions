@@ -6,8 +6,8 @@ import { dataComponentHoc } from "@capsulajs/web-components-utils";
 import { LoggerProps } from "./types";
 
 export class Logger extends HTMLElement {
-  public props$?: Observable<LoggerProps>;
   private mountPoint: string;
+  private props$;
 
   constructor() {
     super();

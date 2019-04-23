@@ -1,8 +1,9 @@
-import { of, timer, merge } from "rxjs";
+import { Observable, of, timer, merge } from "rxjs";
 import { delayWhen } from "rxjs/operators";
-import logs from "../../cypress/fixtures/logs.json";
+import logs from "../../cypress/fixtures/logs";
+import { LoggerProps } from "../types";
 
-export const props$ = of({
+export const props$: Observable<LoggerProps> = of({
   logs$: merge(
     ...logs.map(
       ({ correlationId, type, serviceName, methodName, content, delay }, i) =>

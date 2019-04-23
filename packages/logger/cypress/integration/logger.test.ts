@@ -27,7 +27,7 @@ const checkRow = (row, log) => {
 
 describe("Logger TCs", () => {
   it("Events are logged (check the format)", () => {
-    cy.fixture("logs.json").then(logs => {
+    cy.fixture("logs.js").then(logs => {
       logs.forEach((log, i) => {
         return cy
           .visit("/")
@@ -39,7 +39,7 @@ describe("Logger TCs", () => {
   });
 
   it("Check delete cross to remove all logs", () => {
-    cy.fixture("logs.json").then(logs => {
+    cy.fixture("logs.js").then(logs => {
       return cy
         .visit("/")
         .wait(logs[2].delay)
@@ -64,7 +64,7 @@ describe("Logger TCs", () => {
   });
 
   it("Hovering on the dot near to log will change the color of all the dots of the logs with the same service/method name", () => {
-    cy.fixture("logs.json").then(logs => {
+    cy.fixture("logs.js").then(logs => {
       return cy
         .visit("/")
         .wait(logs[4].delay)
