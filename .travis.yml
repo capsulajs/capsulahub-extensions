@@ -12,6 +12,9 @@ install:
 
 script:
   - yarn lint
+  - yarn install
+  - yarn bootstrap
+  - yarn build
   - yarn test
 
 notifications:
