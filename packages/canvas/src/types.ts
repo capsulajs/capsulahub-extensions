@@ -19,7 +19,7 @@ interface Element extends Node {
 interface Container extends Node {
   type: 'container';
   orientation: 'horizontal' | 'vertical';
-  nodes: [Layout, Layout];
+  nodes: [Layout, Layout]
 }
 
 export type Layout = Container | Element;

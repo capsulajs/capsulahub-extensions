@@ -5,5 +5,5 @@ import { CanvasProps } from '../types';
 
 export const props$: Observable<CanvasProps> = of({
   layout: {},
-  onUpdate: console.log,
+  onUpdate: console.log
 });
