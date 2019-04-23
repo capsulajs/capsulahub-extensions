@@ -711,10 +711,10 @@
     lodash "^4.17.11"
     to-fast-properties "^2.0.0"
 
-"@capsulajs/capsulahub-ui@^0.4.4":
-  version "0.4.4"
-  resolved "https://registry.npmjs.org/@capsulajs/capsulahub-ui/-/capsulahub-ui-0.4.4.tgz#36a7d70e0400bdfa438f85ec15c7d690cbbb7888"
-  integrity sha512-8pI5NhHWXqxv4Iv+mQQoFw0Ps0EpwGXd9s2nquYs9AzGazXcpAq7XcbzggbbO2fawzJE8YeVgzmhfgybPhnZcg==
+"@capsulajs/capsulahub-ui@^0.4.5":
+  version "0.4.5"
+  resolved "https://registry.npmjs.org/@capsulajs/capsulahub-ui/-/capsulahub-ui-0.4.5.tgz#3bf52cbf28cfa50ae77dd0950dc6bdd359ed3a3b"
+  integrity sha512-upGhhpq4iO/ibIyeLIaYz1h4Ws+Bd1R9+jmafmGOlYV51KBSVPZli3Gt/aQkfClY3oRsqhlmnH9vEg6ZULQHUw==
   dependencies:
     lodash "^4.17.11"
     react "^16.8.1"
