@@ -35,9 +35,11 @@ Scenario: The content displayed in the tab is according to content parameter
 
 Scenario: Check that tab can be closed
    Given Canvas web component with at least 1 node and 2 tab
-   When  click on x icon next to tab name
-   Then  The tab gets closed
-
+   When  click on x icon next to first tab
+   And   click on x icon next to the second tab
+   Then  the first tab gets closed
+   And   the second tabs gets closed and the node is removed from the canvas
+  
 Scenario: Check that tabs can be switched with places
   Given Canvas web component with several nodes and tabs
   When  drag a tab by its name and drop it on top of other tab (in the same node on in other node)
