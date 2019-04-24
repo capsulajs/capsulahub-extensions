@@ -6,7 +6,7 @@ export const grapAllNodes = (layout) => {
     } else {
       node.nodes.forEach(forEachNodeIn);
     }
-  }
+  };
   forEachNodeIn(layout);
   return nodes;
 };
