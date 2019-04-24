@@ -1,9 +1,9 @@
-import { Observable, of } from 'rxjs';
-import { delayWhen } from 'rxjs/operators';
+import { Observable, BehaviorSubject, of } from 'rxjs';
+import { map } from 'rxjs/operators';
 import layout from '../../cypress/fixtures/layout';
-import { CanvasProps } from '../types';
+import { Layout, CanvasProps } from '../types';
 
-export const props$: Observable<CanvasProps> = of({
-  layout,
-  onUpdate: console.log,
-});
+const subject = new BehaviorSubject(layout);
+export const props$: Observable<CanvasProps> = subject
+  .asObservable()
+  .pipe(map((layout: Layout) => ({ layout, onUpdate: (layout: Layout) => subject.next(layout) })));
