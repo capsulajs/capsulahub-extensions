@@ -1,0 +1,49 @@
+Scenario: Canvas is split vertically or horizontally in nodes according to layout config
+  Given Canvas web component
+  When  layout <orientation> is
+         |<orientation>|
+		 |vertically   |
+		 |horizontally |
+  And  one or more nodes are defined in layout
+  Then the canvas area is split in nodes according to the defined config
+
+Scenario: Nodes proportions are according to flex parameter from config
+  Given Canvas web component with at least 2 nodes
+  When  the flex parameter values for each node are set in the config
+  Then  nodes proportions on the canvas are according to these values
+
+Scenario: Each node can have one or more tabs according to tabs parameter
+  Given Canvas web component with at least 1 node
+  When  one or more tabs are defined in tabs config of this node
+  Then  the number of tabs displayed in the node is according to the config
+
+Scenario: The tab selected by default in each node is according to activeTabIndex
+  Given Canvas web component with at least 1 node
+  And   The node has at least two tabs
+  When  setting the index of a certain tab in activeTabIndex
+  Then  she relevant tab appears as selected by default
+
+Scenario: The name of the tab can be edited manually by the user
+   Given Canvas web component with at least 1 node and 1 tab
+   When  double click on the name of the tab and type a new name
+   Then  the name of the tab is updated accordingly
+
+Scenario: The content displayed in the tab is according to content parameter
+   Given Canvas web component with at least 1 node and 1 tab
+   When  having some content in content parameter for this tab
+   Then  the content is displayed inside the tab
+
+Scenario: Check that tab can be closed
+   Given Canvas web component with at least 1 node and 2 tab
+   When  click on x icon next to tab name
+   Then  The tab gets closed
+
+Scenario: Check that tabs can be switched with places
+  Given Canvas web component with several nodes and tabs
+  When  drag a tab by its name and drop it on top of other tab (in the same node on in other node)
+  Then  the two tabs are switched with places
+
+Scenario: Click on inactive tab will make it active
+   Given Canvas web component with 1 node and 2 tabs
+   When  click on the name of the inactive tab
+   Then  the inactive tab will become active and the active one - inactive
