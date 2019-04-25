@@ -5,21 +5,25 @@ const { cy, describe, it } = global;
 describe('Canvas TCs', () => {
   it('Each node can have one or more tabs according to tabs and activeTabIndex parameters', () => {
     cy.fixture('layout.js').then((layout) => {
-      return cy.visit('/').then(() => {
-        grapAllNodes(layout).forEach(({ activeTabIndex, tabs, id: nodeId }) => {
-          tabs.forEach(({ name, id: tabId }, index) => {
-            const titleSelector =
-              index === activeTabIndex ? '[data-cy=canvas-tab-title-active]' : '[data-cy=canvas-tab-title]';
+      return cy
+        .visit('/')
+        .then(() => {
+          grapAllNodes(layout).forEach(({ activeTabIndex, tabs, id: nodeId }) => {
+            tabs.forEach(({ name, id: tabId }, index) => {
+              const titleSelector = index === activeTabIndex
+                ? '[data-cy=canvas-tab-title-active]'
+                : '[data-cy=canvas-tab-title]';
 
-            cy.get(`[data-cy=canvas-node-${nodeId}]`)
-              .find('[data-cy=canvas-tabs]')
-              .find(`[data-cy=canvas-tab-${tabId}]`)
-              .find(titleSelector)
-              .invoke('text')
-              .should('eq', name);
+              cy
+                .get(`[data-cy=canvas-node-${nodeId}]`)
+                .find('[data-cy=canvas-tabs]')
+                .find(`[data-cy=canvas-tab-${tabId}]`)
+                .find(titleSelector)
+                .invoke('text')
+                .should('eq', name);
+            });
           });
         });
-      });
     });
   });
 
