@@ -107,4 +107,24 @@ describe('Canvas TCs', () => {
         .should('eq', 'Test');
     });
   });
+
+  it('Check that tab can be closed', () => {
+    cy.fixture('layout.js').then((layout) => {
+      const [{ tabs, id: nodeId }] = grapAllNodes(layout);
+      const [{ id: tabId1 }, { id: tabId2 }] = tabs;
+
+      return cy
+        .visit('/')
+        .get(`[data-cy=canvas-tab-${tabId1}]`)
+        .find('[data-cy=canvas-tab-remove]')
+        .click()
+        .get(`[data-cy=canvas-tab-${tabId1}]`)
+        .should('not.exist')
+        .get(`[data-cy=canvas-tab-${tabId2}]`)
+        .find('[data-cy=canvas-tab-remove]')
+        .click()
+        .get(`[data-cy=canvas-tab-${tabId2}]`)
+        .should('not.exist');
+    });
+  });
 });
