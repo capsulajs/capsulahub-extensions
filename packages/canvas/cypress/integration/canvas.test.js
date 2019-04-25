@@ -7,20 +7,31 @@ describe('Canvas TCs', () => {
     cy.fixture('layout.js').then((layout) => {
       return cy.visit('/').then(() => {
         grapAllNodes(layout).forEach(({ activeTabIndex, tabs, id: nodeId }) => {
-          tabs.forEach(({ name, id: tabId }, index) => {
-            const titleSelector =
-              index === activeTabIndex ? '[data-cy=canvas-tab-title-active]' : '[data-cy=canvas-tab-title]';
-
-            cy.get(`[data-cy=canvas-node-${nodeId}]`)
-              .find(`[data-cy=canvas-tab-${tabId}]`)
-              .find(titleSelector)
-              .invoke('text')
-              .should('eq', name)
-              .get(`[data-cy=canvas-node-${nodeId}]`)
-              .children()
-              .last()
-              .invoke('text')
-              .then(console.log);
+          tabs.forEach(({ name, content, id: tabId }, index) => {
+            if (index === activeTabIndex) {
+              cy.get(`[data-cy=canvas-node-${nodeId}]`)
+                .find(`[data-cy=canvas-tab-${tabId}]`)
+                .find('[data-cy=canvas-tab-title-active]')
+                .invoke('text')
+                .should('eq', name)
+                .get(`[data-cy=canvas-node-${nodeId}]`)
+                .find('[data-cy=canvas-content]')
+                .invoke('text')
+                .should('eq', content.replace(/&lt;/g, '<').replace(/&gt;/g, '>'));
+            } else {
+              cy.get(`[data-cy=canvas-node-${nodeId}]`)
+                .find(`[data-cy=canvas-tab-${tabId}]`)
+                .click()
+                .get(`[data-cy=canvas-node-${nodeId}]`)
+                .find(`[data-cy=canvas-tab-${tabId}]`)
+                .find('[data-cy=canvas-tab-title-active]')
+                .invoke('text')
+                .should('eq', name)
+                .get(`[data-cy=canvas-node-${nodeId}]`)
+                .find('[data-cy=canvas-content]')
+                .invoke('text')
+                .should('eq', content.replace(/&lt;/g, '<').replace(/&gt;/g, '>'));
+            }
           });
         });
       });

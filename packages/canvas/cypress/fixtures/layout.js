@@ -13,12 +13,12 @@ module.exports = {
         {
           id: 'tab11',
           name: 'Tab 11',
-          content: '<web-cmponent-11></web-component-11>',
+          content: '&lt;web-cmponent-11&gt;&lt;/web-component-11&gt;',
         },
         {
           id: 'tab12',
           name: 'Tab 12',
-          content: '<web-cmponent-12></web-component-12>',
+          content: '&lt;web-cmponent-12&gt;&lt;/web-component-12&gt;',
         },
       ],
       activeTabIndex: 0,
@@ -31,12 +31,12 @@ module.exports = {
         {
           id: 'tab21',
           name: 'Tab 21',
-          content: '<web-cmponent-21></web-component-21>',
+          content: '&lt;web-cmponent-21&gt;&lt;/web-component-21&gt;',
         },
         {
           id: 'tab22',
           name: 'Tab 22',
-          content: '<web-cmponent-22></web-component-22>',
+          content: '&lt;web-cmponent-22&gt;&lt;/web-component-22&gt;',
         },
       ],
       activeTabIndex: 0,
