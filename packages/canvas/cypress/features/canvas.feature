@@ -1,9 +1,9 @@
 Scenario: Each node can have one or more tabs according to tabs and activeTabIndex parameters
   Given Canvas web component with at least 1 node
   When one or more tabs are defined in tabs config of this node
+  And setting the index of a certain tab in activeTabIndex
   Then the number of tabs displayed in the node is according to the config
-  When setting the index of a certain tab in activeTabIndex
-  Then she relevant tab appears as selected by default
+  And the relevant tab appears as selected by default
 
 Scenario: The name of the tab can be edited manually by the user
    Given Canvas web component with at least 1 node and 1 tab
