@@ -13,11 +13,6 @@ Scenario: The name of the tab can be edited manually by the user
    When double click on the name of the tab and type a new name
    Then the name of the tab is updated accordingly
 
-Scenario: The content displayed in the tab is according to content parameter
-   Given Canvas web component with at least 1 node and 1 tab
-   When having some content in content parameter for this tab
-   Then the content is displayed inside the tab
-
 Scenario: Check that tab can be closed
    Given Canvas web component with at least 1 node and 2 tab
    When click on x icon next to first tab
