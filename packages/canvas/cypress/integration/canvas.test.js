@@ -124,7 +124,7 @@ describe('Canvas TCs', () => {
         .find('[data-cy=canvas-tab-remove]')
         .click()
         .get(`[data-cy=canvas-tab-${tabId2}]`)
-        .should('not.exist');
+        .should('not.exist')
     });
   });
 });
