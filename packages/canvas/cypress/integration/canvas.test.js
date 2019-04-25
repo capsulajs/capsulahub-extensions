@@ -20,7 +20,9 @@ describe('Canvas TCs', () => {
               .children()
               .last()
               .invoke('text')
-              .then(console.log);
+              .then(console.log)
+
+
           });
         });
       });
