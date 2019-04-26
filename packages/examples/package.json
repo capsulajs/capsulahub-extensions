@@ -9,11 +9,11 @@
   "scripts": {
     "build:es": "parcel build src/index.ts --out-dir dist",
     "build:types": "tsc src/index.ts --emit-declarations-only",
-    "cypress": "cypress run",
+    "cypress": "components/request-form/cypress run",
     "start": "parcel index.html",
     "lint": "tslint -p tsconfig.json --fix",
     "prettier": "prettier --write '{src,cypress}/**/*.{ts,tsx}'",
-    "test": "npm-run-all -p -r start cypress"
+    "test": "npm-run-all -p -r start components/request-form/cypress"
   },
   "author": "Markets Pulse",
   "dependencies": {

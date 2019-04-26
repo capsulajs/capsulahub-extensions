@@ -1,5 +1,5 @@
 import { Subject } from 'rxjs';
-import { SelectedResponse } from '../helpers/types';
+import { SelectedResponse } from '../src/helpers/types';
 import mockMethodSelectorService from './mockMethodSelectorService';
 
 export default class Workspace {

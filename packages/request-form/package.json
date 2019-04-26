@@ -3,14 +3,14 @@
   "version": "0.0.1",
   "description": "CapsulaJS - Web components Request Form",
   "main": "lib/index.js",
-  "unpkg": "dist-min/index.js",
+  "unpkg": "dist/index.js",
   "module": "es/index.js",
   "types": "lib/index.d.ts",
   "private": true,
   "license": "MIT",
   "scripts": {
     "build": "rimraf .cache && npm-run-all build:commonJS build:es build:umd",
-    "build:commonJS": "rimraf lib && tsc --module commonjs --target es5 --outDir lib",
+    "build:cjs": "rimraf lib && tsc --module commonjs --target es5 --outDir lib",
     "build:es": "rimraf es && tsc --module esnext --target es2015 --outDir es --declaration false",
     "build:umd": "rimraf dist && parcel build src/index.ts --experimental-scope-hoisting --out-dir dist --global requestForm --no-cache",
     "lint": "tslint -p tsconfig.json --fix",
@@ -20,6 +20,7 @@
   "dependencies": {
     "@capsulajs/capsulahub-ui": "^0.4.2",
     "@capsulajs-web-components/utils": "0.0.1",
+    "@capsulajs-web-components/request-form": "0.0.1",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "rxjs": "^6.4.0"

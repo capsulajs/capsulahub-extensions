@@ -1,6 +1,8 @@
 import { BehaviorSubject } from 'rxjs';
-import Workspace from './src/mocks/Workspace';
-import RequestFormWithData from './src/components/RequestFormWithData';
+import RequestForm from '@capsulajs-web-components/request-form';
+import Workspace from '../../mocks/Workspace';
+
+const { RequestFormWithData } = RequestForm;
 
 declare global {
   interface Window {

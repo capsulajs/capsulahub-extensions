@@ -1,4 +1,5 @@
 import RequestFormWithData from './components/RequestFormWithData';
+import RequestForm from './components/RequestForm';
 import * as api from './api';
 
 declare global {
@@ -11,5 +12,6 @@ declare global {
 
 export default {
   RequestFormWithData,
+  RequestForm,
   api,
 };
