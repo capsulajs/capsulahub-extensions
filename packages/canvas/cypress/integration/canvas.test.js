@@ -113,7 +113,7 @@ describe('Canvas TCs', () => {
         .should('not.exist')
         .get(`[data-cy=canvas-tab-${tabId1}]`)
         .find('[data-cy=canvas-tab-title-active]')
-        .should('not.exist')
+        .should('not.exist');
     });
   });
 });
