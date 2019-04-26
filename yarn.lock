@@ -727,22 +727,6 @@
     styled-components "^3.4.5"
     typeface-montserrat "^0.0.54"
 
-"@capsulajs/capsulahub-ui@^0.4.4":
-  version "0.4.4"
-  resolved "https://registry.npmjs.org/@capsulajs/capsulahub-ui/-/capsulahub-ui-0.4.4.tgz#36a7d70e0400bdfa438f85ec15c7d690cbbb7888"
-  integrity sha512-8pI5NhHWXqxv4Iv+mQQoFw0Ps0EpwGXd9s2nquYs9AzGazXcpAq7XcbzggbbO2fawzJE8YeVgzmhfgybPhnZcg==
-  dependencies:
-    lodash "^4.17.11"
-    react "^16.8.1"
-    react-ace "^6.1.4"
-    react-beautiful-dnd "^10.1.0"
-    react-click-outside "^3.0.1"
-    react-json-view "^1.19.1"
-    react-reflex "^2.2.9"
-    rxjs "^6.3.3"
-    styled-components "^3.4.5"
-    typeface-montserrat "^0.0.54"
-
 "@cypress/listr-verbose-renderer@0.4.1":
   version "0.4.1"
   resolved "https://registry.npmjs.org/@cypress/listr-verbose-renderer/-/listr-verbose-renderer-0.4.1.tgz#a77492f4b11dcc7c446a34b3e28721afd33c642a"
