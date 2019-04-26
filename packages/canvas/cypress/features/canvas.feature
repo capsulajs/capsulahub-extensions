@@ -24,3 +24,9 @@ Scenario: Click on inactive tab will make it active
    Given Canvas web component with 1 node and 2 tabs
    When click on the name of the inactive tab
    Then the inactive tab will become active and the active one - inactive
+
+@manual
+Scenario: Check that tabs can be switched with places
+  Given Canvas web component with several nodes and tabs
+  When drag a tab by its name and drop it on top of other tab (in the same node on in other node)
+  Then the two tabs are switched with places
