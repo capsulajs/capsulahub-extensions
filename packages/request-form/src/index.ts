@@ -1,17 +1,15 @@
-import RequestFormWithData from './components/RequestFormWithData';
-import RequestForm from './components/RequestForm';
+import { BehaviorSubject } from 'rxjs';
+import { RequestForm } from './RequestForm';
 import * as api from './api';
+import { RequestFormUIProps } from './api';
 
 declare global {
   interface Window {
-    workspace: {
-      service(serviceRequest: { serviceName: string }): Promise<{ proxy: any }>;
-    };
+    requestFormPropsSubject?: BehaviorSubject<RequestFormUIProps>;
   }
 }
 
 export default {
-  RequestFormWithData,
   RequestForm,
   api,
 };

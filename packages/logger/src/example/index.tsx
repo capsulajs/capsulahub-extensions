@@ -1,5 +1,5 @@
 import { Logger } from '../logger';
-import { prepareWebComponent } from '@capsulajs/web-components-utils';
+import { mountWebComponent } from '@capsulajs-web-components/utils';
 import { props$ } from './utils';
 
 class LogsWithData extends Logger {
@@ -12,8 +12,9 @@ const componentModules = {
   ['http://cdn.components/Logger.tsx']: LogsWithData,
 };
 
-prepareWebComponent({
+mountWebComponent({
   name: 'web-logger',
   path: 'http://cdn.components/Logger.tsx',
+  querySelector: '#web-logger',
   componentModules,
-}).then((webComponent) => document.querySelector('#web-logger')!.appendChild(webComponent));
+});
