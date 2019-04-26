@@ -73,41 +73,6 @@ describe('Canvas TCs', () => {
     });
   });
 
-  it('The name of the tab can be edited manually by the user', () => {
-    cy.fixture('layout.js').then((layout) => {
-      const [{ tabs, id: nodeId }] = grapAllNodes(layout);
-      const [{ name, id: tabId }] = tabs;
-
-      return cy
-        .visit('/')
-        .get(`[data-cy=canvas-tab-${tabId}]`)
-        .find('[data-cy=canvas-tab-title-active]')
-        .dblclick()
-        .get(`[data-cy=canvas-tab-${tabId}]`)
-        .find('[data-cy=canvas-tab-input]')
-        .invoke('val')
-        .should('eq', name)
-        .get(`[data-cy=canvas-tab-${tabId}]`)
-        .find('[data-cy=canvas-tab-input]')
-        .clear()
-        .get(`[data-cy=canvas-tab-${tabId}]`)
-        .find('[data-cy=canvas-tab-input]')
-        .type('{enter}')
-        .get(`[data-cy=canvas-tab-${tabId}]`)
-        .find('[data-cy=canvas-tab-input]')
-        .invoke('val')
-        .should('eq', '')
-        .get(`[data-cy=canvas-tab-${tabId}]`)
-        .find('[data-cy=canvas-tab-input]')
-        .type('Test')
-        .type('{enter}')
-        .get(`[data-cy=canvas-tab-${tabId}]`)
-        .find('[data-cy=canvas-tab-title-active]')
-        .invoke('text')
-        .should('eq', 'Test');
-    });
-  });
-
   it('Check that tab can be closed', () => {
     cy.fixture('layout.js').then((layout) => {
       const [{ tabs, id: nodeId }] = grapAllNodes(layout);
@@ -124,6 +89,27 @@ describe('Canvas TCs', () => {
         .find('[data-cy=canvas-tab-remove]')
         .click()
         .get(`[data-cy=canvas-tab-${tabId2}]`)
+        .should('not.exist');
+    });
+  });
+
+  it('Click on inactive tab will make it active', () => {
+    cy.fixture('layout.js').then((layout) => {
+      const [{ tabs, id: nodeId }] = grapAllNodes(layout);
+      const [{ id: tabId1 }, { id: tabId2 }] = tabs;
+
+      return cy
+        .visit('/')
+        .get(`[data-cy=canvas-tab-${tabId1}]`)
+        .find('[data-cy=canvas-tab-title-active]')
+        .get(`[data-cy=canvas-tab-${tabId2}]`)
+        .find('[data-cy=canvas-tab-title-active]')
+        .should('not.exist')
+        .get(`[data-cy=canvas-tab-${tabId2}]`)
+        .find('[data-cy=canvas-tab-title]')
+        .click()
+        .get(`[data-cy=canvas-tab-${tabId2}]`)
+        .find('[data-cy=canvas-tab-title]')
         .should('not.exist');
     });
   });
