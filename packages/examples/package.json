@@ -18,7 +18,7 @@
   "author": "Markets Pulse",
   "dependencies": {
     "@capsulajs/capsulahub-ui": "^0.4.2",
-    "@capsulajs-web-components/utils": "0.0.1",
+    "@capsulajs/web-components-utils": "0.0.1",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "rxjs": "^6.4.0"

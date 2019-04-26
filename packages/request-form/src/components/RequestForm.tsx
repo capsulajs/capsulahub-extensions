@@ -1,6 +1,6 @@
 import * as ReactDOM from 'react-dom';
 import * as React from 'react';
-import { dataComponentHoc } from '@capsulajs-web-components/utils';
+import { dataComponentHoc } from '@capsulajs/web-components-utils';
 import { RequestForm as RequestFormUI } from '@capsulajs/capsulahub-ui';
 import { Observable } from 'rxjs';
 import { RequestFormUIProps } from '../api';

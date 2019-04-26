@@ -32,5 +32,8 @@
     "lerna": "^3.13.2",
     "prettier": "^1.17.0",
     "pretty-quick": "^1.10.0"
+  },
+  "dependencies": {
+    "@capsulajs/capsulahub-ui": "^0.4.4"
   }
 }
