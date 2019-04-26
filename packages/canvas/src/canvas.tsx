@@ -6,8 +6,8 @@ import { dataComponentHoc } from '@capsulajs/web-components-utils';
 import { CanvasProps } from './types';
 
 export class Canvas extends HTMLElement {
-  private mountPoint: string;
   public props$;
+  private mountPoint: string;
 
   constructor() {
     super();
