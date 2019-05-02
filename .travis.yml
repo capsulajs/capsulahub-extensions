@@ -10,8 +10,13 @@ branches:
 install:
   - yarn install --production=false
 
+before_script:
+  - yarn bootstrap
+  - yarn link
+
 script:
   - yarn lint
+  - yarn build
   - yarn test
 
 notifications:
