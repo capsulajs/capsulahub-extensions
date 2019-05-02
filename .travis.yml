@@ -8,6 +8,7 @@ branches:
     - /.*/
 
 install:
+  - apt install libgconf-2-4
   - yarn install --production=false
 
 before_script:
