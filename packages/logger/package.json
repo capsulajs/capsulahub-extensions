@@ -31,7 +31,8 @@
   "dependencies": {
     "react": "^16.0.0",
     "react-dom": "^16.8.6",
-    "@capsulajs-web-components/utils": "^0.0.1"
+    "@capsulajs-web-components/utils": "^0.0.1",
+    "@capsulajs/capsulahub-ui": "0.5.2"
   },
   "devDependencies": {
     "@types/node": "^11.13.6",
