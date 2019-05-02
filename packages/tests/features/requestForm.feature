@@ -17,9 +17,17 @@ Scenario: Check Request Form to be split according to the arguments number
     When  user change the number of arguments by choosing one of up/down arrows or by typing the number itself
     Then  Request Form is split according to the arguments number required
 
-Scenario: Submit with a valid request (check the model of data received)
+Scenario: Submit with a valid request (check different data types in request and the model of data received)
     Given Request Form web component
-    And   a valid input for specific language
+    And   a valid input with the following <data type>
+          |<data type>|
+          | null      |
+          | undefined |
+          | number    |
+          | string    |
+          | object    |
+          | array     |
+          | function  |
     And   Submit button is enabled
     When  user click on Submit button
     Then  request is sent
