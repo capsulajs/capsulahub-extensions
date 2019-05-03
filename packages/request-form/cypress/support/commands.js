@@ -26,6 +26,8 @@ Cypress.Commands.add('submitRequest', () => {
 Cypress.Commands.add('typeInEditor', (content, editorIndex = 0) => {
   return cy
     .get(`[data-cy=request-form-editor-${editorIndex}] .ace_text-input`)
+    .focus()
     .clear({ force: true })
-    .type(content, { force: true });
+    .type(content, { force: true })
+    .wait(500);
 });

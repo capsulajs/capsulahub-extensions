@@ -711,10 +711,10 @@
     lodash "^4.17.11"
     to-fast-properties "^2.0.0"
 
-"@capsulajs/capsulahub-ui@0.5.2":
-  version "0.5.2"
-  resolved "https://registry.yarnpkg.com/@capsulajs/capsulahub-ui/-/capsulahub-ui-0.5.2.tgz#30ebfd8d74561a85d2d36e34afe4b26cd192441c"
-  integrity sha512-YpTXGLCD/JWnXIyTMXT56CuYW5r3j2huOFBr8SXLZ+EIpo/uNznIzxFLqNnXoTYWtelign751wRfE4Vg0zOV3Q==
+"@capsulajs/capsulahub-ui@0.5.3":
+  version "0.5.3"
+  resolved "https://registry.yarnpkg.com/@capsulajs/capsulahub-ui/-/capsulahub-ui-0.5.3.tgz#aec83a73ef2caa2d494281b391d3836363f55e6c"
+  integrity sha512-Ii217emJrHB6Kp1H8wYWweiBsYdLnefel3GrkHEi0LTUeUMnw4J+bPdKsfZh3Gnl+swhAGtaFTv0xJPn0nBQOg==
   dependencies:
     lodash "^4.17.11"
     react "^16.8.1"
