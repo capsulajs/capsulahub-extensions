@@ -14,8 +14,10 @@ Scenario: Check the code pattern to be displayed for json language (with differe
 Scenario: Check Request Form to be split according to the arguments number
     Given Request Form web component
     And   a number of arguments is selected
+    And   Request Form is split according to the arguments number
     When  user change the number of arguments by choosing one of up/down arrows or by typing the number itself
-    Then  Request Form is split according to the arguments number required
+    Then  Request Form is split accordingly
+    And   the number of divisions is not changing when user switch to another language
 
 Scenario: Submit with a valid request (check different data types in request and the model of data received) (javascript mode)
     Given Request Form web component
