@@ -42,9 +42,9 @@ Scenario: Submit button should be disabled when there is no service/method name 
     Then  Submit button is disabled
     And   request can not be sent
 
-Scenario: Check Submit button to be disabled when there is an invalid request (with different number of arguments)
+Scenario: Check Submit button to be disabled when there is an invalid request or an empty entry(with different number of arguments)
     Given Request Form web component
-    When  an invalid input for specific language is written for at least one of the arguments
+    When  an invalid input or an empty entry for specific language is written for at least one of the arguments
     Then  Submit button is disabled
     And   request can not be sent
 
@@ -81,3 +81,12 @@ Scenario: Removing the arguments number doesnt remove the existing editors and c
    When  user removes via the keyboard the arguments number
    Then  the existing editors and their content is still available
 
+Scenario: Submit button should be enabled while the number of arguments changes and all the inputs are valid
+    Given Request Form web component
+    And   one of the existing languages is selected
+    And   two or more arguments are selected
+    And   one of the arguments includes invalid or empty input
+    And   Submit button is disabled
+    When  user changes the number of arguments
+    And   all the arguments have a valid input
+    Then  Submit button is enabled
