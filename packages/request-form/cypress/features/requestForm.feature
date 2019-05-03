@@ -48,15 +48,6 @@ Scenario: Check Submit button to be disabled when there is an invalid request (w
     Then  Submit button is disabled
     And   request can not be sent
 
-Scenario: Request Form should support several languages for request
-    Given Request Form web component
-    And   one of the existing languages is selected
-    And   default pattern for this specific language is displayed
-    When  user click on language drop-down
-    And   choose one language from the expanded list of all supported languages
-    Then  chosen language is selected
-    And   default pattern for this specific language is displayed
-
 Scenario: The input should not be deleted after submit
     Given Request Form web component
     And   a valid input for specific language

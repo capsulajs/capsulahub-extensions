@@ -156,4 +156,40 @@ describe('Logger TCs', () => {
       .typeInEditor('return {{} "test": "world" }', 1)
       .submitRequest();
   });
+
+  it('The input should not be deleted after submit', () => {
+    const onSubmitSpy = cy.spy();
+    cy.visit('/', {
+      onBeforeLoad(window) {
+        window.requestFormPropsSubject = new BehaviorSubject({ ...basicProps, onSubmit: onSubmitSpy });
+      },
+    });
+
+    cy.typeInEditor('return {{} count: 5 }')
+      .submitRequest()
+      .then(() => {
+        expect(onSubmitSpy.calledOnce).to.equal(true);
+      })
+      .get('.ace_content')
+      .should('have.text', 'return { count: 5 }');
+  });
+
+  it('Switching between languages should not affect the number of arguments selected', () => {
+    cy.visit('/')
+      .changeArgsAmount(2)
+      .checkEditorsAmount(2)
+      .changeLanguage('json')
+      .checkEditorsAmount(2)
+      .changeArgsAmount(1)
+      .changeLanguage('javascript')
+      .checkEditorsAmount(1);
+  });
+
+  it('Line number should be provided when user write an input with several lines', () => {
+    cy.visit('/')
+      .typeInEditor('var a = "test";{enter}return {{} val: a };')
+      .get('.ace_gutter-cell')
+      .should('have.length', 2)
+      .each((lineNumber$, index) => expect(+lineNumber$.text()).to.equal(index + 1));
+  });
 });
