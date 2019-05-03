@@ -4,7 +4,11 @@ Cypress.Commands.add('changeArgsAmount', (argsAmount) => {
   return cy
     .get('[data-cy=request-form-args-count-value]')
     .clear()
-    .type(argsAmount);
+    .then((input$) => {
+      if (argsAmount) {
+        cy.wrap(input$).type(argsAmount);
+      }
+    });
 });
 
 Cypress.Commands.add('changeLanguage', (language) => {
@@ -27,6 +31,7 @@ Cypress.Commands.add('typeInEditor', (content, editorIndex = 0) => {
   cy.get(`[data-cy=request-form-editor-${editorIndex}] .ace_text-input`)
     .focus()
     .clear({ force: true })
+    .wait(100)
     .then((input$) => {
       if (content) {
         cy.wrap(input$).type(content, { force: true });

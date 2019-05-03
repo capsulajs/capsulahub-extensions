@@ -190,6 +190,67 @@ describe('Logger TCs', () => {
       .typeInEditor('var a = "test";{enter}return {{} val: a };')
       .get('.ace_gutter-cell')
       .should('have.length', 2)
+      .each((lineNumber$, index) => expect(+lineNumber$.text()).to.equal(index + 1))
+      .changeLanguage('json')
+      .typeInEditor('{{}{enter} "test": "world"{enter}}')
+      .get('.ace_gutter-cell')
+      .should('have.length', 3)
       .each((lineNumber$, index) => expect(+lineNumber$.text()).to.equal(index + 1));
+  });
+
+  it('Validation errors of the selected language should be displayed next to the line with wrong input', () => {
+    cy.visit('/')
+      .typeInEditor('return {{} test: }')
+      .get('.ace_gutter-cell.ace_error')
+      .should('have.text', '1')
+      .typeInEditor('return {{} test: "world" }')
+      .get('.ace_gutter-cell.ace_error')
+      .should('not.exist')
+      .changeLanguage('json')
+      .typeInEditor('return')
+      .get('.ace_gutter-cell.ace_error')
+      .should('have.text', '1')
+      .typeInEditor('{{} "test": "world" }')
+      .get('.ace_gutter-cell.ace_error')
+      .should('not.exist');
+  });
+
+  it('Removing the arguments number doesnt remove the existing editors and content', () => {
+    cy.visit('/')
+      .typeInEditor('return 5;')
+      .changeArgsAmount('')
+      .checkEditorsAmount(1)
+      .get('.ace_content')
+      .should('have.text', 'return 5;')
+      .changeArgsAmount(2)
+      .typeInEditor('return "test";', 1)
+      .get('.ace_content')
+      .should('have.length', 2)
+      .each((editorContent$, index) => {
+        expect(editorContent$.text()).to.equal(index === 0 ? 'return 5;' : 'return "test";');
+      })
+      .changeArgsAmount('')
+      .get('.ace_content')
+      .should('have.length', 2)
+      .each((editorContent$, index) => {
+        expect(editorContent$.text()).to.equal(index === 0 ? 'return 5;' : 'return "test";');
+      })
+      .changeLanguage('json')
+      .typeInEditor('{{} "test": "world" }')
+      .typeInEditor('{{} "test7": "world7" }', 1)
+      .get('.ace_content')
+      .should('have.length', 2)
+      .each((editorContent$, index) => {
+        expect(editorContent$.text()).to.equal(index === 0 ? '{ "test": "world" }' : '{ "test7": "world7" }');
+      })
+      .changeArgsAmount('')
+      .get('.ace_content')
+      .should('have.length', 2)
+      .each((editorContent$, index) => {
+        expect(editorContent$.text()).to.equal(index === 0 ? '{ "test": "world" }' : '{ "test7": "world7" }');
+      })
+      .changeArgsAmount(1)
+      .get('.ace_content')
+      .should('have.length', 1);
   });
 });
