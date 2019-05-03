@@ -17,7 +17,7 @@ Scenario: Check Request Form to be split according to the arguments number
     When  user change the number of arguments by choosing one of up/down arrows or by typing the number itself
     Then  Request Form is split according to the arguments number required
 
-Scenario: Submit with a valid request (check different data types in request and the model of data received)
+Scenario: Submit with a valid request (check different data types in request and the model of data received) (javascript mode)
     Given Request Form web component
     And   a valid input with the following <data type>
           |<data type>|
@@ -86,7 +86,7 @@ Scenario: Validation errors of the selected language should be displayed next to
 
 Scenario: Removing the arguments number doesnt remove the existing editors and content
    Given Request Form web component is split in few editors
-   And   each editor has some content inside 
-   When  user removes via the keyboard the arguments number 
+   And   each editor has some content inside
+   When  user removes via the keyboard the arguments number
    Then  the existing editors and their content is still available
-    
+
