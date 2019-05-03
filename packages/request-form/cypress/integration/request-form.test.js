@@ -7,8 +7,6 @@ const defaultText = {
   json: '{}',
 };
 
-const editors = '#web-request-form .ace_content';
-
 const basicProps = {
   selectedMethodPath: 'SelectedService/SelectedMethod',
   content: {
@@ -99,15 +97,16 @@ describe('Logger TCs', () => {
     }
   );
 
-  it('Submit button should be disabled when there is no service/method name displayed', () => {
+  it.only('Submit button should be disabled when there is no service/method name displayed', () => {
     const onSubmitSpy = cy.spy();
+    const requestFormPropsSubject = new BehaviorSubject({
+      ...basicProps,
+      selectedMethodPath: '',
+      onSubmit: onSubmitSpy,
+    });
     cy.visit('/', {
       onBeforeLoad(window) {
-        window.requestFormPropsSubject = new BehaviorSubject({
-          ...basicProps,
-          selectedMethodPath: '',
-          onSubmit: onSubmitSpy,
-        });
+        window.requestFormPropsSubject = requestFormPropsSubject;
       },
     });
     cy.submitRequest()
@@ -118,6 +117,15 @@ describe('Logger TCs', () => {
       .submitRequest()
       .then(() => {
         expect(onSubmitSpy.notCalled).to.equal(true);
+        requestFormPropsSubject.next({
+          ...basicProps,
+          selectedMethodPath: 'selectedService/selectedMEthod',
+          onSubmit: onSubmitSpy,
+        });
+      })
+      .submitRequest()
+      .then(() => {
+        expect(onSubmitSpy.calledOnce).to.equal(true);
       });
   });
 
@@ -252,5 +260,26 @@ describe('Logger TCs', () => {
       .changeArgsAmount(1)
       .get('.ace_content')
       .should('have.length', 1);
+  });
+
+  it('Submit button should be enabled while the number of arguments changes and all the inputs are valid', () => {
+    const onSubmitSpy = cy.spy();
+    cy.visit('/', {
+      onBeforeLoad(window) {
+        window.requestFormPropsSubject = new BehaviorSubject({ ...basicProps, onSubmit: onSubmitSpy });
+      },
+    });
+
+    cy.changeArgsAmount(2)
+      .typeInEditor('return {{} test: }', 1)
+      .submitRequest()
+      .then(() => {
+        expect(onSubmitSpy.notCalled).to.equal(true);
+      })
+      .changeArgsAmount(1)
+      .submitRequest()
+      .then(() => {
+        expect(onSubmitSpy.calledOnce).to.equal(true);
+      });
   });
 });
