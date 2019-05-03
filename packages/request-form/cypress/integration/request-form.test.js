@@ -97,7 +97,9 @@ describe('Logger TCs', () => {
     }
   );
 
-  it.only('Submit button should be disabled when there is no service/method name displayed', () => {
+  // TODO Submit for JSON
+
+  it('Submit button should be disabled when there is no service/method name displayed', () => {
     const onSubmitSpy = cy.spy();
     const requestFormPropsSubject = new BehaviorSubject({
       ...basicProps,
@@ -129,41 +131,51 @@ describe('Logger TCs', () => {
       });
   });
 
-  it('Check Submit button to be disabled when there is an invalid request (with different number of arguments)', () => {
-    const onSubmitSpy = cy.spy();
-    cy.visit('/', {
-      onBeforeLoad(window) {
-        window.requestFormPropsSubject = new BehaviorSubject({ ...basicProps, onSubmit: onSubmitSpy });
-      },
-    });
+  it(
+    'Check Submit button to be disabled when there is an invalid request or an empty entry(with different' +
+      ' number of arguments)',
+    () => {
+      const onSubmitSpy = cy.spy();
+      cy.visit('/', {
+        onBeforeLoad(window) {
+          window.requestFormPropsSubject = new BehaviorSubject({ ...basicProps, onSubmit: onSubmitSpy });
+        },
+      });
 
-    cy.wrap(['5', 'return', 'return ', 'return {{}', 'return {{} test: };'])
-      .each((input) => {
-        cy.wait(1000)
-          .typeInEditor(input)
-          .submitRequest()
-          .then(() => {
-            expect(onSubmitSpy.notCalled).to.equal(true);
-          });
-      })
-      .changeArgsAmount(2)
-      .typeInEditor('return "test"', 1)
-      .submitRequest()
-      .changeLanguage('json')
-      .changeArgsAmount(1)
-      .wrap(['{{} test: "world" }', '{{} "test: "world" }', 'return {{} test: "world" };', 'test', ''])
-      .each((input) => {
-        cy.wait(1000)
-          .typeInEditor(input)
-          .submitRequest()
-          .then(() => {
-            expect(onSubmitSpy.notCalled).to.equal(true);
-          });
-      })
-      .changeArgsAmount(2)
-      .typeInEditor('return {{} "test": "world" }', 1)
-      .submitRequest();
-  });
+      cy.wrap(['5', 'return', 'return ', 'return {{}', 'return {{} test: };', ''])
+        .each((input) => {
+          cy.wait(1000)
+            .typeInEditor(input)
+            .submitRequest()
+            .then(() => {
+              expect(onSubmitSpy.notCalled).to.equal(true);
+            });
+        })
+        .changeArgsAmount(2)
+        .typeInEditor('return "test"', 1)
+        .submitRequest()
+        .then(() => {
+          expect(onSubmitSpy.notCalled).to.equal(true);
+        })
+        .changeLanguage('json')
+        .changeArgsAmount(1)
+        .wrap(['{{} test: "world" }', '{{} "test: "world" }', 'return {{} test: "world" };', 'test', ''])
+        .each((input) => {
+          cy.wait(1000)
+            .typeInEditor(input)
+            .submitRequest()
+            .then(() => {
+              expect(onSubmitSpy.notCalled).to.equal(true);
+            });
+        })
+        .changeArgsAmount(2)
+        .typeInEditor('{{} "test": "world" }', 1)
+        .submitRequest()
+        .then(() => {
+          expect(onSubmitSpy.notCalled).to.equal(true);
+        });
+    }
+  );
 
   it('The input should not be deleted after submit', () => {
     const onSubmitSpy = cy.spy();
@@ -244,6 +256,7 @@ describe('Logger TCs', () => {
         expect(editorContent$.text()).to.equal(index === 0 ? 'return 5;' : 'return "test";');
       })
       .changeLanguage('json')
+      .changeArgsAmount(2)
       .typeInEditor('{{} "test": "world" }')
       .typeInEditor('{{} "test7": "world7" }', 1)
       .get('.ace_content')
@@ -259,10 +272,11 @@ describe('Logger TCs', () => {
       })
       .changeArgsAmount(1)
       .get('.ace_content')
-      .should('have.length', 1);
+      .should('have.length', 1)
+      .should('have.text', '{ "test": "world" }');
   });
 
-  it('Submit button should be enabled while the number of arguments changes and all the inputs are valid', () => {
+  it.only('Submit button should be enabled while the number of arguments changes and all the inputs are valid', () => {
     const onSubmitSpy = cy.spy();
     cy.visit('/', {
       onBeforeLoad(window) {
@@ -281,5 +295,7 @@ describe('Logger TCs', () => {
       .then(() => {
         expect(onSubmitSpy.calledOnce).to.equal(true);
       });
+
+    // TODO Add check for JSON
   });
 });
