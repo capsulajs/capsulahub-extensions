@@ -711,6 +711,22 @@
     lodash "^4.17.11"
     to-fast-properties "^2.0.0"
 
+"@capsulajs/capsulahub-ui@0.5.2":
+  version "0.5.2"
+  resolved "https://registry.yarnpkg.com/@capsulajs/capsulahub-ui/-/capsulahub-ui-0.5.2.tgz#30ebfd8d74561a85d2d36e34afe4b26cd192441c"
+  integrity sha512-YpTXGLCD/JWnXIyTMXT56CuYW5r3j2huOFBr8SXLZ+EIpo/uNznIzxFLqNnXoTYWtelign751wRfE4Vg0zOV3Q==
+  dependencies:
+    lodash "^4.17.11"
+    react "^16.8.1"
+    react-ace "^6.1.4"
+    react-beautiful-dnd "^10.1.0"
+    react-click-outside "^3.0.1"
+    react-json-view "^1.19.1"
+    react-reflex "^2.2.9"
+    rxjs "^6.3.3"
+    styled-components "^3.4.5"
+    typeface-montserrat "^0.0.54"
+
 "@capsulajs/capsulahub-ui@^0.4.2":
   version "0.4.9"
   resolved "https://registry.yarnpkg.com/@capsulajs/capsulahub-ui/-/capsulahub-ui-0.4.9.tgz#a3f13ce6e64e0aeb6afa97dfdfeb8bf8aa696d69"

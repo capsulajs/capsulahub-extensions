@@ -22,6 +22,6 @@ const componentModules = {
 mountWebComponent({
   name: 'web-request-form',
   path,
-  querySelector: '#web-request-form-wrapper',
+  querySelector: '#web-request-form',
   componentModules,
 });
