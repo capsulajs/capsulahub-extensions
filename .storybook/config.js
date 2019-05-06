@@ -1,7 +1,11 @@
-import { configure, addDecorator } from '@storybook/react';
-import { withKnobs } from '@storybook/addon-knobs';
+import { configure, addDecorator } from "@storybook/react";
+import { withKnobs } from "@storybook/addon-knobs";
 
-const req = require.context('..', true, /packages\/((?!node_modules).)*\/stories\/[^\/]+\.tsx$/);
+const req = require.context(
+  "..",
+  true,
+  /packages\/((?!node_modules).)*\/stories\/[^\/]+\.tsx$/
+);
 
 function loadStories() {
   addDecorator(withKnobs);
