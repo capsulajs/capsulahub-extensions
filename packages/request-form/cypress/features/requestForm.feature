@@ -14,8 +14,10 @@ Scenario: Check the code pattern to be displayed for json language (with differe
 Scenario: Check Request Form to be split according to the arguments number
     Given Request Form web component
     And   a number of arguments is selected
+    And   Request Form is split according to the arguments number
     When  user change the number of arguments by choosing one of up/down arrows or by typing the number itself
-    Then  Request Form is split according to the arguments number required
+    Then  Request Form is split accordingly
+    And   the number of divisions is not changing when user switch to another language
 
 Scenario: Submit with a valid request (check different data types in request and the model of data received) (javascript mode)
     Given Request Form web component
@@ -35,7 +37,23 @@ Scenario: Submit with a valid request (check different data types in request and
           |<property> |
           |language   |
           |requestArgs|
-
+          
+Scenario: Submit with a valid request (check different data types in request and the model of data received) (json mode)
+    Given Request Form web component
+    And   a valid input with the following <data type>
+          |<data type>|
+          | null      |
+          | number    |
+          | string    |
+          | object    |
+    And   Submit button is enabled
+    When  user click on Submit button
+    Then  request is sent
+    And   the object received contains the following <property>
+          |<property> |
+          |language   |
+          |requestArgs|
+          
 Scenario: Submit button should be disabled when there is no service/method name displayed
     Given Request Form web component
     When  there is no service/method name displayed on the bottom corner
@@ -72,6 +90,8 @@ Scenario: Line number should be provided when user write an input with several l
 Scenario: Validation errors of the selected language should be displayed next to the line with wrong input
     Given Request Form web component
     And   one of the existing languages is selected
+    And   a valid input is entered
+    And   no validation errors are displayed
     When  user types an invalid input
     Then  a validation error of the selected language is displayed next to the line with wrong input
 
