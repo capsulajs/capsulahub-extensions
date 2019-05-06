@@ -23,8 +23,15 @@ Cypress.Commands.add('checkEditorsAmount', (editorsAmount) => {
   return cy.get('#web-request-form .ace_content').should('have.length', editorsAmount);
 });
 
-Cypress.Commands.add('submitRequest', () => {
-  return cy.get('[data-cy=request-form-submit-btn]').click();
+Cypress.Commands.add('submitRequest', ({ onSubmitSpy = undefined, callCount = 1 } = {}) => {
+  return cy
+    .get('[data-cy=request-form-submit-btn]')
+    .click()
+    .then(() => {
+      if (onSubmitSpy) {
+        expect(onSubmitSpy.callCount).to.equal(callCount);
+      }
+    });
 });
 
 Cypress.Commands.add('typeInEditor', (content, editorIndex = 0) => {
