@@ -301,4 +301,124 @@ describe('Logger TCs', () => {
       .changeArgsAmount(1)
       .submitRequest({ onSubmitSpy, callCount: 2 });
   });
+
+  // TODO Prepare features for the scenarios below
+
+  it('Error message should appear, if there is an error in running JS code from the editor after submitting', () => {
+    const onSubmitSpy = cy.spy();
+    cy.visit('/', {
+      onBeforeLoad(window) {
+        window.requestFormPropsSubject = new BehaviorSubject({ ...basicProps, onSubmit: onSubmitSpy });
+      },
+    });
+    cy.typeInEditor('return {{} test };')
+      .submitRequest({ onSubmitSpy, callCount: 0 })
+      .get('[data-cy="request-form-error-message"]')
+      .should('have.text', 'ReferenceError: test is not defined');
+  });
+
+  it.only('If content prop is changed, the form is updated correctly', () => {
+    const onSubmitSpy = cy.spy();
+    const requestFormPropsSubject = new BehaviorSubject({ ...basicProps, onSubmit: onSubmitSpy });
+    cy.visit('/', {
+      onBeforeLoad(window) {
+        window.requestFormPropsSubject = requestFormPropsSubject;
+      },
+    });
+    cy.typeInEditor('return {{}test: 5};')
+      // Javascript - 1 editor - requestArgs: string
+      .then(() => {
+        requestFormPropsSubject.next({
+          ...basicProps,
+          content: {
+            language: 'javascript',
+            requestArgs: 'return "some default val"',
+          },
+        });
+      })
+      .get('.ace_content')
+      .should('have.length', 1)
+      .should('have.text', 'return "some default val"')
+      .checkEditorsLanguage('javascript')
+      .changeArgsAmount(2)
+      // Javascript - 2 editors - requestArgs: string
+      .then(() => {
+        requestFormPropsSubject.next({
+          ...basicProps,
+          content: {
+            language: 'javascript',
+            requestArgs: 'return "default for both editors"',
+          },
+        });
+      })
+      .wait(100)
+      .get('.ace_content')
+      .should('have.length', 2)
+      .each((textArea$) => expect(textArea$.text()).to.equal('return "default for both editors"'))
+      .checkEditorsLanguage('javascript')
+      // Javascript - 2 editors - requestArgs: array (will result in 2 editors)
+      .then(() => {
+        requestFormPropsSubject.next({
+          ...basicProps,
+          content: {
+            language: 'javascript',
+            requestArgs: ['return "for the first"', 'return 5'],
+          },
+        });
+      })
+      .wait(100)
+      .get('.ace_content')
+      .should('have.length', 2)
+      .each((textArea$, index) =>
+        expect(textArea$.text()).to.equal(index === 0 ? 'return "for the first"' : 'return 5')
+      )
+      .checkEditorsLanguage('javascript')
+      // Json - 2 editors - requestArgs: array (will result in 2 editors)
+      .then(() => {
+        requestFormPropsSubject.next({
+          ...basicProps,
+          content: {
+            language: 'json',
+            requestArgs: ['{ "test": "default" }', '{ "test": "default2" }'],
+          },
+        });
+      })
+      .wait(100)
+      .get('.ace_content')
+      .should('have.length', 2)
+      .each((textArea$, index) =>
+        expect(textArea$.text()).to.equal(index === 0 ? '{ "test": "default" }' : '{ "test": "default2" }')
+      )
+      // .checkEditorsLanguage('json')
+      // Json - 2 editors - requestArgs: string
+      .then(() => {
+        requestFormPropsSubject.next({
+          ...basicProps,
+          content: {
+            language: 'json',
+            requestArgs: '{ "test": "default from string" }',
+          },
+        });
+      })
+      .wait(100)
+      .get('.ace_content')
+      .should('have.length', 2)
+      .each((textArea$) => expect(textArea$.text()).to.equal('{ "test": "default from string" }'))
+      // .checkEditorsLanguage('json')
+      // Json - 2 editors - requestArgs: array (will result in one editor)
+      .then(() => {
+        requestFormPropsSubject.next({
+          ...basicProps,
+          content: {
+            language: 'json',
+            requestArgs: ['{ "test": "now there is one editor" }'],
+          },
+        });
+      })
+      .wait(100)
+      .get('.ace_content')
+      .should('have.length', 1)
+      .each((textArea$) => expect(textArea$.text()).to.equal('{ "test": "now there is one editor" }'));
+    // .checkEditorsLanguage('json')
+  });
 });

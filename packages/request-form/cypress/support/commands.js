@@ -23,6 +23,10 @@ Cypress.Commands.add('checkEditorsAmount', (editorsAmount) => {
   return cy.get('#web-request-form .ace_content').should('have.length', editorsAmount);
 });
 
+Cypress.Commands.add('checkEditorsLanguage', (language) => {
+  return cy.get('[data-cy="request-form-language-dropdown-title"]').should('have.text', language);
+});
+
 Cypress.Commands.add('submitRequest', ({ onSubmitSpy = undefined, callCount = 1 } = {}) => {
   return cy
     .get('[data-cy=request-form-submit-btn]')
