@@ -3,10 +3,6 @@ import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 // import '../src/example/index.js';
 
-export const props = {};
-export const actions = {
-  onUpdate: action('onUpdate'),
-};
 export const styles = {
   width: 1000,
   height: 500,
