@@ -12,4 +12,5 @@ export const styles = {
   height: 500,
 };
 
-storiesOf('Canvas', module).add('default', () => <div id="web-canvas" style={styles} />);
+storiesOf('Canvas', module)
+  .add('default', () => <div id="web-canvas" style={styles}></div>);
