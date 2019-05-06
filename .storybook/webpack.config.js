@@ -7,12 +7,12 @@ module.exports = {
       {
         test: /\.(ts|tsx)$/,
         exclude: /node_modules/,
-        loader: "babel-loader"
+        loader: 'babel-loader'
       },
       {
         test: /\.(ts|tsx)$/,
         exclude: /node_modules/,
-        loader: "ts-loader"
+        loader: 'ts-loader'
       },
       {
         test: /\.(png|jpe?g|gif|svg|woff|woff2|ttf|eot|ico)$/,
