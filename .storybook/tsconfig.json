@@ -12,7 +12,8 @@
     "types": ["cypress", "node", "react", "react-dom"],
     "baseUrl": "./src",
     "esModuleInterop": true,
-    "noImplicitAny": false
+    "noImplicitAny": false,
+    "allowJs": true
   },
   "include": ["src/**/*"],
   "exclude": ["node_modules", "**/*.spec.*"]

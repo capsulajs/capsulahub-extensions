@@ -5,10 +5,14 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.(ts|tsx)/,
-        loader: "babel-loader!ts-loader",
+        test: /\.(ts|tsx)$/,
         exclude: /node_modules/,
-        include
+        loader: "babel-loader"
+      },
+      {
+        test: /\.(ts|tsx)$/,
+        exclude: /node_modules/,
+        loader: "ts-loader"
       },
       {
         test: /\.(png|jpe?g|gif|svg|woff|woff2|ttf|eot|ico)$/,
@@ -36,6 +40,7 @@ module.exports = {
     ]
   },
   resolve: {
+    extensions: [".ts", ".tsx", ".js"],
     alias: {
       root: path.resolve("..")
     }

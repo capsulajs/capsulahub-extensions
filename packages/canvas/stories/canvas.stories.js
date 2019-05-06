@@ -1,7 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
-// import 'root/packages/canvas/src/example/index';
+// import '../src/example/index.js';
 
 export const props = {};
 export const actions = {
