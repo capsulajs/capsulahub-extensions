@@ -27,10 +27,11 @@
     "@capsulajs/web-components-utils": "^0.0.1",
     "react": "^16.0.0",
     "react-dom": "^16.8.6",
-    "rxjs": "^6.5.1"
+    "rxjs": "^6.5.1",
+    "rxjs-compat": "^6.5.1"
   },
   "devDependencies": {
-    "@storybook/addon-actions": "^5.0.11",
+    "@storybook/react": "v4.0.0-alpha.3",
     "@types/node": "^11.13.6",
     "@types/react": "^16.8.14",
     "@types/react-dom": "^16.8.4",
