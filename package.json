@@ -7,7 +7,7 @@
     "build": "lerna run build",
     "start": "lerna run start",
     "lint": "lerna run lint",
-    "test": "lerna run test --concurrency=1"
+    "test": "lerna run test"
   },
   "private": true,
   "husky": {

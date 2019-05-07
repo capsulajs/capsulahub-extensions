@@ -22,7 +22,7 @@
     "build:umd": "rimraf dist && parcel build src/index.ts --no-minify --experimental-scope-hoisting --out-dir dist --global canvas",
     "build:umd-min": "rimraf dist-min && parcel build src/index.ts --experimental-scope-hoisting --out-dir dist-min --global canvas",
     "cypress": "cypress run",
-    "start": "rimraf dist && parcel start src/example/index.html",
+    "start": "rimraf dist && parcel start src/example/index.html --port 1111",
     "lint": "tslint -p tsconfig.json --fix",
     "prettier": "prettier --write '{src,tests}/**/*.{ts,tsx}'",
     "test": "npm-run-all -p -r start cypress"
