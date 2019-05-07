@@ -16,8 +16,8 @@ const defineWebComponent = async () => {
     name: 'web-logger',
     path: 'http://cdn.components/Logger.tsx',
     componentModules: {
-      ['http://cdn.components/Logger.tsx']: LoggerWithData
-    }
+      ['http://cdn.components/Logger.tsx']: LoggerWithData,
+    },
   });
 };
 

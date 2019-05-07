@@ -16,8 +16,8 @@ const defineWebComponent = async () => {
     name: 'web-canvas',
     path: 'http://cdn.components/Canvas.tsx',
     componentModules: {
-      ['http://cdn.components/Canvas.tsx']: CanvasWithData
-    }
+      ['http://cdn.components/Canvas.tsx']: CanvasWithData,
+    },
   });
 };
 
