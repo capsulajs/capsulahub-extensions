@@ -7,4 +7,4 @@ export const styles = {
   height: 500,
 };
 
-storiesOf('Canvas', module).add('canvas', () => <div id="web-canvas" style={styles} />);
+storiesOf('Logger', module).add('logger', () => <div id="web-logger" style={styles} />);

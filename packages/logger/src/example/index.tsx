@@ -16,4 +16,7 @@ prepareWebComponent({
   name: 'web-logger',
   path: 'http://cdn.components/Logger.tsx',
   componentModules,
-}).then((webComponent) => document.querySelector('#web-logger')!.appendChild(webComponent));
+}).then((webComponent) => {
+  const mountPoint = document.querySelector('#web-logger');
+  mountPoint && mountPoint.appendChild(webComponent);
+});

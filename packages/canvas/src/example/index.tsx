@@ -13,7 +13,10 @@ const componentModules = {
 };
 
 prepareWebComponent({
-  name: 'web-logger',
+  name: 'web-canvas',
   path: 'http://cdn.components/Canvas.tsx',
   componentModules,
-}).then((webComponent) => document.querySelector('#web-canvas')!.appendChild(webComponent));
+}).then((webComponent) => {
+  const mountPoint = document.querySelector('#web-canvas');
+  mountPoint && mountPoint.appendChild(webComponent);
+});
