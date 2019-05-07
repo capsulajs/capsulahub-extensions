@@ -78,7 +78,7 @@ describe('Request Form TCs', () => {
           expectedResultAfterInvoke: 'Hello World',
         },
       ]).each((data, index) => {
-        cy.wait(1000)
+        cy.wait(500)
           .typeInEditor(data.content)
           .submitRequest()
           .then(() => {
@@ -116,7 +116,7 @@ describe('Request Form TCs', () => {
           { content: '"hello"', requestArgs: ['hello'] },
         ])
         .each((data) => {
-          cy.wait(1000)
+          cy.wait(500)
             .typeInEditor(data.content)
             .submitRequest()
             .then(() => {
@@ -164,7 +164,7 @@ describe('Request Form TCs', () => {
 
       cy.wrap(['return () = {{} return "Hello"; };', 'return {{}', 'return {{} test: };', '', 'retur 5'])
         .each((input) => {
-          cy.wait(1000)
+          cy.wait(500)
             .typeInEditor(input, 0, 'disabled')
             .submitRequest({ onSubmitSpy, callCount: 0 });
         })
@@ -175,7 +175,7 @@ describe('Request Form TCs', () => {
         .changeArgsAmount(1)
         .wrap(['{{} test: "world" }', '{{} "test: "world" }', 'return {{} test: "world" };', 'test', ''])
         .each((input) => {
-          cy.wait(1000)
+          cy.wait(500)
             .typeInEditor(input, 0, 'disabled')
             .submitRequest({ onSubmitSpy, callCount: 0 });
         })
@@ -228,7 +228,7 @@ describe('Request Form TCs', () => {
       .typeInEditor('return {{} test: }', 0, 'disabled')
       .get('.ace_gutter-cell.ace_error')
       .should('have.text', '1')
-      .typeInEditor('return {{} test: "world" }', 0, 'disabled')
+      .typeInEditor('return {{} test: "world" }')
       .get('.ace_gutter-cell.ace_error')
       .should('not.exist')
       .changeLanguage('json')
@@ -290,7 +290,7 @@ describe('Request Form TCs', () => {
     });
 
     cy.changeArgsAmount(2)
-      .typeInEditor('return {{} test: }', 1, 'disabled')
+      .typeInEditor('return {{} test: }', 1)
       .submitRequest({ onSubmitSpy, callCount: 0 })
       .changeArgsAmount(1)
       .submitRequest({ onSubmitSpy, callCount: 1 })

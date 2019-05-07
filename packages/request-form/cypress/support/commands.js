@@ -38,22 +38,21 @@ Cypress.Commands.add('submitRequest', ({ onSubmitSpy = undefined, callCount = 1 
     });
 });
 
-Cypress.Commands.add('typeInEditor', (content, editorIndex = 0, submitButtonStatus = 'active') => {
+Cypress.Commands.add('typeInEditor', (content = '{backspace}', editorIndex = 0, submitButtonStatus = 'active') => {
   cy.get(`[data-cy=request-form-editor-${editorIndex}] .ace_text-input`)
     .as('textarea')
-    .focus()
-    .clear({ force: true })
+    .focus({ force: true })
+    .type(`{end}`, { force: true, delay: 0 })
+    .type(`{shift}`, { force: true, delay: 0, release: false })
+    .type(`{home}`, { force: true, delay: 0 })
+    .type(`{backspace}${content}{shift}`, { force: true, delay: 0, log: true })
     .get(`[data-cy=request-form-editor-${editorIndex}] .ace_content`)
-    .as(`content`)
-    .should('have.text', '')
-    .get('@textarea')
-    .then((input$) => {
-      if (content) {
-        cy.wrap(input$)
-          .type(content, { force: true })
-          .get('@content')
-          .should('have.text', content.replace(/{{}/g, '{').replace(/{enter}/g, ''))
-          .get(`[data-cy=request-form-submit-btn-${submitButtonStatus}]`);
-      }
-    });
+    .should(
+      'have.text',
+      content
+        .replace(/{{}/g, '{')
+        .replace(/{enter}/g, '')
+        .replace(/{backspace}/g, '')
+    )
+    .get(`[data-cy=request-form-submit-btn-${submitButtonStatus}]`);
 });
