@@ -30,6 +30,7 @@ const mountWebComponent = async () => {
   mountPoint && mountPoint.appendChild(webComponent);
 };
 
-window['mountWebComponent'] = mountWebComponent;
+// @ts-ignore
+window.mountWebComponent = mountWebComponent;
 
 export default mountWebComponent;
