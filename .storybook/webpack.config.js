@@ -5,7 +5,7 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.(ts|tsx)$/,
+        test: /\.(js|jsx)$/,
         exclude: /node_modules/,
         loader: "babel-loader"
       },
@@ -30,17 +30,14 @@ module.exports = {
             loader: "style-loader"
           },
           {
-            loader: "css-loader",
-            options: {
-              sourceMap: true
-            }
+            loader: "css-loader"
           }
         ]
       }
     ]
   },
   resolve: {
-    extensions: [".ts", ".tsx", ".js"],
+    extensions: ["*", ".js", ".jsx", ".ts", ".tsx"],
     alias: {
       root: path.resolve("..")
     }
