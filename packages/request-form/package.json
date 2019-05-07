@@ -17,7 +17,7 @@
     "build:umd-min": "rimraf dist-min && parcel build src/index.ts --experimental-scope-hoisting --out-dir dist-min --global logger",
     "cypress": "cypress run",
     "cypress:debug": "cypress open",
-    "start": "rimraf dist && parcel start src/example/index.html --port=1113",
+    "start": "rimraf dist && parcel start src/example/index.html",
     "lint": "tslint '{src,cypress}/**/*.{ts,tsx,js}' --fix",
     "prettier": "prettier --write '{src,cypress}/**/*.{ts,tsx,js}'",
     "test": "npm-run-all -p -r start cypress"

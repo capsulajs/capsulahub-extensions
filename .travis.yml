@@ -18,8 +18,7 @@ before_script:
 script:
   - yarn lint
   - yarn build
-  - yarn test --scope=@capsulajs/web-components-canvas
-  - yarn test --scope=@capsulajs/web-components-logger
+  - yarn test
 
 notifications:
   email:
