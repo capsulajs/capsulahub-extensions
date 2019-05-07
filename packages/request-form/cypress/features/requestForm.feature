@@ -163,3 +163,14 @@ Scenario: If content prop is changed, the form is updated correctly (change the 
     And   the language is updating accordingly
     And   number of arguments stays the same 
     
+Scenario: If content prop is changed, the form is updated correctly (2 editors requestArgs: array (will result in one editor))
+    Given Request Form web component
+    And   one of the existing languages 
+    And   number of selected arguments is two
+    And   the arguments include the same valid input
+    When  user changes requestArgs to a valid array that contains one strings
+    Then  the number of arguments changes to one 
+    And   the content of the argument is updating in correspondence to requestArg value
+    And   the input of the argument includes the string from requestArgs's array
+    And   the language stays the same 
+
