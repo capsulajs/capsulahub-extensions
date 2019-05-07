@@ -119,6 +119,47 @@ Scenario: Error message should appear, if there is an error in running JS code f
     When  user clicks on Submit button
     And   an error in running code occurs
     Then  the relevant error message should appear in the footer of the form
-	And   Submit button is disabled
-	And   the error message dissapears and submit button is enabled if user makes any change in the Request Form
+    And   Submit button is disabled
+    And   the error message dissapears and submit button is enabled if user makes any change in the Request Form
+
+Scenario: If content prop is changed, the form is updated correctly (1 editor - requestArgs: string)
+    Given Request Form web component
+    And   one of the existing languages 
+    And   number of selected arguments is one
+    And   the argument includes a valid input
+    When  user changes requestArgs to another valid string 
+    Then  the content of the argument is updating in correspondence to requestArg value
+    And   the language and number of arguments stays the same
+
+Scenario: If content prop is changed, the form is updated correctly (2 editors - requestArgs: string)
+    Given Request Form web component
+    And   one of the existing languages 
+    And   number of selected arguments is two
+    And   the arguments include the same valid input
+    When  user changes requestArgs to another valid string 
+    Then  the content of both arguments is updating in correspondence to requestArg value
+    And   the input of both arguments are the same
+    And   the language and number of arguments stays the same    
+    
+Scenario: If content prop is changed, the form is updated correctly (2 editors - requestArgs: array) 
+    Given Request Form web component
+    And   one of the existing languages 
+    And   number of selected arguments is two
+    And   the arguments include the same valid input
+    When  user changes requestArgs to a valid array of two different strings
+    Then  the content of both arguments is updating in correspondence to requestArg value
+    And   the input of first argument includes first string from requestArgs's array, the last one - second string
+    And   the language and number of arguments stays the same    
+    
+Scenario: If content prop is changed, the form is updated correctly (change the language) 
+    Given Request Form web component
+    And   one of the existing languages 
+    And   number of selected arguments is two
+    And   the arguments include two different valid inputs
+    When  user changes the language to another existing one
+    And   user changes requestArgs to a valid array of two different strings
+    Then  the content of both arguments is updating in correspondence to requestArg value
+    And   the input of first argument includes first string from requestArgs's array, the last one - second string
+    And   the language is updating accordingly
+    And   number of arguments stays the same 
     
