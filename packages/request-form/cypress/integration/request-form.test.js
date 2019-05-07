@@ -302,19 +302,31 @@ describe('Logger TCs', () => {
       .submitRequest({ onSubmitSpy, callCount: 2 });
   });
 
-  // TODO Prepare features for the scenarios below
-
   it('Error message should appear, if there is an error in running JS code from the editor after submitting', () => {
+    const codeWithRuntimeError = 'return {{} test };';
     const onSubmitSpy = cy.spy();
     cy.visit('/', {
       onBeforeLoad(window) {
         window.requestFormPropsSubject = new BehaviorSubject({ ...basicProps, onSubmit: onSubmitSpy });
       },
     });
-    cy.typeInEditor('return {{} test };')
+    cy.typeInEditor(codeWithRuntimeError)
       .submitRequest({ onSubmitSpy, callCount: 0 })
       .get('[data-cy="request-form-error-message"]')
-      .should('have.text', 'ReferenceError: test is not defined');
+      .should('have.text', 'ReferenceError: test is not defined')
+      .typeInEditor('return 5')
+      .get('[data-cy="request-form-error-message"]')
+      .should('not.exist')
+      .typeInEditor(codeWithRuntimeError)
+      .get('[data-cy="request-form-error-message"]')
+      .changeLanguage('json')
+      .get('[data-cy="request-form-error-message"]')
+      .should('not.exist')
+      .typeInEditor(codeWithRuntimeError)
+      .get('[data-cy="request-form-error-message"]')
+      .changeArgsAmount(2)
+      .get('[data-cy="request-form-error-message"]')
+      .should('not.exist');
   });
 
   it('If content prop is changed, the form is updated correctly', () => {
