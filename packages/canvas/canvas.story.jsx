@@ -1,10 +1,20 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import './src/example/index.tsx';
+import mountWebComponent from './src/example/index.ts';
 
 export const styles = {
   width: 1000,
   height: 500,
 };
 
-storiesOf('Canvas', module).add('canvas', () => <div id="web-canvas" style={styles} />);
+class Example extends React.Component {
+  async componentDidMount() {
+    await mountWebComponent();
+  }
+
+  render() {
+    return <div id="web-canvas" style={styles} />;
+  }
+}
+
+storiesOf('Canvas', module).add('default', () => <Example />);

@@ -1,10 +1,20 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import './src/example/index.tsx';
+import './src/example/index.ts';
 
 export const styles = {
   width: 1000,
   height: 500,
 };
 
-storiesOf('Logger', module).add('logger', () => <div id="web-logger" style={styles} />);
+class Example extends React.Component {
+  async componentDidMount() {
+    await mountWebComponent();
+  }
+
+  render() {
+    return <div id="web-logger" style={styles} />;
+  }
+}
+
+storiesOf('Logger', module).add('default', () => <Example />);
