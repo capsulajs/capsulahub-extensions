@@ -317,7 +317,7 @@ describe('Logger TCs', () => {
       .should('have.text', 'ReferenceError: test is not defined');
   });
 
-  it.only('If content prop is changed, the form is updated correctly', () => {
+  it('If content prop is changed, the form is updated correctly', () => {
     const onSubmitSpy = cy.spy();
     const requestFormPropsSubject = new BehaviorSubject({ ...basicProps, onSubmit: onSubmitSpy });
     cy.visit('/', {
@@ -389,7 +389,7 @@ describe('Logger TCs', () => {
       .each((textArea$, index) =>
         expect(textArea$.text()).to.equal(index === 0 ? '{ "test": "default" }' : '{ "test": "default2" }')
       )
-      // .checkEditorsLanguage('json')
+      .checkEditorsLanguage('json')
       // Json - 2 editors - requestArgs: string
       .then(() => {
         requestFormPropsSubject.next({
@@ -404,7 +404,7 @@ describe('Logger TCs', () => {
       .get('.ace_content')
       .should('have.length', 2)
       .each((textArea$) => expect(textArea$.text()).to.equal('{ "test": "default from string" }'))
-      // .checkEditorsLanguage('json')
+      .checkEditorsLanguage('json')
       // Json - 2 editors - requestArgs: array (will result in one editor)
       .then(() => {
         requestFormPropsSubject.next({
@@ -418,7 +418,7 @@ describe('Logger TCs', () => {
       .wait(100)
       .get('.ace_content')
       .should('have.length', 1)
-      .each((textArea$) => expect(textArea$.text()).to.equal('{ "test": "now there is one editor" }'));
-    // .checkEditorsLanguage('json')
+      .each((textArea$) => expect(textArea$.text()).to.equal('{ "test": "now there is one editor" }'))
+      .checkEditorsLanguage('json');
   });
 });

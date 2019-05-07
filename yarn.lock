@@ -711,10 +711,10 @@
     lodash "^4.17.11"
     to-fast-properties "^2.0.0"
 
-"@capsulajs/capsulahub-ui@0.5.6":
-  version "0.5.6"
-  resolved "https://registry.yarnpkg.com/@capsulajs/capsulahub-ui/-/capsulahub-ui-0.5.6.tgz#406236e6a757a1848c45945dffb11c78f73ae1ad"
-  integrity sha512-953LUi7Mjc4ORbrYZyAo2KD2OlXj+2fBaPF7qogWzNayM72FeQRG0tIUFCF3RQm3DBk93skvVmIS4qM6IWKL6g==
+"@capsulajs/capsulahub-ui@^0.4.2":
+  version "0.4.9"
+  resolved "https://registry.yarnpkg.com/@capsulajs/capsulahub-ui/-/capsulahub-ui-0.4.9.tgz#a3f13ce6e64e0aeb6afa97dfdfeb8bf8aa696d69"
+  integrity sha512-JYEkL+kusaw0lCwtend8RxVdylJvuAKKmv0UdpjBtZ51ecfxt4CxcAJNWnCBu4D/RHjTvOTlIXzPH+MsFSXakg==
   dependencies:
     lodash "^4.17.11"
     react "^16.8.1"
@@ -727,10 +727,10 @@
     styled-components "^3.4.5"
     typeface-montserrat "^0.0.54"
 
-"@capsulajs/capsulahub-ui@^0.4.2":
-  version "0.4.9"
-  resolved "https://registry.yarnpkg.com/@capsulajs/capsulahub-ui/-/capsulahub-ui-0.4.9.tgz#a3f13ce6e64e0aeb6afa97dfdfeb8bf8aa696d69"
-  integrity sha512-JYEkL+kusaw0lCwtend8RxVdylJvuAKKmv0UdpjBtZ51ecfxt4CxcAJNWnCBu4D/RHjTvOTlIXzPH+MsFSXakg==
+"@capsulajs/capsulahub-ui@latest":
+  version "0.5.8"
+  resolved "https://registry.yarnpkg.com/@capsulajs/capsulahub-ui/-/capsulahub-ui-0.5.8.tgz#07a6fe36dfc7f8c5173cf90dae0d6de1bc1873bf"
+  integrity sha512-W0T0Hyw30W6z6SfTycWIhkp023YFz7txK+aI6xP+jEec08sR0KJ0EnfE/yXot7AIy9buwPIXRCHNlvHSjLKZow==
   dependencies:
     lodash "^4.17.11"
     react "^16.8.1"
