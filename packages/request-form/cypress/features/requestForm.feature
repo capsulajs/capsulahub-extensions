@@ -110,3 +110,15 @@ Scenario: Submit button should be enabled while the number of arguments changes 
     When  user changes the number of arguments
     And   all the arguments have a valid input
     Then  Submit button is enabled
+    
+Scenario: Error message should appear, if there is an error in running JS code from the editor after submitting
+    Given Request Form web component
+    And   one of the existing languages and a number of arguments is selected
+    And   the arguments includes a valid input
+    And   Submit button is enabled
+    When  user clicks on Submit button
+    And   an error in running code occurs
+    Then  the relevant error message should appear in the footer of the form
+	And   Submit button is disabled
+	And   the error message dissapears and submit button is enabled if user makes any change in the Request Form
+    
