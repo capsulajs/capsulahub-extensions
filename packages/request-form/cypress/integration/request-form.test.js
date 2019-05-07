@@ -16,7 +16,7 @@ const basicProps = {
   onSubmit: () => {},
 };
 
-describe('Logger TCs', () => {
+describe('Request Form TCs', () => {
   it('Check the code pattern to be displayed for javascript language (with different number of arguments)', () => {
     cy.visit('/')
       .checkEditorsAmount(1)
@@ -165,22 +165,22 @@ describe('Logger TCs', () => {
       cy.wrap(['return () = {{} return "Hello"; };', 'return {{}', 'return {{} test: };', '', 'retur 5'])
         .each((input) => {
           cy.wait(1000)
-            .typeInEditor(input)
+            .typeInEditor(input, 0, 'disabled')
             .submitRequest({ onSubmitSpy, callCount: 0 });
         })
         .changeArgsAmount(2)
-        .typeInEditor('return "test"', 1)
+        .typeInEditor('return "test"', 1, 'disabled')
         .submitRequest({ onSubmitSpy, callCount: 0 })
         .changeLanguage('json')
         .changeArgsAmount(1)
         .wrap(['{{} test: "world" }', '{{} "test: "world" }', 'return {{} test: "world" };', 'test', ''])
         .each((input) => {
           cy.wait(1000)
-            .typeInEditor(input)
+            .typeInEditor(input, 0, 'disabled')
             .submitRequest({ onSubmitSpy, callCount: 0 });
         })
         .changeArgsAmount(2)
-        .typeInEditor('{{} "test": "world" }', 1)
+        .typeInEditor('{{} "test": "world" }', 1, 'disabled')
         .submitRequest({ onSubmitSpy, callCount: 0 });
     }
   );
@@ -225,14 +225,14 @@ describe('Logger TCs', () => {
 
   it('Validation errors of the selected language should be displayed next to the line with wrong input', () => {
     cy.visit('/')
-      .typeInEditor('return {{} test: }')
+      .typeInEditor('return {{} test: }', 0, 'disabled')
       .get('.ace_gutter-cell.ace_error')
       .should('have.text', '1')
-      .typeInEditor('return {{} test: "world" }')
+      .typeInEditor('return {{} test: "world" }', 0, 'disabled')
       .get('.ace_gutter-cell.ace_error')
       .should('not.exist')
       .changeLanguage('json')
-      .typeInEditor('return')
+      .typeInEditor('return', 0, 'disabled')
       .get('.ace_gutter-cell.ace_error')
       .should('have.text', '1')
       .typeInEditor('{{} "test": "world" }')
@@ -290,13 +290,13 @@ describe('Logger TCs', () => {
     });
 
     cy.changeArgsAmount(2)
-      .typeInEditor('return {{} test: }', 1)
+      .typeInEditor('return {{} test: }', 1, 'disabled')
       .submitRequest({ onSubmitSpy, callCount: 0 })
       .changeArgsAmount(1)
       .submitRequest({ onSubmitSpy, callCount: 1 })
       .changeLanguage('json')
       .changeArgsAmount(2)
-      .typeInEditor('{{} test: "test" }', 1)
+      .typeInEditor('{{} test: "test" }', 1, 'disabled')
       .submitRequest({ onSubmitSpy, callCount: 1 })
       .changeArgsAmount(1)
       .submitRequest({ onSubmitSpy, callCount: 2 });

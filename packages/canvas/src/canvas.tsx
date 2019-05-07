@@ -1,7 +1,7 @@
 import * as ReactDOM from 'react-dom';
 import * as React from 'react';
 import { Canvas as CanvasUI } from '@capsulajs/capsulahub-ui';
-import { dataComponentHoc } from 'capsulajs-web-components/utils';
+import { dataComponentHoc } from '@capsulajs-web-components/utils';
 
 export class Canvas extends HTMLElement {
   public props$;

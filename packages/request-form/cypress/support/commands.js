@@ -29,7 +29,7 @@ Cypress.Commands.add('checkEditorsLanguage', (language) => {
 
 Cypress.Commands.add('submitRequest', ({ onSubmitSpy = undefined, callCount = 1 } = {}) => {
   return cy
-    .get('[data-cy=request-form-submit-btn]')
+    .get(`[data-cy^=request-form-submit-btn]`)
     .click()
     .then(() => {
       if (onSubmitSpy) {
@@ -38,15 +38,22 @@ Cypress.Commands.add('submitRequest', ({ onSubmitSpy = undefined, callCount = 1 
     });
 });
 
-Cypress.Commands.add('typeInEditor', (content, editorIndex = 0) => {
+Cypress.Commands.add('typeInEditor', (content, editorIndex = 0, submitButtonStatus = 'active') => {
   cy.get(`[data-cy=request-form-editor-${editorIndex}] .ace_text-input`)
+    .as('textarea')
     .focus()
     .clear({ force: true })
-    .wait(100)
+    .get(`[data-cy=request-form-editor-${editorIndex}] .ace_content`)
+    .as(`content`)
+    .should('have.text', '')
+    .get('@textarea')
     .then((input$) => {
       if (content) {
-        cy.wrap(input$).type(content, { force: true });
+        cy.wrap(input$)
+          .type(content, { force: true })
+          .get('@content')
+          .should('have.text', content.replace(/{{}/g, '{').replace(/{enter}/g, ''))
+          .get(`[data-cy=request-form-submit-btn-${submitButtonStatus}]`);
       }
-    })
-    .wait(500);
+    });
 });
