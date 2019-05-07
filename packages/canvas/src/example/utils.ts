@@ -1,4 +1,4 @@
-import { Observable, BehaviorSubject, of } from 'rxjs';
+import { Observable, BehaviorSubject } from 'rxjs';
 import { map } from 'rxjs/operators';
 import defaultLayout from '../../cypress/fixtures/layout';
 import { Layout, CanvasProps } from '../types';
