@@ -4,12 +4,9 @@
   "description": "CapsulaJS - Web components logger",
   "private": false,
   "main": "lib/index.js",
-  "unpkg": "dist-min/index.js",
   "module": "lib/index.js",
   "types": "lib/index.d.ts",
   "files": [
-    "dist-min",
-    "dist",
     "lib",
     "es"
   ],
