@@ -305,9 +305,10 @@ describe('Request Form TCs', () => {
   it('Error message should appear, if there is an error in running JS code from the editor after submitting', () => {
     const codeWithRuntimeError = 'return {{} test };';
     const onSubmitSpy = cy.spy();
+    const requestFormPropsSubject = new BehaviorSubject({ ...basicProps, onSubmit: onSubmitSpy });
     cy.visit('/', {
       onBeforeLoad(window) {
-        window.requestFormPropsSubject = new BehaviorSubject({ ...basicProps, onSubmit: onSubmitSpy });
+        window.requestFormPropsSubject = requestFormPropsSubject;
       },
     });
     cy.typeInEditor(codeWithRuntimeError)
@@ -328,6 +329,20 @@ describe('Request Form TCs', () => {
       .submitRequest({ onSubmitSpy, callCount: 0 })
       .get('[data-cy="request-form-error-message"]')
       .changeArgsAmount(2)
+      .get('[data-cy="request-form-error-message"]')
+      .should('not.exist')
+      .typeInEditor(codeWithRuntimeError)
+      .submitRequest({ onSubmitSpy, callCount: 0 })
+      .get('[data-cy="request-form-error-message"]')
+      .then(() => {
+        requestFormPropsSubject.next({
+          ...basicProps,
+          content: {
+            language: 'javascript',
+            requestArgs: 'return "valid"',
+          },
+        });
+      })
       .get('[data-cy="request-form-error-message"]')
       .should('not.exist');
   });

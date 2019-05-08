@@ -712,9 +712,9 @@
     to-fast-properties "^2.0.0"
 
 "@capsulajs/capsulahub-ui@latest":
-  version "0.6.1"
-  resolved "https://registry.yarnpkg.com/@capsulajs/capsulahub-ui/-/capsulahub-ui-0.6.1.tgz#b4ead95689005219b4da7d5fb42a180f824207da"
-  integrity sha512-HNIF3zI87lm/WGavxXzWY49ViPsLCCTmQywOk3KvKviCemppIWKjbEYj41N8sgS5Aq1cEzNQi4gDG7FWF08cUA==
+  version "0.6.2"
+  resolved "https://registry.yarnpkg.com/@capsulajs/capsulahub-ui/-/capsulahub-ui-0.6.2.tgz#5dde4a44daa8e6348d34f561880ffbbad4cd07fa"
+  integrity sha512-5mAMrmPYzSoBiCSkH263bxL3jJXkhAckk9mYc9eIJ+4F6gP62bgoBfxkBCJJKWPI3RJvb3WNPVyjhQFKhKnyvQ==
   dependencies:
     lodash "^4.17.11"
     react "^16.8.1"
