@@ -28,7 +28,6 @@
     "babel-polyfill": "^6.26.0",
     "react": "^16.0.0",
     "react-dom": "^16.8.6",
-    "rxjs": "^6.5.1",
     "@capsulajs-web-components/utils": "^0.0.1",
     "@capsulajs/capsulahub-ui": "latest"
   },
