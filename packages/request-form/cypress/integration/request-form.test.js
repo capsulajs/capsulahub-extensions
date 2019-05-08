@@ -341,6 +341,10 @@ describe('Request Form TCs', () => {
       },
     });
     cy.typeInEditor('return {{}test: 5};')
+      .changeLanguage('json')
+      .checkEditorsLanguage('json')
+      .changeLanguage('javascript')
+      .checkEditorsLanguage('javascript')
       // Javascript - 1 editor - requestArgs: string
       .then(() => {
         requestFormPropsSubject.next({
