@@ -1,6 +1,6 @@
 import 'babel-polyfill';
-import { Logger } from '../logger';
-import { prepareWebComponent } from '@capsulajs/web-components-utils';
+import { Logger } from '../Logger';
+import { prepareWebComponent } from '@capsulajs-web-components/utils';
 import { props$ } from './utils';
 
 class LoggerWithData extends Logger {

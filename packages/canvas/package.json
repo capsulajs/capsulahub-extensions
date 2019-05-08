@@ -24,11 +24,11 @@
   },
   "author": "Markets Pulse",
   "dependencies": {
-    "@capsulajs/web-components-utils": "^0.0.1",
     "babel-polyfill": "^6.26.0",
     "react": "^16.0.0",
     "react-dom": "^16.8.6",
-    "@capsulajs-web-components/utils": "^0.0.1"
+    "@capsulajs-web-components/utils": "^0.0.1",
+    "@capsulajs/capsulahub-ui": "latest"
   },
   "devDependencies": {
     "@storybook/react": "v4.0.0-alpha.3",

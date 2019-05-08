@@ -22,8 +22,6 @@ interface Container extends Node {
   nodes: [Layout, Layout];
 }
 
-export type Layout = Container | Element;
-export interface CanvasProps {
-  layout: Layout;
-  onUpdate: (newLayout: Layout) => void;
-}
+type Layout = Container | Element;
+
+export default Layout;
