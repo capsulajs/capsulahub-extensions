@@ -1,5 +1,5 @@
 import { Canvas } from '../canvas';
-import { prepareWebComponent } from '@capsulajs/web-components-utils';
+import { prepareWebComponent } from '@capsulajs-web-components/utils';
 import { props$ } from './utils';
 
 class CanvasWithData extends Canvas {
