@@ -7,7 +7,7 @@
     "build": "lerna run build",
     "start": "lerna run start",
     "lint": "lerna run lint",
-    "test": "lerna run test",
+    "test": "lerna run test --concurrency=1",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
   },
@@ -43,8 +43,5 @@
     "pretty-quick": "^1.10.0",
     "ts-loader": "^5.4.6",
     "typescript": "^3.4.5"
-  },
-  "dependencies": {
-    "@capsulajs/capsulahub-ui": "^0.5.0"
   }
 }

@@ -1,5 +1,5 @@
 {
-  "name": "@capsulajs/web-components-utils",
+  "name": "@capsulajs-web-components/utils",
   "version": "0.0.1",
   "description": "CapsulaJS - Web components utils",
   "private": false,

@@ -32,3 +32,8 @@ export const prepareWebComponent = ({ name, path, componentModules }) => {
       return webComponent;
     });
 };
+
+export const mountWebComponent = ({ name, path, componentModules, querySelector }) =>
+  prepareWebComponent({ name, path, componentModules }).then((webComponent) =>
+    document.querySelector(querySelector)!.appendChild(webComponent)
+  );

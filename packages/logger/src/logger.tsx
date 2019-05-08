@@ -2,7 +2,7 @@ import * as ReactDOM from 'react-dom';
 import * as React from 'react';
 import { Observable } from 'rxjs';
 import { Logger as LoggerUI } from '@capsulajs/capsulahub-ui';
-import { dataComponentHoc } from '@capsulajs/web-components-utils';
+import { dataComponentHoc } from '@capsulajs-web-components/utils';
 import { LoggerProps } from './types';
 
 export class Logger extends HTMLElement {
