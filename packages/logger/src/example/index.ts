@@ -11,26 +11,17 @@ class LoggerWithData extends Logger {
 
 let webComponent;
 
-const defineWebComponent = async () => {
-  webComponent = await prepareWebComponent({
-    name: 'web-logger',
-    path: 'http://cdn.components/Logger.tsx',
-    componentModules: {
-      ['http://cdn.components/Logger.tsx']: LoggerWithData,
-    },
-  });
+const name = 'web-logger';
+const path = 'http://cdn.components/Logger.tsx';
+const componentModules = {
+  [path]: LoggerWithData,
 };
 
 const mountWebComponent = async () => {
-  if (!webComponent) {
-    await defineWebComponent();
-  }
-
-  const mountPoint = document.querySelector('#web-logger');
-  mountPoint && mountPoint.appendChild(webComponent);
+  !webComponent && (webComponent = await prepareWebComponent({ name, path, componentModules }));
+  document.getElementById(name)!.appendChild(webComponent);
 };
 
-// @ts-ignore
 window.mountWebComponent = mountWebComponent;
 
 export default mountWebComponent;

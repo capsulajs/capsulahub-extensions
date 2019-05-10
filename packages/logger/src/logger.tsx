@@ -3,7 +3,7 @@ import * as React from 'react';
 import { Logger as LoggerUI } from '@capsulajs/capsulahub-ui';
 import { dataComponentHoc } from '@capsulajs-web-components/utils';
 
-const mountPoint = 'logger-canvas';
+const mountPoint = 'web-logger';
 
 export class Logger extends HTMLElement {
   public props$;
