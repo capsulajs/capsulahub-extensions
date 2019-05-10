@@ -4,7 +4,7 @@ import { LoggerUIProps } from './api';
 
 declare global {
   interface Window {
-    mountWebComponent: Function;
+    mountWebComponent: () => void;
   }
 }
 
