@@ -9,7 +9,7 @@ class LoggerWithData extends Logger {
   }
 }
 
-let webComponent;
+let webComponent: HTMLElement;
 
 const name = 'web-logger';
 const path = 'http://cdn.components/Logger.tsx';

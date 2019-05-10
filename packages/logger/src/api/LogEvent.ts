@@ -4,5 +4,5 @@ export default interface LogEvent {
   type: 'request' | 'response';
   serviceName: string;
   methodName: string;
-  data: any;
+  data: Object;
 }

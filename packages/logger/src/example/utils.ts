@@ -3,9 +3,18 @@ import { delayWhen } from 'rxjs/operators';
 import logs from '../../cypress/fixtures/logs';
 import { LoggerUIProps } from '../api';
 
+interface LogFixture {
+  correlationId: string;
+  type: 'request' | 'response';
+  serviceName: string;
+  methodName: string;
+  content: Object;
+  delay: number;
+}
+
 export const props$: Observable<LoggerUIProps> = of({
   logs$: merge(
-    ...logs.map(({ correlationId, type, serviceName, methodName, content, delay }, i) =>
+    ...(logs as Array<LogFixture>).map(({ correlationId, type, serviceName, methodName, content, delay }) =>
       of({
         correlationId,
         type,

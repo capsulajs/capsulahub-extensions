@@ -9,7 +9,7 @@ class CanvasWithData extends Canvas {
   }
 }
 
-let webComponent;
+let webComponent: HTMLElement;
 
 const name = 'web-canvas';
 const path = 'http://cdn.components/Canvas.tsx';

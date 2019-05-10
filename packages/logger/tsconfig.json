@@ -2,16 +2,17 @@
   "compilerOptions": {
     "target": "es2015",
     "module": "commonjs",
-    "lib": ["dom", "es2015", "es2017.object", "es5", "es6", "es2016"],
+    "lib": ["dom", "es2015"],
     "declaration": true,
     "outDir": "./lib",
-    "strict": true,
     "moduleResolution": "node",
-    "jsx": "react",
-    "types": ["cypress", "node", "react", "react-dom"],
     "baseUrl": "./src",
     "esModuleInterop": true,
-    "noImplicitAny": false
+    "jsx": "react",
+    "strict": true,
+    "noImplicitAny": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true
   },
   "include": ["src/**/*"],
   "exclude": ["node_modules", "**/*.spec.*"]
