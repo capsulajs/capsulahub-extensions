@@ -1,8 +1,7 @@
-import { BehaviorSubject } from 'rxjs';
 import { JavascriptLanguage } from '../api/Language';
 import { RequestFormUIProps, SubmittedData } from '../api';
 
-const basicProps: RequestFormUIProps = {
+export const basicProps: RequestFormUIProps = {
   selectedMethodPath: 'SelectedService/SelectedMethod',
   content: {
     language: 'javascript' as JavascriptLanguage,
@@ -13,5 +12,3 @@ const basicProps: RequestFormUIProps = {
     console.log('the data from RequestForm has been submitted', data);
   },
 };
-
-export const requestFormPropsSubject = new BehaviorSubject(basicProps);

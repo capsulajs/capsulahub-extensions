@@ -1,11 +1,16 @@
 import 'babel-polyfill';
+import { BehaviorSubject } from 'rxjs';
 import { prepareWebComponent } from '@capsulajs-web-components/utils';
 import { RequestForm } from '../RequestForm';
-import { requestFormPropsSubject } from '../helpers/utils';
+import { basicProps } from '../helpers/utils';
 
 class RequestFormWithData extends RequestForm {
   public setProps() {
-    this.props$ = requestFormPropsSubject.asObservable();
+    // In tests env requestFormPropsSubject is set before loading the page
+    if (!window.requestFormPropsSubject) {
+      window.requestFormPropsSubject = new BehaviorSubject(basicProps);
+    }
+    this.props$ = window.requestFormPropsSubject!.asObservable();
   }
 }
 
@@ -23,6 +28,5 @@ const mountWebComponent = async () => {
 };
 
 window.mountWebComponent = mountWebComponent;
-window.requestFormPropsSubject = requestFormPropsSubject;
 
 export { mountWebComponent };
