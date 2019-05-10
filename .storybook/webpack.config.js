@@ -1,45 +1,45 @@
-const path = require('path');
-const include = path.resolve(__dirname, '../');
+const path = require("path");
+const include = path.resolve(__dirname, "../");
 
-module.exports = {
+ module.exports = {
   module: {
     rules: [
       {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
-        loader: 'babel-loader',
+        loader: "babel-loader"
       },
       {
         test: /\.(ts|tsx)$/,
         exclude: /node_modules/,
-        loader: 'ts-loader',
+        loader: "ts-loader"
       },
       {
         test: /\.(png|jpe?g|gif|svg|woff|woff2|ttf|eot|ico)$/,
-        loaders: 'file-loader',
+        loaders: "file-loader",
         options: {
-          name: '[name].[hash].[ext]',
-          outputPath: 'assets/',
-        },
+          name: "[name].[hash].[ext]",
+          outputPath: "assets/"
+        }
       },
       {
         test: /\.(css|less)$/,
         include,
         use: [
           {
-            loader: 'style-loader',
+            loader: "style-loader"
           },
           {
-            loader: 'css-loader',
-          },
-        ],
-      },
-    ],
+            loader: "css-loader"
+          }
+        ]
+      }
+    ]
   },
   resolve: {
-    extensions: ['*', '.js', '.jsx', '.ts', '.tsx'],
+    extensions: ["*", ".js", ".jsx", ".ts", ".tsx"],
     alias: {
-      root: path.resolve('..'),
-    },
-  },
+      root: path.resolve("..")
+    }
+  }
 };
