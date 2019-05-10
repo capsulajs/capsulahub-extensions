@@ -6,6 +6,7 @@ import { RequestFormUIProps } from './api';
 declare global {
   interface Window {
     requestFormPropsSubject?: BehaviorSubject<RequestFormUIProps>;
+    mountWebComponent: () => void;
   }
 }
 
