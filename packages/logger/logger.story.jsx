@@ -9,7 +9,7 @@ export const styles = {
 
 class Example extends React.Component {
   async componentDidMount() {
-    await mountLoggerWebComponent();
+    await mountWebComponent();
   }
 
   render() {

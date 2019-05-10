@@ -3,7 +3,7 @@ interface LogFixture {
   type: 'request' | 'response';
   serviceName: string;
   methodName: string;
-  content: Object;
+  content: string;
   delay: number;
 }
 

@@ -24,4 +24,4 @@ const mountWebComponent = async () => {
 
 window.mountWebComponent = mountWebComponent;
 
-export default mountWebComponent;
+export { mountWebComponent };
