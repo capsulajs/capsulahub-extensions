@@ -1,5 +1,6 @@
-// prettier-ignore
-module.exports = {
+import { Layout } from '../api';
+
+export default {
   id: 'root',
   type: 'container',
   flex: 1,
@@ -42,4 +43,4 @@ module.exports = {
       activeTabIndex: 0,
     },
   ],
-}
+} as Layout;

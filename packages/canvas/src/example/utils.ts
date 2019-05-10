@@ -1,7 +1,7 @@
 import { Observable, BehaviorSubject } from 'rxjs';
 import { map } from 'rxjs/operators';
-import defaultLayout from '../../cypress/fixtures/layout';
 import { Layout, CanvasUIProps } from '../api';
+import defaultLayout from './layout.fixture';
 
 const subject = new BehaviorSubject(defaultLayout);
 export const props$: Observable<CanvasUIProps> = subject
