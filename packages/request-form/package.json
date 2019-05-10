@@ -13,7 +13,7 @@
     "build": "rimraf .cache && npm-run-all build:cjs build:es",
     "build:cjs": "rimraf lib && tsc --module commonjs --target es2015 --outDir lib",
     "build:es": "rimraf es && tsc --module esnext --target es2015 --outDir es",
-    "cypress": "cypress run",
+    "cypress": "rimraf .cache && cypress run",
     "cypress:debug": "cypress open",
     "start": "rimraf dist && parcel start src/example/index.html",
     "lint": "tslint '{src,cypress}/**/*.{ts,tsx,js}' --fix",

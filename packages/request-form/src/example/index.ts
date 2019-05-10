@@ -1,3 +1,4 @@
+import 'babel-polyfill';
 import { prepareWebComponent } from '@capsulajs-web-components/utils';
 import { RequestForm } from '../RequestForm';
 import { requestFormPropsSubject } from '../helpers/utils';
