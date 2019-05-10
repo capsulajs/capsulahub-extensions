@@ -1,7 +1,7 @@
 import 'babel-polyfill';
 import { Canvas } from '../Canvas';
 import { prepareWebComponent } from '@capsulajs-web-components/utils';
-import { props$ } from './utils';
+import { props$ } from '../helpers/utils';
 
 class CanvasWithData extends Canvas {
   public setProps() {
@@ -23,3 +23,5 @@ const mountWebComponent = async () => {
 };
 
 window.mountWebComponent = mountWebComponent;
+
+export { mountWebComponent };

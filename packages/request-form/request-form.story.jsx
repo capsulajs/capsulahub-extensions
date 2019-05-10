@@ -1,6 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import './src/example/index.ts';
+import { mountWebComponent } from './src/example/index';
 
 export const styles = {
   width: 1000,

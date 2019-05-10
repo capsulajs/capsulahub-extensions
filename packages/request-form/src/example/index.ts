@@ -23,3 +23,5 @@ const mountWebComponent = async () => {
 
 window.mountWebComponent = mountWebComponent;
 window.requestFormPropsSubject = requestFormPropsSubject;
+
+export { mountWebComponent };

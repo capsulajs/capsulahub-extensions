@@ -1,7 +1,7 @@
 import 'babel-polyfill';
 import { Logger } from '../Logger';
 import { prepareWebComponent } from '@capsulajs-web-components/utils';
-import { props$ } from './utils';
+import { props$ } from '../helpers/utils';
 
 class LoggerWithData extends Logger {
   public setProps() {
