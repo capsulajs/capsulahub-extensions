@@ -1,5 +1,6 @@
+import 'babel-polyfill';
 import { BehaviorSubject } from 'rxjs';
-import { mountWebComponent } from '@capsulajs-web-components/utils';
+import { prepareWebComponent } from '@capsulajs-web-components/utils';
 import { RequestForm } from '../RequestForm';
 import { basicProps } from '../helpers/utils';
 
@@ -13,15 +14,19 @@ class RequestFormWithData extends RequestForm {
   }
 }
 
-const path = 'http://cdn.components/RequestForm.tsx';
+let webComponent: HTMLElement;
 
+const name = 'web-request-form';
+const path = 'http://cdn.components/RequestForm.tsx';
 const componentModules = {
   [path]: RequestFormWithData,
 };
 
-mountWebComponent({
-  name: 'web-request-form',
-  path,
-  querySelector: '#web-request-form',
-  componentModules,
-});
+const mountWebComponent = async () => {
+  !webComponent && (webComponent = await prepareWebComponent({ name, path, componentModules }));
+  document.getElementById(name)!.appendChild(webComponent);
+};
+
+window.mountWebComponent = mountWebComponent;
+
+export { mountWebComponent };
