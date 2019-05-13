@@ -4,7 +4,7 @@ import { mountWebComponent } from './src/example/index';
 
 export const styles = {
   width: 1000,
-  height: 500,
+  height: 565,
 };
 
 class Example extends React.Component {
