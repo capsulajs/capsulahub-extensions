@@ -7,9 +7,12 @@ import { basicProps } from '../helpers/utils';
 class RequestFormWithData extends RequestForm {
   public setProps() {
     // In tests env requestFormPropsSubject is set before loading the page
+    // @ts-ignore
     if (!window.requestFormPropsSubject) {
+      // @ts-ignore
       window.requestFormPropsSubject = new BehaviorSubject(basicProps);
     }
+    // @ts-ignore
     this.props$ = window.requestFormPropsSubject!.asObservable();
   }
 }
