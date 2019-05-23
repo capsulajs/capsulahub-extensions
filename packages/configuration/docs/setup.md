@@ -12,7 +12,7 @@ module.exports = {
   services: [
     {
       serviceName: 'configurationService',
-      path: 'https://my-cdn/configurationService',
+      path: 'https://github.com/capsulajs/capsulahub-extensions/pull/21',
       definition: {
         serviceName: 'ConfigurationService',
         methods: {
@@ -24,7 +24,7 @@ module.exports = {
         }
       },
       config: {
-        provider: 'local'
+        provider: 'http'
       }
     },
   ],
