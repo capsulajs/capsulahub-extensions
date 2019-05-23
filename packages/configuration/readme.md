@@ -1,8 +1,17 @@
-# Configuration
+# Configuration service extension for CapsulaHub
 
-Possible providers:
+Service that you can use for managing different configurations across your projects.
+Configuration service gives you possibility to easily menage your configurations.
+Use different providers to persist configuration over remote service, localStorage, http, web sockets, file, etc.
 
-- HardcoreRemoteProvider
+## Using Configuration service
+
+- [Setup](https://github.com/capsulajs/capsulahub-extensions/packages/configuration/blob/master/docs/c.md)
+- [API](https://github.com/capsulajs/capsulahub-extensions/packages/configuration/blob/master/docs/api.md)
+
+Possible providers [More](https://github.com/capsulajs/configuration-service/tree/develop/src/provider):
+
+- RemoteProvider
 - LocalStorageProvider
 - FileProvider
 - HttpProvider
@@ -15,19 +24,3 @@ Possible dispatchers [More](https://github.com/capsulajs/capsulajs-transport-pro
 
 - AxiosDispatcher
 - WebSocketDispatcher
-
-Getting started:
-
-    import { Workspace } from '@capsulajs/capsulahub-core-workspace/src/api';
-    import { ConfigurationConfig } from '@capsulajs/capsulajs-extention-configuration/src/api';
-
-    const workspace: Workspace = ...;
-    const config: ConfigurationConfig = {
-      token: 'sometoken',
-      provider: 'local'
-    };
-
-    const configurationService = await bootstrap(workspace, config);
-    await configService.createRepository({ repository: 'testRepo' });
-    await configService.save({ repository: 'testRepo', key: 'foo', value: 'bar' });
-    await configService.entries({ repository: 'testRepo' }) #=> { entries: [{ key: 'foo', value: 'bar' }] };
