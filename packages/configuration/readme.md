@@ -3,10 +3,49 @@
 Service that you can use for managing different configurations across your projects.
 Configuration service gives you possibility to easily menage your configurations.
 
+## API
+
+- [createRepository()](#createRepository--api)
+- [delete()](#delete--api)
+- [entries()](#entries-api)
+- [fetch()](#fetch--api)
+- [save()](#save--api)
+
+- [More](https://github.com/capsulajs/configuration-service/blob/develop/src/api/ConfigurationServiceTypes.ts)
+
 ## Usage
 
-- [Setup](https://github.com/capsulajs/capsulahub-extensions/packages/configuration/blob/master/docs/c.md)
-- [API](https://github.com/capsulajs/capsulahub-extensions/packages/configuration/blob/master/docs/api.md)
+```bash
+yarn add @capsulajs/capsulahub-core-workspace @capsulajs/capsulahub-extensions-configuration
+```
+
+```javascript
+# ./config.js
+
+module.exports = {
+  name: 'my-app',
+  services: [
+    {
+      serviceName: 'configurationService',
+      path: 'https://configuration-service-http.genesis.om2.com',
+      definition: {
+        serviceName: 'ConfigurationService',
+        methods: {
+          createRepository: { asyncModel: 'CreateRepositoryResponse' },
+          delete: { asyncModel: 'DeleteResponse' },
+          entries: { asyncModel: 'EntriesResponse' },
+          fetch: { asyncModel: 'FetchResponse' },
+          save: { asyncModel: 'SaveResponse' },
+        }
+      },
+      config: {
+        provider: 'http'
+      }
+    },
+  ],
+  components: {}
+};
+```
 
 ## Options
 
