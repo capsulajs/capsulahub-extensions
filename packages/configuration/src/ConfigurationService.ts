@@ -1,4 +1,3 @@
-import { Workspace } from '@capsulajs/capsulahub-core-workspace/src/api';
 import { ConfigurationService } from '@capsulajs/capsulajs-configuration-service/lib/api';
 import {
   ConfigurationServiceHardcoreRemote,
@@ -9,7 +8,8 @@ import {
 // @ts-ignore
 import { ConfigurationConfig } from './api';
 
-export default (workspace: Workspace, serviceConfig: ConfigurationConfig) => {
+// @ts-ignore
+export default (workspace, serviceConfig: ConfigurationConfig) => {
   return new Promise((resolve) => {
     const { token, provider, dispatcher } = serviceConfig;
 
@@ -17,6 +17,7 @@ export default (workspace: Workspace, serviceConfig: ConfigurationConfig) => {
 
     switch (provider) {
       case 'remote':
+        // @ts-ignore
         configurationService = new ConfigurationServiceHardcoreRemote(token, dispatcher);
         break;
       case 'local':
