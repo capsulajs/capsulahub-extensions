@@ -50,6 +50,7 @@ module.exports = {
 ## Options
 
 Use different configuration providers to manage your configurations over remote service, localStorage, file, etc.
+For RemoteProvider you should probide dispatcher as well.
 
 Possible providers [More](https://github.com/capsulajs/configuration-service/tree/develop/src/provider):
 
