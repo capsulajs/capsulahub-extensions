@@ -12,7 +12,7 @@ module.exports = {
   services: [
     {
       serviceName: 'configurationService',
-      path: 'https://github.com/capsulajs/capsulahub-extensions/pull/21',
+      path: 'https://configuration-service-http.genesis.om2.com',
       definition: {
         serviceName: 'ConfigurationService',
         methods: {
