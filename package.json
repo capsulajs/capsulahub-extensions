@@ -4,11 +4,12 @@
   "description": "Capsula JS - web components",
   "scripts": {
     "bootstrap": "lerna bootstrap --npm-client=yarn",
-    "build": "lerna run build",
+    "build": "lerna run build && node ./afterBuild.js",
     "start": "lerna run start",
     "lint": "lerna run lint",
     "test": "lerna run test --concurrency=1",
-    "storybook": "start-storybook -p 6006"
+    "storybook": "start-storybook -p 6006",
+    "clean": "lerna run clean && rimraf node_modules"
   },
   "private": true,
   "husky": {
@@ -40,12 +41,11 @@
     "lerna": "^3.13.2",
     "prettier": "^1.17.0",
     "pretty-quick": "^1.10.0",
-    "ts-loader": "^6.0.0"
-  },
-  "dependencies": {
     "remark-cli": "^6.0.1",
     "remark-lint": "^6.0.4",
     "remark-preset-lint-recommended": "^3.0.2",
-    "rimraf": "^2.6.3"
+    "rimraf": "^2.6.3",
+    "ts-loader": "^6.0.0",
+    "typescript": "^3.4.5"
   }
 }
