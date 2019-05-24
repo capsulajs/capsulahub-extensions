@@ -13,7 +13,7 @@ export class RequestForm extends HTMLElement {
 
   public connectedCallback() {
     const Component: React.JSXElementConstructor<any> = this.props$
-      ? dataComponentHoc(RequestFormUI, this.props$)
+      ? dataComponentHoc(RequestFormUI, this.props$ as any)
       : RequestFormUI;
     ReactDOM.render(<Component />, document.getElementById(mountPoint));
   }

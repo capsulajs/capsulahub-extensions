@@ -1,18 +1,8 @@
 {
+  "extends": "../../tsconfig",
   "compilerOptions": {
-    "target": "es5",
-    "module": "commonjs",
-    "lib": ["dom", "es2015", "es2017.object", "es5", "es6", "es2016"],
-    "declaration": true,
     "outDir": "./lib",
-    "strict": true,
-    "moduleResolution": "node",
-    "jsx": "react",
-    "types": ["node", "react", "react-dom"],
-    "baseUrl": "./src",
-    "esModuleInterop": true,
-    "noImplicitAny": false
+    "target": "es2015"
   },
-  "include": ["src/**/*"],
-  "exclude": ["node_modules", "**/*.spec.*"]
+  "include": ["./src/"]
 }
