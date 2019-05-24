@@ -16,8 +16,7 @@ export default (workspace: Workspace, serviceConfig: ConfigurationConfig) => {
 
     switch (provider) {
       case 'remote':
-        // @ts-ignore
-        configurationService = new ConfigurationServiceHardcoreRemote(token, dispatcher);
+        configurationService = new ConfigurationServiceHardcoreRemote(token, dispatcher!);
         break;
       case 'local':
         configurationService = new ConfigurationServiceLocalStorage(token);
