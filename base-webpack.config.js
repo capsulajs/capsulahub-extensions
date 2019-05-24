@@ -16,6 +16,25 @@ module.exports = {
           },
         },
       },
+      {
+        test: /\.(png|jpe?g|gif|svg|woff|woff2|ttf|eot|ico)$/,
+        loaders: 'file-loader',
+        options: {
+          name: '[name].[hash].[ext]',
+          outputPath: 'assets/',
+        },
+      },
+      {
+        test: /\.(css|less)$/,
+        use: [
+          {
+            loader: 'style-loader',
+          },
+          {
+            loader: 'css-loader',
+          },
+        ],
+      },
       { parser: { import: false } },
     ],
   },

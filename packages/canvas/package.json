@@ -12,10 +12,10 @@
   ],
   "license": "MIT",
   "scripts": {
-    "clean": "rimraf node_modules && rimraf .cache && rimraf lib && rimraf es",
-    "build": "rimraf .cache && npm-run-all build:cjs build:es",
-    "build:cjs": "rimraf lib && tsc --module commonjs --target es2015 --outDir lib",
-    "build:es": "rimraf es && tsc --module esnext --target es2015 --outDir es",
+    "build": "yarn build:lib && yarn build:dist",
+    "build:dist": "rimraf dist && webpack",
+    "build:lib": "rimraf lib && tsc",
+    "clean": "rimraf lib dist dist-example node_modules",
     "cypress": "rimraf .cache && cypress run",
     "start": "rimraf dist && parcel start src/example/index.html",
     "lint": "tslint -p tsconfig.json --fix",
@@ -24,28 +24,10 @@
   },
   "author": "Markets Pulse",
   "dependencies": {
-    "babel-polyfill": "^6.26.0",
-    "react": "^16.0.0",
-    "react-dom": "^16.8.6",
     "@capsulajs-web-components/utils": "^0.0.1",
     "@capsulajs/capsulahub-ui": "latest"
   },
   "devDependencies": {
-    "@storybook/react": "v4.0.0-alpha.3",
-    "@types/node": "^11.13.6",
-    "@types/react": "^16.8.14",
-    "@types/react-dom": "^16.8.4",
-    "babel-core": "^6.26.2",
-    "babel-loader": "^7.1.4",
-    "babel-preset-env": "^1.6.1",
-    "babel-preset-react": "^6.24.1",
-    "cypress": "^3.2.0",
-    "npm-run-all": "^4.1.5",
-    "parcel-bundler": "^1.12.3",
-    "rimraf": "^2.6.3",
-    "tslint": "^5.15.0",
-    "tslint-config-prettier": "^1.18.0",
-    "tslint-react": "^4.0.0",
-    "typescript": "^3.4.3"
+    "babel-core": "^6.26.3"
   }
 }
