@@ -1,7 +1,7 @@
 # Configuration service extension for CapsulaHub
 
 Service that you can use for managing different configurations across your projects.
-Configuration service gives you possibility to easily menage your configurations.
+Configuration service gives you possibility to easily manage your configurations.
 
 ## API
 
