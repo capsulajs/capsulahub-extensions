@@ -1,19 +1,8 @@
 {
+  "extends": "../tsconfig",
   "compilerOptions": {
-    "target": "es2015",
-    "module": "commonjs",
-    "lib": ["dom", "es2015"],
-    "declaration": true,
     "outDir": "./lib",
-    "moduleResolution": "node",
-    "baseUrl": "./src",
-    "esModuleInterop": true,
-    "jsx": "react",
-    "strict": true,
-    "noImplicitAny": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true
+    "target": "es2015"
   },
-  "include": ["src/**/*"],
-  "exclude": ["node_modules", "**/*.spec.*"]
+  "include": ["./src/"]
 }

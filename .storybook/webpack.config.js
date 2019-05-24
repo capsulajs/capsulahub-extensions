@@ -1,14 +1,8 @@
 const path = require('path');
-const include = path.resolve(__dirname, '../');
 
 module.exports = {
   module: {
     rules: [
-      {
-        test: /\.(js|jsx)$/,
-        exclude: /node_modules/,
-        loader: 'babel-loader',
-      },
       {
         test: /\.(ts|tsx)$/,
         exclude: /node_modules/,
@@ -24,7 +18,6 @@ module.exports = {
       },
       {
         test: /\.(css|less)$/,
-        include,
         use: [
           {
             loader: 'style-loader',

@@ -1,7 +1,13 @@
 import 'babel-polyfill';
-import { Canvas } from '../Canvas';
+import { Canvas } from '../src/Canvas';
 import { prepareWebComponent } from '@capsulajs-web-components/utils';
-import { props$ } from '../helpers/utils';
+import { props$ } from './utils';
+
+declare global {
+  interface Window {
+    mountWebComponent: () => void;
+  }
+}
 
 class CanvasWithData extends Canvas {
   public setProps() {
