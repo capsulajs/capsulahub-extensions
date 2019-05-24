@@ -4,8 +4,19 @@ import {
   ConfigurationServiceLocalStorage,
   ConfigurationServiceFile,
   ConfigurationServiceHttp,
+  messages,
 } from '@capsulajs/capsulajs-configuration-service/lib';
 import { AxiosDispatcher } from '@capsulajs/capsulajs-transport-providers';
+
+test('Test no token case', () => {
+  const mock = jest.fn();
+  // @ts-ignore
+  const workspace = { registerService: mock };
+  const config = {};
+  mock.mockResolvedValueOnce({});
+  // @ts-ignore
+  expect(bootstrap(workspace, config)).rejects.toEqual(new Error(messages.tokenNotProvided));
+});
 
 test('Test default configuration', async () => {
   const mock = jest.fn();
