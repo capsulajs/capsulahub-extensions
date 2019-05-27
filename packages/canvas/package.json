@@ -13,7 +13,7 @@
   "license": "MIT",
   "scripts": {
     "build": "yarn build:lib && yarn build:dist",
-    "build:dist": "rimraf dist && webpack",
+    "build:dist": "rimraf dist && PACKAGE_NAME=$(echo \"${PWD##*/}\") webpack",
     "build:lib": "rimraf lib && tsc",
     "clean": "rimraf lib dist dist-example node_modules",
     "cypress": "rimraf .cache && cypress run",
