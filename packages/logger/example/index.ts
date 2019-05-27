@@ -1,7 +1,7 @@
 import 'babel-polyfill';
-import { Logger } from '../Logger';
+import { Logger } from '../src/Logger';
 import { prepareWebComponent } from '@capsulajs-web-components/utils';
-import { props$ } from '../helpers/utils';
+import { props$ } from './utils';
 
 class LoggerWithData extends Logger {
   public setProps() {
@@ -22,6 +22,7 @@ const mountWebComponent = async () => {
   document.getElementById(name)!.appendChild(webComponent);
 };
 
+// @ts-ignore
 window.mountWebComponent = mountWebComponent;
 
 export { mountWebComponent };
