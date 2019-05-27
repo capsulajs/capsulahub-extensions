@@ -3,12 +3,6 @@ import { Canvas } from '../src/Canvas';
 import { prepareWebComponent } from '@capsulajs-web-components/utils';
 import { props$ } from './utils';
 
-declare global {
-  interface Window {
-    mountWebComponent: () => void;
-  }
-}
-
 class CanvasWithData extends Canvas {
   public setProps() {
     this.props$ = props$;
@@ -28,6 +22,7 @@ const mountWebComponent = async () => {
   document.getElementById(name)!.appendChild(webComponent);
 };
 
+// @ts-ignore
 window.mountWebComponent = mountWebComponent;
 
 export { mountWebComponent };

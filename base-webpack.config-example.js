@@ -1,11 +1,12 @@
 const path = require('path');
 const baseConfig = require('./base-webpack.config');
+const packagePath = path.resolve(__dirname, `packages/${process.env.PACKAGE_NAME}`);
 
 module.exports = {
   ...baseConfig,
-  entry: './example/index.ts',
+  entry: `${packagePath}/example/index.ts`,
   output: {
-    path: path.resolve(__dirname, 'example/dist'),
+    path: `${packagePath}/example/dist`,
     filename: 'index.js',
   },
   plugins: [],
