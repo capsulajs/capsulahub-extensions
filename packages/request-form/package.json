@@ -1,5 +1,5 @@
 {
-  "name": "@capsulajs-web-components/request-form",
+  "name": "@capsulajs/capsulahub-extension-request-form",
   "version": "0.0.1",
   "description": "CapsulaJS - Web components Request Form",
   "main": "lib/index.js",
@@ -24,7 +24,7 @@
   },
   "author": "Markets Pulse",
   "dependencies": {
-    "@capsulajs-web-components/utils": "0.0.1",
+    "@capsulajs/capsulahub-extension-utils": "0.0.1",
     "@capsulajs/capsulahub-ui": "latest",
     "rxjs": "^6.4.0"
   }

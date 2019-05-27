@@ -1,5 +1,5 @@
 {
-  "name": "@capsulajs-web-components/logger",
+  "name": "@capsulajs/capsulahub-extension-logger",
   "version": "0.0.1",
   "description": "CapsulaJS - Web components logger",
   "private": false,
@@ -26,7 +26,7 @@
   },
   "author": "Markets Pulse",
   "dependencies": {
-    "@capsulajs-web-components/utils": "^0.0.1",
+    "@capsulajs/capsulahub-extension-utils": "^0.0.1",
     "@capsulajs/capsulahub-ui": "latest"
   }
 }
