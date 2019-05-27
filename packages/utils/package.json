@@ -15,7 +15,8 @@
     "build": "yarn build:lib && yarn build:dist",
     "build:dist": "rimraf dist && webpack",
     "build:lib": "rimraf lib && tsc",
-    "clean": "rimraf lib dist dist-example node_modules",
+    "build-example": "exit",
+    "clean": "rimraf lib dist node_modules",
     "lint": "tslint -p tsconfig.json --fix",
     "prettier": "prettier --write '{src,tests}/**/*.{ts,tsx}'"
   },

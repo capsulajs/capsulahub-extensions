@@ -3,7 +3,7 @@ import * as ReactDOM from 'react-dom';
 import * as React from 'react';
 // @ts-ignore
 import { Canvas as CanvasUI } from '@capsulajs/capsulahub-ui';
-import { dataComponentHoc } from '@capsulajs-web-components/utils';
+import { dataComponentHoc } from '@capsulajs/capsulahub-extension-utils';
 import { CanvasUIProps } from './api';
 
 const mountPoint = 'web-canvas';

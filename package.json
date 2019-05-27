@@ -4,10 +4,11 @@
   "description": "Capsula JS - web components",
   "scripts": {
     "bootstrap": "lerna bootstrap --npm-client=yarn",
-    "build": "lerna run build && node ./afterBuild.js",
-    "start": "lerna run start",
-    "lint": "lerna run lint",
-    "test": "lerna run test --concurrency=1",
+    "build": "lerna run build && node ./afterBuild.js --stream",
+    "build-example": "lerna run build-example --stream",
+    "start": "lerna run start --stream",
+    "lint": "lerna run lint --stream",
+    "test": "lerna run test --concurrency=1 --stream",
     "storybook": "start-storybook -p 6006",
     "clean": "lerna run clean && rimraf node_modules"
   },

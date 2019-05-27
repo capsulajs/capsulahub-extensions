@@ -3,7 +3,7 @@ import * as ReactDOM from 'react-dom';
 import * as React from 'react';
 // @ts-ignore
 import { RequestForm as RequestFormUI } from '@capsulajs/capsulahub-ui';
-import { dataComponentHoc } from '@capsulajs-web-components/utils';
+import { dataComponentHoc } from '@capsulajs/capsulahub-extension-utils';
 import { RequestFormUIProps } from './api';
 
 const mountPoint = 'web-request-form';
