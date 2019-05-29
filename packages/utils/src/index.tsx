@@ -2,7 +2,7 @@ import * as React from 'react';
 import { Observable } from 'rxjs';
 import { PrepareWebComponentRequest, MountWebComponentRequest } from './types';
 
-export const dataComponentHoc = (Component: React.ReactType, data$: Observable<any>) => {
+export const dataComponentHoc = <Data extends any>(Component: React.ReactType, data$: Observable<Data>) => {
   return class HOC extends React.Component {
     public componentDidMount() {
       data$.subscribe((data) => {

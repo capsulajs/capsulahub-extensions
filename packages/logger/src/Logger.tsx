@@ -13,7 +13,7 @@ export class Logger extends HTMLElement {
 
   public connectedCallback() {
     const Component: React.JSXElementConstructor<any> = this.props$
-      ? dataComponentHoc(LoggerUI, this.props$ as any)
+      ? dataComponentHoc<LoggerUIProps>(LoggerUI, this.props$)
       : LoggerUI;
     ReactDOM.render(<Component />, document.getElementById(mountPoint));
   }
