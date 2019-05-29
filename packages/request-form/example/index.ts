@@ -1,8 +1,8 @@
 import 'babel-polyfill';
 import { BehaviorSubject } from 'rxjs';
-import { prepareWebComponent } from '@capsulajs-web-components/utils';
-import { RequestForm } from '../RequestForm';
-import { basicProps } from '../helpers/utils';
+import { prepareWebComponent } from '@capsulajs/capsulahub-extension-utils';
+import { RequestForm } from '../src/RequestForm';
+import { basicProps } from './utils';
 
 class RequestFormWithData extends RequestForm {
   public setProps() {
@@ -30,6 +30,7 @@ const mountWebComponent = async () => {
   document.getElementById(name)!.appendChild(webComponent);
 };
 
+// @ts-ignore
 window.mountWebComponent = mountWebComponent;
 
 export { mountWebComponent };

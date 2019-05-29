@@ -1,13 +1,10 @@
-import { BehaviorSubject } from 'rxjs';
 import { RequestForm } from './RequestForm';
 import * as api from './api';
-import { RequestFormUIProps } from './api';
 
-declare global {
-  interface Window {
-    requestFormPropsSubject?: BehaviorSubject<RequestFormUIProps>;
-    mountWebComponent: () => void;
-  }
+// @ts-ignore
+if (typeof publicExports !== 'undefined') {
+  // @ts-ignore
+  publicExports = RequestForm;
 }
 
 export default {

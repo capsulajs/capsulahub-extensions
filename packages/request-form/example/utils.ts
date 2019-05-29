@@ -1,5 +1,5 @@
-import { JavascriptLanguage } from '../api/Language';
-import { RequestFormUIProps, SubmittedData } from '../api';
+import { JavascriptLanguage } from '../src/api/Language';
+import { RequestFormUIProps, SubmittedData } from '../src/api/index';
 
 export const basicProps: RequestFormUIProps = {
   selectedMethodPath: 'SelectedService/SelectedMethod',

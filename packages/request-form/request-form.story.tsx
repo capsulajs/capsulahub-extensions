@@ -1,10 +1,10 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { mountWebComponent } from './src/example/index';
+import { mountWebComponent } from './example/index';
 
 export const styles = {
   width: 1000,
-  height: 500,
+  height: 565,
 };
 
 class Example extends React.Component {
@@ -13,8 +13,8 @@ class Example extends React.Component {
   }
 
   render() {
-    return <div id="web-logger" style={styles} />;
+    return <div id="web-request-form" style={styles} />;
   }
 }
 
-storiesOf('Logger', module).add('default', () => <Example />);
+storiesOf('RequestForm', module).add('default', () => <Example />);
