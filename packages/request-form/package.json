@@ -26,6 +26,6 @@
   "dependencies": {
     "@capsulajs/capsulahub-extension-utils": "^0.0.1",
     "@capsulajs/capsulahub-ui": "latest",
-    "rxjs": "^6.4.0"
+    "rxjs": "6.5.1"
   }
 }
