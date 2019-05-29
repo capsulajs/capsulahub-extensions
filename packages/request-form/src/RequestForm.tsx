@@ -12,8 +12,8 @@ export class RequestForm extends HTMLElement {
   public props$?: Observable<RequestFormUIProps>;
 
   public connectedCallback() {
-    const Component: React.JSXElementConstructor<any> = this.props$
-      ? dataComponentHoc(RequestFormUI, this.props$ as any)
+    const Component: React.JSXElementConstructor<RequestFormUIProps> = this.props$
+      ? dataComponentHoc<RequestFormUIProps>(RequestFormUI, this.props$)
       : RequestFormUI;
     ReactDOM.render(<Component />, document.getElementById(mountPoint));
   }

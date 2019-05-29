@@ -13,7 +13,7 @@ export class Canvas extends HTMLElement {
 
   public connectedCallback() {
     const Component: React.JSXElementConstructor<any> = this.props$
-      ? dataComponentHoc(CanvasUI, this.props$ as any)
+      ? dataComponentHoc<CanvasUIProps>(CanvasUI, this.props$)
       : CanvasUI;
     ReactDOM.render(<Component />, document.getElementById(mountPoint));
   }
