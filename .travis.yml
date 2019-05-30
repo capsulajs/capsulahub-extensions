@@ -1,4 +1,8 @@
 sudo: true
+cache:
+  yarn: true
+  directories:
+    - node_modules
 language: node_js
 node_js:
   - '10'
@@ -8,7 +12,7 @@ branches:
     - /.*/
 
 install:
-  - sudo apt update && sudo apt install libgconf2-4
+  - pip install --user awscli
   - yarn install --production=false
 
 before_script:
@@ -16,10 +20,29 @@ before_script:
   - yarn link
 
 script:
-  - yarn lint
   - yarn build
+  - yarn lint
   - yarn build-example
   - yarn test
+  #  - yarn doc
+  - 'if [ "$TRAVIS_BRANCH" != "develop" ]; then bash scripts/deploy.sh; fi'
+
+deploy:
+  - provider: script
+    skip_cleanup: true
+    script: bash scripts/deploy.sh
+    on:
+      repo: capsulajs/capsulahub-extensions
+      branch: develop
+  - provider: script
+    skip_cleanup: true
+    script: bash scripts/deploy.sh
+    on:
+      repo: capsulajs/capsulahub-extensions
+      branch: master
+
+after_deploy:
+  - git status
 
 notifications:
   email:
