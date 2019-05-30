@@ -19,11 +19,10 @@ define_path() {
         exit 1
     fi;
 
-    echo "/core/$SERVICE$SLUG"
+    echo "/extensions/$SERVICE$SLUG"
 }
 
 SERVICE_PATH=$(define_path)
-
 
 echo "current branch: $TRAVIS_BRANCH $TRAVIS_PULL_REQUEST_BRANCH is pull request: $TRAVIS_PULL_REQUEST"
 echo "S3 Path: $S3_PATH"
@@ -31,6 +30,8 @@ echo "travis event type: $TRAVIS_EVENT_TYPE"
 echo "S3 URL: $S3_URL"
 echo "Cloudfront URL: $CF_URL"
 echo "SERVICE_PATH: $SERVICE_PATH"
+
+[[ -z $SERVICE_PATH ]] && echo "Error: Empty SERVICE_PATH" && exit 1
 
 export PATH=$PATH:$HOME/.local/bin
 
