@@ -25,18 +25,18 @@ script:
   - yarn build-example
   - yarn test
   #  - yarn doc
-  - 'if [ "$TRAVIS_BRANCH" != "develop" ]; then bash scripts/deploy.sh; fi'
+  - 'if [ "$TRAVIS_BRANCH" != "develop" ]; then yarn deploy; fi'
 
 deploy:
   - provider: script
     skip_cleanup: true
-    script: bash scripts/deploy.sh
+    script: yarn deploy
     on:
       repo: capsulajs/capsulahub-extensions
       branch: develop
   - provider: script
     skip_cleanup: true
-    script: bash scripts/deploy.sh
+    script: yarn deploy
     on:
       repo: capsulajs/capsulahub-extensions
       branch: master
