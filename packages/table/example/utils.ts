@@ -1,8 +1,8 @@
-import { Observable, from } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { TableUIProps, Column } from '../src/api/index';
 import { Row } from './types';
 
-export const props$: Observable<TableUIProps<Row>> = from({
+export const props$: Observable<TableUIProps<Row>> = of({
   data: [
     {
       ColumnA: 'A',

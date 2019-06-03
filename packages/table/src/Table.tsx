@@ -6,7 +6,7 @@ import { Table as TableUI } from '@capsulajs/capsulahub-ui';
 import { dataComponentHoc } from '@capsulajs/capsulahub-extension-utils';
 import { TableUIProps } from './api';
 
-const mountPoint = 'web-canvas';
+const mountPoint = 'web-table';
 
 export class Table<Row> extends HTMLElement {
   public props$?: Observable<TableUIProps<Row>>;
