@@ -22,7 +22,9 @@ before_script:
 script:
   - yarn build
   #  - yarn doc
-  - 'if [ "$TRAVIS_BRANCH" != "develop" ]; then yarn deploy; fi'
+  - 'echo "Travis branch: $TRAVIS_BRANCH"'
+  - 'echo "Travis TRAVIS_PULL_REQUEST: $TRAVIS_PULL_REQUEST"'
+  - 'if [ "$TRAVIS_PULL_REQUEST" != "false" ]; then yarn deploy; fi'
 
 deploy:
   - provider: script
