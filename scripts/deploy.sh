@@ -8,15 +8,19 @@ define_path() {
 
     # PR
     if [[ ! "$TRAVIS_PULL_REQUEST" == "false" ]]; then
+        echo "define_path case 1"
         SLUG="/PR/$TRAVIS_PULL_REQUEST_BRANCH/"
     # master # develop
     elif [[ "$TRAVIS_BRANCH" == "develop" ]]; then
+        echo "define_path case 2"
         SLUG="/$TRAVIS_BRANCH/"
     elif [[ "$TRAVIS_BRANCH" == "master" ]]; then
+        echo "define_path case 3"
         SLUG="/rc/"
     fi;
 
     if [[ "$SLUG" == "/error/" ]]; then
+        echo "define_path case 4"
         exit 1
     fi;
 
