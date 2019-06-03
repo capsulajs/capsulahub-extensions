@@ -22,7 +22,7 @@
     "start-example": "yarn build-example && yarn start-example-server",
     "lint": "tslint -p tsconfig.json --fix",
     "prettier": "prettier --write '{src,tests}/**/*.{ts,tsx}'",
-    "test": "npm-run-all -p -r start-example-server cypress",
+    "test:skip": "npm-run-all -p -r start-example-server cypress",
     "deploy": "SERVICE=$(echo $npm_package_name | cut -d '/' -f 2) && ../../scripts/deploy.sh $SERVICE"
   },
   "author": "Markets Pulse",

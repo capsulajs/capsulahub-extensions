@@ -4,4 +4,4 @@ dist
 lib
 yarn-error.log
 screenshots
-.idea
+.idea/
