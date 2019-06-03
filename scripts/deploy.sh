@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 S3_PATH="s3://$S3_BUCKET"
 SERVICE=$1
+SERVICE_PATH_TEST=""
 
 define_path() {
     SLUG="/error/"
@@ -19,8 +20,10 @@ define_path() {
         exit 1
     fi;
 
-    echo "/extensions/$SERVICE$SLUG"
+    SERVICE_PATH_TEST="/extensions/$SERVICE$SLUG"
 }
+
+define_path
 
 SERVICE_PATH="/PR/enable-ci-cd/packages/$SERVICE/"
 
