@@ -3,12 +3,14 @@ S3_PATH="s3://$S3_BUCKET"
 SERVICE=$1
 
 # PR
-SLUG="/PR/$TRAVIS_PULL_REQUEST_BRANCH/"
+if [[ "$TRAVIS_PULL_REQUEST" != "false" ]]; then
+    SLUG="/PR/$TRAVIS_PULL_REQUEST_BRANCH"
+fi;
 # master # develop
 if [[ "$TRAVIS_BRANCH" == "develop" ]]; then
-    SLUG="/$TRAVIS_BRANCH/"
+    SLUG="/$TRAVIS_BRANCH"
 elif [[ "$TRAVIS_BRANCH" == "master" ]]; then
-    SLUG="/rc/"
+    SLUG="/rc"
 fi;
 
 SERVICE_PATH="$SLUG/extensions/$SERVICE"
