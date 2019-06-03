@@ -21,9 +21,6 @@ before_script:
 
 script:
   - yarn build
-  - yarn lint
-  - yarn build-example
-  - yarn test
   #  - yarn doc
   - 'if [ "$TRAVIS_BRANCH" != "develop" ]; then yarn deploy; fi'
 
