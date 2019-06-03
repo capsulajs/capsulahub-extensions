@@ -3,18 +3,24 @@ SERVICE=$1
 URL=$2
 COMMENTS_URL="https://api.github.com/repos/$TRAVIS_REPO_SLUG/issues/$TRAVIS_PULL_REQUEST/comments"
 
-link="[**S3**](${URL})"
+link="[**S3**](${URL}index.js)"
 
+commentAlreadyExists() {
+    comments=$(curl -s -u "$GH_USER:$GH_ACCESS_TOKEN" "$COMMENTS_URL" | jq -r '.[].body')
+    echo "comments --> $comments"
+    [[ -z "$comments" ]] && echo "no comments" && return 1
+    [[ "$comments" == *"$1"* ]]
+    return $?
+}
 
 comment(){
+    COMMENT_TEXT="**Travis-CI** just deployed $SERVICE on $link"
+    echo "$COMMENT_TEXT"
 
-    COMMENT_TEXT="**Travis-CI**<table><TR><TD>![image](https://user-images.githubusercontent.com/1706296/28703438-ba525cc8-736c-11e7-918e-ec980b1a1e4f.png)<br />Team Reactive</TD><TD><h2>$SERVICE</h2><br />[bundle size report](${URL}report.html)<br />$link</TD></TR></TABLE>"
-
-    echo $COMMENT_TEXT
-    curl -d '{"body":"'"$COMMENT_TEXT"'"}' -u "$GH_USER:$GT_ACCESS_TOKEN" -X POST https://api.github.com/repos/$TRAVIS_REPO_SLUG/issues/$TRAVIS_PULL_REQUEST/comments
+    # Post comment about service if it's not posted yet
+    commentAlreadyExists "$COMMENT_TEXT" && echo "Comment already posted" || \
+    curl -d '{"body":"'"$COMMENT_TEXT"'"}' -u "$GH_USER:$GH_ACCESS_TOKEN" -X POST "$COMMENTS_URL"
     echo "done."
 }
 
-if [ ! -z "$link" ]; then
-    comment
-fi;
+comment
