@@ -34,7 +34,7 @@ echo "application was uploaded to s3 url: $CF_URL$SERVICE_PATH"
 
 if [ ! "$TRAVIS_PULL_REQUEST" == "false" ]; then
     # add comment on github pull request.
-    source ./gh.sh $SERVICE $FINAL_URL
+    source ../../scripts/gh.sh $SERVICE $FINAL_URL
     echo "comment sent to GH pull request: $TRAVIS_BRANCH $TRAVIS_PULL_REQUEST_BRANCH PR $TRAVIS_PULL_REQUEST"
 else
     echo "comment was skipped not a pull request or comment already created."
