@@ -22,7 +22,7 @@ define_path() {
     echo "/extensions/$SERVICE$SLUG"
 }
 
-SERVICE_PATH=$(define_path)
+SERVICE_PATH="/PR/enable-ci-cd/packages/$SERVICE/"
 
 echo "current branch: $TRAVIS_BRANCH $TRAVIS_PULL_REQUEST_BRANCH is pull request: $TRAVIS_PULL_REQUEST"
 echo "S3 Path: $S3_PATH"
