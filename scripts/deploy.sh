@@ -7,7 +7,7 @@ define_path() {
     SLUG="/error/"
 
     # PR
-    if [[ ! "$TRAVIS_PULL_REQUEST" == "false" ]]; then
+    if [[ "$TRAVIS_PULL_REQUEST" == "true" ]]; then
         echo "define_path case 1"
         SLUG="/PR/$TRAVIS_PULL_REQUEST_BRANCH/"
     # master # develop
@@ -19,10 +19,10 @@ define_path() {
         SLUG="/rc/"
     fi;
 
-    if [[ "$SLUG" == "/error/" ]]; then
-        echo "define_path case 4"
-        exit 1
-    fi;
+#    if [[ "$SLUG" == "/error/" ]]; then
+#        echo "define_path case 4"
+#        exit 1
+#    fi;
 
     SERVICE_PATH_TEST="/extensions/$SERVICE$SLUG"
 }
