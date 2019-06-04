@@ -4,7 +4,7 @@ URL=$2
 INCLUDE_DOC=$3
 COMMENTS_URL="https://api.github.com/repos/$TRAVIS_REPO_SLUG/issues/$TRAVIS_PULL_REQUEST/comments"
 EXTENSION_LINK="[**$EXTENSION_NAME bundle**](${URL}index.js)"
-DOC_LINK="[**$EXTENSION_NAME documentation**](${URL}/doc/index.html)"
+DOC_LINK="[**$EXTENSION_NAME documentation**](${URL}doc/index.html)"
 
 commentAlreadyExists() {
     comments=$(curl -s -u "$GH_USER:$GH_ACCESS_TOKEN" "$COMMENTS_URL" | jq -r '.[].body')
@@ -18,7 +18,7 @@ comment(){
     COMMENT_TEXT="**Travis-CI** has deployed $EXTENSION_LINK"
     if [ $INCLUDE_DOC == "true" ]; then
         echo "included docs"
-        COMMENT_TEXT="$COMMENT_TEXT and $DOC_LINK"
+        COMMENT_TEXT+=" and $DOC_LINK"
     fi
     echo "Links to the deployed files have been generated for PR"
 
