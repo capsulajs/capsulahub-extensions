@@ -14,6 +14,8 @@ fi;
 
 SERVICE_PATH="$SLUG/$SERVICE/"
 FINAL_URL="$CF_BASE_URL$SERVICE_PATH"
+DOC_PATH=$S3_PATH${SERVICE_PATH}doc
+DOCUMENTATION_INCLUDED="false"
 
 echo "current branch: $TRAVIS_BRANCH $TRAVIS_PULL_REQUEST_BRANCH is pull request: $TRAVIS_PULL_REQUEST"
 echo "S3 Path: $S3_PATH"
@@ -28,13 +30,20 @@ export PATH=$PATH:$HOME/.local/bin
 # upload to s3
 aws s3 rm $S3_PATH/$SERVICE_PATH --recursive --region $S3_REGION
 aws s3 cp dist $S3_PATH$SERVICE_PATH --recursive
+if find $DOC_PATH -mindepth 1 -print -quit 2>/dev/null | grep -q .; then
+    aws s3 cp dist $DOC_PATH --recursive
+    DOCUMENTATION_INCLUDED="true"
+else
+    echo "$SERVICE_PATH does not have documentation"
+fi
+
 aws s3 cp doc $S3_PATH${SERVICE_PATH}doc --recursive
 
 echo "application was uploaded to s3 url: $CF_URL$SERVICE_PATH"
 
 if [ ! "$TRAVIS_PULL_REQUEST" == "false" ]; then
     # add comment on github pull request.
-    source ../../scripts/gh.sh $SERVICE $FINAL_URL
+    source ../../scripts/gh.sh $SERVICE $FINAL_URL $DOCUMENTATION_INCLUDED
     echo "comment sent to GH pull request: $TRAVIS_BRANCH $TRAVIS_PULL_REQUEST_BRANCH PR $TRAVIS_PULL_REQUEST"
 else
     echo "comment was skipped not a pull request or comment already created."

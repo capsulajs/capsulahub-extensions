@@ -22,9 +22,6 @@ before_script:
 
 script:
   - yarn build
-  - yarn build-example
-  - yarn run lint
-  - yarn run test
   - yarn doc
   - 'if [ "$TRAVIS_PULL_REQUEST" != "false" ]; then yarn deploy; fi'
 
