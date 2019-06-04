@@ -14,7 +14,8 @@ fi;
 
 SERVICE_PATH="$SLUG/$SERVICE/"
 FINAL_URL="$CF_BASE_URL$SERVICE_PATH"
-DOC_PATH=$S3_PATH${SERVICE_PATH}doc
+DOC_PATH="$S3_PATH$SERVICE_PATH"
+DOC_PATH+="doc"
 DOCUMENTATION_INCLUDED="false"
 
 echo "current branch: $TRAVIS_BRANCH $TRAVIS_PULL_REQUEST_BRANCH is pull request: $TRAVIS_PULL_REQUEST"
@@ -30,18 +31,15 @@ export PATH=$PATH:$HOME/.local/bin
 # upload to s3
 aws s3 rm $S3_PATH/$SERVICE_PATH --recursive --region $S3_REGION
 aws s3 cp dist $S3_PATH$SERVICE_PATH --recursive
-if find $DOC_PATH -mindepth 1 -print -quit 2>/dev/null | grep -q .; then
-    aws s3 cp dist $DOC_PATH --recursive
+if [ -d $DOC_PATH ]; then
+    aws s3 cp doc $DOC_PATH --recursive
+    echo "DOCUMENTATION_INCLUDED in deploy: $DOCUMENTATION_INCLUDED"
     DOCUMENTATION_INCLUDED="true"
 else
     echo "$SERVICE_PATH does not have documentation"
 fi
 
-aws s3 cp doc $S3_PATH${SERVICE_PATH}doc --recursive
-
 echo "application was uploaded to s3 url: $CF_URL$SERVICE_PATH"
-
-echo "DOCUMENTATION_INCLUDED in deploy: $DOCUMENTATION_INCLUDED"
 
 
 if [ ! "$TRAVIS_PULL_REQUEST" == "false" ]; then

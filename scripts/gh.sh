@@ -16,7 +16,7 @@ commentAlreadyExists() {
 }
 
 comment(){
-    COMMENT_TEXT="**Travis-CI** just deployed $EXTENSION_LINK"
+    COMMENT_TEXT="**Travis-CI** has deployed $EXTENSION_LINK"
     if [ $DOCUMENTATION_INCLUDED != "false" ]; then
         echo "included docs"
         COMMENT_TEXT="$COMMENT_TEXT and $DOC_LINK"
