@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 S3_PATH="s3://$S3_BUCKET"
 SERVICE=$1
+INCLUDE_DOC=$2
 
 # PR
 if [[ "$TRAVIS_PULL_REQUEST" != "false" ]]; then
@@ -13,10 +14,10 @@ elif [[ "$TRAVIS_BRANCH" == "master" ]]; then
 fi;
 
 SERVICE_PATH="$SLUG/$SERVICE/"
+SERVICE_FULL_PATH="$S3_PATH$SERVICE_PATH"
 FINAL_URL="$CF_BASE_URL$SERVICE_PATH"
-DOC_PATH="$S3_PATH$SERVICE_PATH"
+DOC_PATH="$SERVICE_FULL_PATH"
 DOC_PATH+="doc"
-DOCUMENTATION_INCLUDED="false"
 
 echo "current branch: $TRAVIS_BRANCH $TRAVIS_PULL_REQUEST_BRANCH is pull request: $TRAVIS_PULL_REQUEST"
 echo "S3 Path: $S3_PATH"
@@ -30,21 +31,15 @@ export PATH=$PATH:$HOME/.local/bin
 
 # upload to s3
 aws s3 rm $S3_PATH/$SERVICE_PATH --recursive --region $S3_REGION
-aws s3 cp dist $S3_PATH$SERVICE_PATH --recursive
-if [ -d $DOC_PATH ]; then
-    aws s3 cp doc $DOC_PATH --recursive
-    echo "DOCUMENTATION_INCLUDED in deploy: $DOCUMENTATION_INCLUDED"
-    DOCUMENTATION_INCLUDED="true"
-else
-    echo "$SERVICE_PATH does not have documentation"
-fi
+aws s3 cp dist $SERVICE_FULL_PATH --recursive
+[[ $INCLUDE_DOC == "true" ]] && aws s3 cp doc $DOC_PATH --recursive
 
-echo "application was uploaded to s3 url: $CF_URL$SERVICE_PATH"
+echo "application was uploaded to s3 url: $SERVICE_FULL_PATH"
 
 
 if [ ! "$TRAVIS_PULL_REQUEST" == "false" ]; then
     # add comment on github pull request.
-    source ../../scripts/gh.sh $SERVICE $FINAL_URL $DOCUMENTATION_INCLUDED
+    source ../../scripts/gh.sh $SERVICE $FINAL_URL $INCLUDE_DOC
     echo "comment sent to GH pull request: $TRAVIS_BRANCH $TRAVIS_PULL_REQUEST_BRANCH PR $TRAVIS_PULL_REQUEST"
 else
     echo "comment was skipped not a pull request or comment already created."
