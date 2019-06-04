@@ -347,7 +347,7 @@ describe('Request Form TCs', () => {
       .should('not.exist');
   });
 
-  it('If content prop is changed, the form is updated correctly', () => {
+  it.only('If content prop is changed, the form is updated correctly', () => {
     const onSubmitSpy = cy.spy();
     const requestFormPropsSubject = new BehaviorSubject({ ...basicProps, onSubmit: onSubmitSpy });
     cy.visit('/', {
