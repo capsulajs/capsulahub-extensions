@@ -6,6 +6,7 @@
     "bootstrap": "lerna bootstrap --npm-client=yarn",
     "build": "lerna run build && node ./afterBuild.js --stream",
     "build-example": "lerna run build-example --stream",
+    "doc": "lerna run doc --stream",
     "start": "lerna run start --stream",
     "lint": "lerna run lint --stream",
     "test": "lerna run test --concurrency=1 --stream",
