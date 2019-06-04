@@ -22,6 +22,7 @@ export const props$: Observable<TableUIProps<Row>> = of({
     {
       Header: 'Column C',
       accessor: 'ColumnC',
+      Cell: (row) => row.value,
     },
   ] as Column[],
 });
