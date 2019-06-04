@@ -12,8 +12,8 @@ elif [[ "$TRAVIS_BRANCH" == "master" ]]; then
     SLUG="/rc"
 fi;
 
-SERVICE_PATH="$SLUG/$SERVICE"
-FINAL_URL="$CF_BASE_URL$SERVICE_PATH/index.js"
+SERVICE_PATH="$SLUG/$SERVICE/"
+FINAL_URL="$CF_BASE_URL$SERVICE_PATH"
 
 echo "current branch: $TRAVIS_BRANCH $TRAVIS_PULL_REQUEST_BRANCH is pull request: $TRAVIS_PULL_REQUEST"
 echo "S3 Path: $S3_PATH"
