@@ -86,16 +86,9 @@ describe('Request Form TCs', () => {
           .typeInEditor(data.content)
           .submitRequest()
           .then(() => {
-            // console.log('data', data);
-            // console.log('index', index);
-            console.log('onSubmitSpy.args', onSubmitSpy.args);
-
             if (!data.expectedResultAfterInvoke) {
               expect(onSubmitSpy).calledWithExactly({ language: 'javascript', requestArgs: data.requestArgs });
             } else {
-              console.log('data', data);
-              console.log('index', index);
-
               const argsCalled = onSubmitSpy.args[index];
               expect(argsCalled.length).to.equal(1);
               expect(Object.keys(argsCalled[0]).length).to.equal(2);
@@ -177,11 +170,7 @@ describe('Request Form TCs', () => {
         .each((input) => {
           cy.wait(500)
             .typeInEditor(input, 0, 'disabled')
-            .submitRequest({ onSubmitSpy, callCount: 0 })
-            .then(() => console.log('in each'));
-        })
-        .then(() => {
-          console.log('after each');
+            .submitRequest({ onSubmitSpy, callCount: 0 });
         })
         .changeArgsAmount(2)
         .typeInEditor('return "test"', 1, 'disabled')
