@@ -22,6 +22,7 @@ before_script:
 
 script:
   - yarn build
+  - yarn build-example
   - yarn run lint
   - yarn run test
   - yarn doc
