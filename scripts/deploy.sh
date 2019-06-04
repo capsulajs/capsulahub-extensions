@@ -41,6 +41,9 @@ aws s3 cp doc $S3_PATH${SERVICE_PATH}doc --recursive
 
 echo "application was uploaded to s3 url: $CF_URL$SERVICE_PATH"
 
+echo "DOCUMENTATION_INCLUDED in deploy: $DOCUMENTATION_INCLUDED"
+
+
 if [ ! "$TRAVIS_PULL_REQUEST" == "false" ]; then
     # add comment on github pull request.
     source ../../scripts/gh.sh $SERVICE $FINAL_URL $DOCUMENTATION_INCLUDED
