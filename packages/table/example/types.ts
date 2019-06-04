@@ -1,5 +1,5 @@
 export interface Row {
-  ColumnA: string;
-  ColumnB: string;
-  ColumnC: string;
+  columnA: string;
+  columnB: string;
+  columnC: string;
 }
