@@ -44,4 +44,14 @@ describe('Table TCs', () => {
       });
     });
   });
+
+  it('Count of rows per page is according to defaultPageSize', () => {
+    cy.fixture('table.js').then(({ columns, rows }) => {
+      return cy.visit('/').then(() => {
+        cy.get('.rt-tbody')
+          .find('.rt-tr-group')
+          .should('have.length', 10);
+      });
+    });
+  });
 });
