@@ -21,12 +21,12 @@ before_script:
   - yarn link
 
 script:
-  - yarn build
-  - yarn build-example
   - yarn lint
-  - yarn test
+  - yarn build
   - yarn doc
   - 'if [ "$TRAVIS_PULL_REQUEST" != "false" ]; then yarn deploy; fi'
+  - yarn build-example
+  - yarn test
 
 deploy:
   - provider: script
