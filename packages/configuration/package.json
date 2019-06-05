@@ -18,7 +18,8 @@
     "lint": "yarn lint:md && yarn lint:ts",
     "lint:md": "remark . --rc-path ../../.remarkrc --output",
     "lint:ts": "tslint '{src,tests}/**/*.{ts,tsx}' --fix",
-    "prettier": "prettier --write '{src,tests}/**/*.{ts,tsx}'"
+    "prettier": "prettier --write '{src,tests}/**/*.{ts,tsx}'",
+    "deploy": "SERVICE=$(echo $npm_package_name | cut -d '/' -f 2) && ../../scripts/deploy.sh $SERVICE 'true'"
   },
   "dependencies": {
     "@capsulajs/capsulahub-core-workspace": "^0.0.1-alpha-1",

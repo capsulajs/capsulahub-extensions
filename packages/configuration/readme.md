@@ -6,9 +6,13 @@ Configuration service gives you possibility to easily manage your configurations
 ## API
 
 - [createRepository()](#createRepository--api)
+
 - [delete()](#delete--api)
+
 - [entries()](#entries-api)
+
 - [fetch()](#fetch--api)
+
 - [save()](#save--api)
 
 - [More](https://github.com/capsulajs/configuration-service/blob/develop/src/api/ConfigurationServiceTypes.ts)
