@@ -12,6 +12,7 @@ export const props$: Observable<TableUIProps<Row>> = of({
     {
       Header: 'Column A',
       accessor: 'columnA',
+      filterable: true,
     },
     {
       Header: 'Column B',
