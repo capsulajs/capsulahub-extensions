@@ -4,9 +4,9 @@ const packagePath = path.resolve(__dirname, `packages/${process.env.PACKAGE_NAME
 
 module.exports = {
   ...baseConfig,
-  entry: `${packagePath}/example/index.ts`,
+  entry: `${packagePath}/public/index.ts`,
   output: {
-    path: `${packagePath}/example/dist`,
+    path: `${packagePath}/public/dist`,
     filename: 'index.js',
   },
   plugins: [],
