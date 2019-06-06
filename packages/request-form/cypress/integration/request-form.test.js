@@ -17,6 +17,10 @@ const basicProps = {
 };
 
 describe('Request Form TCs', () => {
+  Cypress.on('uncaught:exception', (err) => {
+    return false;
+  });
+
   it('Check the code pattern to be displayed for javascript language (with different number of arguments)', () => {
     cy.visit('/')
       .checkEditorsAmount(1)

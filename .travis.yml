@@ -3,12 +3,17 @@ language: node_js
 node_js:
   - '10'
 
+addons:
+  apt:
+    packages:
+      - libgconf-2-4
+
 branches:
   only:
     - /.*/
 
 install:
-  - sudo apt update && sudo apt install libgconf2-4
+  - pip install --user awscli
   - yarn install --production=false
 
 before_script:
@@ -18,8 +23,27 @@ before_script:
 script:
   - yarn lint
   - yarn build
+  - yarn doc
+  - 'if [ "$TRAVIS_PULL_REQUEST" != "false" ]; then yarn deploy; fi'
   - yarn build-example
   - yarn test
+
+deploy:
+  - provider: script
+    skip_cleanup: true
+    script: yarn deploy
+    on:
+      repo: capsulajs/capsulahub-extensions
+      branch: develop
+  - provider: script
+    skip_cleanup: true
+    script: yarn deploy
+    on:
+      repo: capsulajs/capsulahub-extensions
+      branch: master
+
+after_deploy:
+  - git status
 
 notifications:
   email:

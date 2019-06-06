@@ -1,6 +1,6 @@
 import { Observable, BehaviorSubject } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { Layout, CanvasUIProps } from '../src/api';
+import { Layout, CanvasUIProps } from '../api';
 import defaultLayout from './layout';
 
 const subject = new BehaviorSubject(defaultLayout);
