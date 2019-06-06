@@ -13,11 +13,11 @@
   "license": "MIT",
   "scripts": {
     "build": "yarn build:lib && yarn build:dist",
-    "build:dist": "rimraf dist && cross-env PACKAGE_NAME=logger webpack",
+    "build:dist": "rimraf dist && webpack",
     "build:lib": "rimraf lib && tsc",
     "clean": "rimraf lib dist dist-example node_modules",
     "start-example-server": "http-server --p 1234 --cors",
-    "build-example": "rimraf public/dist && cross-env PACKAGE_NAME=logger webpack --config webpack.config-example.js",
+    "build-example": "rimraf public/dist && webpack --config webpack.config-example.js",
     "start-example": "yarn build-example && yarn start-example-server",
     "lint": "tslint -p tsconfig.json --fix",
     "prettier": "prettier --write '{src,tests}/**/*.{ts,tsx}'",

@@ -9,7 +9,7 @@
   "private": false,
   "scripts": {
     "build": "yarn build:lib && yarn build:dist",
-    "build:dist": "rimraf dist && cross-env PACKAGE_NAME=configuration webpack",
+    "build:dist": "rimraf dist && webpack",
     "build:lib": "rimraf lib && tsc",
     "build-example": "exit",
     "clean": "rimraf lib dist node_modules",

@@ -10,11 +10,11 @@
   "license": "MIT",
   "scripts": {
     "build": "yarn build:lib && yarn build:dist",
-    "build:dist": "rimraf dist && cross-env PACKAGE_NAME='request-form' webpack",
+    "build:dist": "rimraf dist && webpack",
     "build:lib": "rimraf lib && tsc",
     "clean": "rimraf lib dist dist-example node_modules",
     "start-example-server": "http-server --p 1234 --cors",
-    "build-example": "rimraf public/dist && cross-env PACKAGE_NAME='request-form' webpack --config webpack.config-example.js",
+    "build-example": "rimraf public/dist && webpack --config webpack.config-example.js",
     "start-example": "yarn build-example && yarn start-example-server",
     "cypress:run": "cypress run --browser chrome",
     "cypress:debug": "cypress open",
