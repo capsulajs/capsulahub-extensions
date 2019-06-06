@@ -1,7 +1,7 @@
 import { Table } from './Table';
-import * as api from './api';
+import * as API from './api';
 
 export default {
   Table,
-  api,
+  API,
 };
