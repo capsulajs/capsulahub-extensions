@@ -13,7 +13,7 @@ module.exports = () => {
     },
     devServer: {
       contentBase: `${packagePath}/public`,
-      compress: true,
+      compress: false,
       port: 1234,
     },
     plugins: [
