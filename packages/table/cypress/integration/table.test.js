@@ -3,12 +3,26 @@ const { cy, describe, it } = global;
 describe('Table TCs', () => {
   it('Table columns and data is rendered according to configuration', () => {
     cy.fixture('table.js').then(({ columns, rows }) => {
-      return cy.visit('/').then(() => {
-        columns.forEach(({ Header, accessor }) => {
-          cy.contains(Header);
-          rows.forEach((row, i) => i < 10 && cy.contains(row[accessor]));
+      return cy
+        .visit('/')
+        .then(() => {
+          columns.forEach(({ Header, accessor }) => {
+            cy.contains(Header);
+            rows.forEach((row, i) => i < 10 && cy.contains(row[accessor]));
+          });
+        })
+        .window()
+        .then((win) => {
+          win.tablePropsSubject.next([
+            {
+              columnA: 'NEW A',
+              columnB: 'NEW B',
+              columnC: 'NEW C',
+            },
+          ]);
+
+          return cy.tableShouldContainCells('NEW A', 'NEW B', 'NEW C').tableShouldNotContainCells('A0', 'B0', 'C0');
         });
-      });
     });
   });
 

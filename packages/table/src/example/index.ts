@@ -1,10 +1,17 @@
 import { Table } from '../Table';
 import { prepareWebComponent } from '@capsulajs/capsulahub-extension-utils';
-import { props$ } from './utils';
+import { props$, tablePropsSubject } from './utils';
 import { Row } from './types';
 
 class TableWithData extends Table<Row> {
   public setProps() {
+    // In tests env tablePropsSubject is set before loading the page
+    // @ts-ignore
+    if (!window.tablePropsSubject) {
+      // @ts-ignore
+      window.tablePropsSubject = tablePropsSubject;
+    }
+    // @ts-ignore
     this.props$ = props$;
   }
 }
