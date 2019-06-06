@@ -1,4 +1,3 @@
-import 'babel-polyfill';
 import { BehaviorSubject } from 'rxjs';
 import { prepareWebComponent } from '@capsulajs/capsulahub-extension-utils';
 import { RequestForm } from '../RequestForm';
