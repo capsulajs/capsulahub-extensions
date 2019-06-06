@@ -1,4 +1,4 @@
-import { grapAllNodes } from './utils';
+import { grapAllNodes } from '../support/utils';
 
 const { cy, describe, it } = global;
 

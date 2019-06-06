@@ -1,9 +1,8 @@
-import 'babel-polyfill';
-import { Logger } from '../src/Logger';
+import { Canvas } from '../Canvas';
 import { prepareWebComponent } from '@capsulajs/capsulahub-extension-utils';
 import { props$ } from './utils';
 
-class LoggerWithData extends Logger {
+class CanvasWithData extends Canvas {
   public setProps() {
     this.props$ = props$;
   }
@@ -11,10 +10,10 @@ class LoggerWithData extends Logger {
 
 let webComponent: HTMLElement;
 
-const name = 'web-logger';
-const path = 'http://cdn.components/Logger.tsx';
+const name = 'web-canvas';
+const path = 'http://cdn.components/Canvas.tsx';
 const componentModules = {
-  [path]: LoggerWithData,
+  [path]: CanvasWithData,
 };
 
 const mountWebComponent = async () => {
