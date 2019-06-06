@@ -2,6 +2,15 @@ import * as React from 'react';
 import { Observable } from 'rxjs';
 import { PrepareWebComponentRequest, MountWebComponentRequest } from './types';
 
+export const guid = (n = 3) => {
+  const possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+  let text = '';
+  for (let i = 0; i < n; i++) {
+    text += possible.charAt(Math.floor(Math.random() * possible.length));
+  }
+  return text;
+};
+
 export const dataComponentHoc = <Data extends {}>(Component: React.ReactType, data$: Observable<Data>) => {
   return class HOC extends React.Component {
     public componentDidMount() {

@@ -1,7 +1,7 @@
 {
-  "name": "@capsulajs/capsulahub-extension-logger",
+  "name": "@capsulajs/capsulahub-extension-table",
   "version": "0.0.1",
-  "description": "CapsulaJS - Web components logger",
+  "description": "CapsulaJS - Web components table",
   "private": false,
   "main": "lib/index.js",
   "module": "lib/index.js",
