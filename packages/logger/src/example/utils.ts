@@ -1,6 +1,6 @@
 import { Observable, of, timer, merge } from 'rxjs';
 import { delayWhen } from 'rxjs/operators';
-import LoggerUIProps from '../src/api/LoggerUIProps';
+import LoggerUIProps from '../api/LoggerUIProps';
 import logs from './logs';
 
 export const props$: Observable<LoggerUIProps> = of({

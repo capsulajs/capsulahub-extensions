@@ -9,7 +9,7 @@
   "private": false,
   "scripts": {
     "build": "yarn build:lib && yarn build:dist",
-    "build:dist": "rimraf dist && PACKAGE_NAME=$(echo \"${PWD##*/}\") webpack",
+    "build:dist": "rimraf dist && webpack",
     "build:lib": "rimraf lib && tsc",
     "build-example": "exit",
     "clean": "rimraf lib dist node_modules",

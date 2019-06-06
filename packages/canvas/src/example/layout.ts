@@ -1,4 +1,4 @@
-import Layout from '../src/api/Layout';
+import Layout from '../api/Layout';
 
 export default {
   id: 'root',

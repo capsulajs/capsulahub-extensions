@@ -1,5 +1,5 @@
 module.exports = {
-  setupFiles: ['<rootDir>packages/setupTests.ts'],
+  setupFiles: ['<rootDir>/setupTests.ts'],
   transform: {
     '\\.(ts|tsx)$': 'ts-jest',
   },

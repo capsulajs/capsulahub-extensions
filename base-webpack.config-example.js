@@ -1,13 +1,25 @@
-const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const baseConfig = require('./base-webpack.config');
-const packagePath = path.resolve(__dirname, `packages/${process.env.PACKAGE_NAME}`);
 
-module.exports = {
-  ...baseConfig,
-  entry: `${packagePath}/example/index.ts`,
-  output: {
-    path: `${packagePath}/example/dist`,
-    filename: 'index.js',
-  },
-  plugins: [],
+module.exports = () => {
+  const packagePath = process.cwd();
+  return {
+    ...baseConfig(),
+    mode: 'development',
+    entry: `${packagePath}/src/example/index.ts`,
+    output: {
+      path: `${packagePath}/public`,
+      filename: 'index.js',
+    },
+    devServer: {
+      contentBase: `${packagePath}/public`,
+      compress: false,
+      port: 1234,
+    },
+    plugins: [
+      new HtmlWebpackPlugin({
+        template: 'src/example/index.html',
+      }),
+    ],
+  };
 };
