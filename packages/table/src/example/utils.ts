@@ -1,5 +1,5 @@
 import { Observable, of } from 'rxjs';
-import { TableUIProps, Column } from '../src/api/index';
+import { TableUIProps, Column } from '../api/index';
 import { Row } from './types';
 
 export const props$: Observable<TableUIProps<Row>> = of({

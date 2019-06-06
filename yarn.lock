@@ -1020,10 +1020,10 @@
     "@scalecube/scalecube-microservice" "0.1.3-alpha.10"
     uuid "^3.3.2"
 
-"@capsulajs/capsulahub-ui@latest":
-  version "0.6.2"
-  resolved "https://registry.yarnpkg.com/@capsulajs/capsulahub-ui/-/capsulahub-ui-0.6.2.tgz#5dde4a44daa8e6348d34f561880ffbbad4cd07fa"
-  integrity sha512-5mAMrmPYzSoBiCSkH263bxL3jJXkhAckk9mYc9eIJ+4F6gP62bgoBfxkBCJJKWPI3RJvb3WNPVyjhQFKhKnyvQ==
+"@capsulajs/capsulahub-ui@^0.6.6":
+  version "0.6.6"
+  resolved "https://registry.npmjs.org/@capsulajs/capsulahub-ui/-/capsulahub-ui-0.6.6.tgz#8f708cc5812d66d9575e53fec4ae51682b3a4009"
+  integrity sha512-U7mGQBdG0DveFKPRQS/UIPsdZxN42L8/44SiDyKYB2Im096rGHSIIoEmw9vJQ0wtnQ4YP4i69TLl2JzDkDiIUA==
   dependencies:
     lodash "^4.17.11"
     react "^16.8.1"
@@ -1032,9 +1032,9 @@
     react-click-outside "^3.0.1"
     react-json-view "^1.19.1"
     react-reflex "^2.2.9"
+    react-table "^6.10.0"
     rxjs "^6.3.3"
     styled-components "^3.4.5"
-    typeface-montserrat "^0.0.54"
 
 "@capsulajs/capsulajs-configuration-service@^0.1.6":
   version "0.1.8"
@@ -10895,6 +10895,13 @@ react-syntax-highlighter@^8.0.1:
     prismjs "^1.8.4"
     refractor "^2.4.1"
 
+react-table@^6.10.0:
+  version "6.10.0"
+  resolved "https://registry.npmjs.org/react-table/-/react-table-6.10.0.tgz#20444b19d8ca3c1a08e7544e5c3a93e4ba56690e"
+  integrity sha512-s/mQLI1+mNvlae45MfAZyZ04YIT3jUzWJqx34s0tfwpDdgJkpeK6vyzwMUkKFCpGODBxpjBOekYZzcEmk+2FiQ==
+  dependencies:
+    classnames "^2.2.5"
+
 react-textarea-autosize@^6.1.0:
   version "6.1.0"
   resolved "https://registry.npmjs.org/react-textarea-autosize/-/react-textarea-autosize-6.1.0.tgz#df91387f8a8f22020b77e3833c09829d706a09a5"
@@ -13154,11 +13161,6 @@ typedoc@^0.14.2:
     shelljs "^0.8.2"
     typedoc-default-themes "^0.5.0"
     typescript "3.2.x"
-
-typeface-montserrat@^0.0.54:
-  version "0.0.54"
-  resolved "https://registry.npmjs.org/typeface-montserrat/-/typeface-montserrat-0.0.54.tgz#3fc338db6428d73485b75aa7bd2af8c9a55b9ab3"
-  integrity sha512-Typhap0PWT299+Va0G/8ZtycHMXrH4gBWKfiW977KEBx5rXUUCa70gvqLx1fdA0WAo6bhSAQmo8uc+QFAmjPww==
 
 typescript@3.2.x:
   version "3.2.4"

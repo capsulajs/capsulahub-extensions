@@ -1,5 +1,4 @@
-import 'babel-polyfill';
-import { Table } from '../src/Table';
+import { Table } from '../Table';
 import { prepareWebComponent } from '@capsulajs/capsulahub-extension-utils';
 import { props$ } from './utils';
 import { Row } from './types';
