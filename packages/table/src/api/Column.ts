@@ -8,7 +8,7 @@ export default interface Column {
   /* Cell render function */
   Cell?: (row: Cell) => HTMLElement;
   /* Gives possibility to filter data by current column */
-  filterable: boolean;
+  filterable?: boolean;
   /* Gives possibility to sort data by current column */
-  sortable: boolean;
+  sortable?: boolean;
 }
