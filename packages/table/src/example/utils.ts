@@ -16,7 +16,7 @@ export const columns: Column[] = [
     Header: 'Column C',
     accessor: 'columnC',
   },
-] as Column[];
+];
 
 export const row = (i: number) => ({
   columnA: `A${i}`,
