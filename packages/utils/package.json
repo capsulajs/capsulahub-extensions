@@ -23,6 +23,6 @@
   "author": "Markets Pulse",
   "dependencies": {
     "react": "^16.8.6",
-    "rxjs": "6.5.1"
+    "rxjs": "6.5.2"
   }
 }
