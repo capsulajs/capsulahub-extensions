@@ -7,7 +7,7 @@ import { dataComponentHoc } from '@capsulajs/capsulahub-extension-utils';
 import { TableUIProps } from './api';
 
 export class Table<Row> extends HTMLElement {
-  public mountPoint: string = 'web-table';
+  public mountPoint: string = '';
   public props$?: Observable<TableUIProps<Row>>;
 
   public connectedCallback() {

@@ -4,6 +4,7 @@ import { props$, tablePropsSubject } from './utils';
 import { Row } from './types';
 
 class TableWithData extends Table<Row> {
+  public mountPoint: string = 'web-table';
   public setProps() {
     // In tests env tablePropsSubject is set before loading the page
     // @ts-ignore
