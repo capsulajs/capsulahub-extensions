@@ -36,10 +36,7 @@ export const prepareWebComponent = (prepareRequest: PrepareWebComponentRequest) 
   return importFake(prepareRequest.componentModules, prepareRequest.path)
     .then((module) => module.default)
     .then((WebComponent) => {
-      if (!customElements.get(prepareRequest.name)) {
-        customElements.define(prepareRequest.name, WebComponent);
-      }
-
+      customElements.define(prepareRequest.name, WebComponent);
       const webComponent = new WebComponent();
       typeof webComponent.setProps === 'function' && webComponent.setProps();
       return webComponent;
