@@ -6,7 +6,7 @@ export default interface Column {
   /* Column key for access */
   accessor: string;
   /* Cell render function */
-  Cell?: (row: Cell) => HTMLElement | string;
+  Cell?: (row: Cell) => any;
   /* Gives possibility to filter data by current column */
   filterable?: boolean;
   /* Gives possibility to sort data by current column */
