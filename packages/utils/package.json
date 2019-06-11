@@ -1,6 +1,6 @@
 {
   "name": "@capsulajs/capsulahub-extension-utils",
-  "version": "0.0.1",
+  "version": "0.0.2-alpha.0",
   "description": "CapsulaJS - Web components utils",
   "private": false,
   "main": "lib/index.js",

@@ -1,6 +1,6 @@
 {
   "name": "@capsulajs/capsulahub-extension-logger",
-  "version": "0.0.1",
+  "version": "0.0.2-alpha.0",
   "description": "CapsulaJS - Web components logger",
   "private": false,
   "main": "lib/index.js",
@@ -27,7 +27,7 @@
   },
   "author": "Markets Pulse",
   "dependencies": {
-    "@capsulajs/capsulahub-extension-utils": "^0.0.1",
+    "@capsulajs/capsulahub-extension-utils": "^0.0.2-alpha.0",
     "@capsulajs/capsulahub-ui": "^0.6.6",
     "rxjs": "6.5.1"
   }
