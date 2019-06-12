@@ -14,4 +14,6 @@ export default interface TableUIProps<Row> {
   filterable?: boolean;
   /* Possibility to sort by each column in the table (default false) */
   sortable?: boolean;
+  /* Possibility to change no data message */
+  noDataText?: string;
 }
