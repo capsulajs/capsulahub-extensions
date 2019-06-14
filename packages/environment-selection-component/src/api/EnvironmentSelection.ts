@@ -1,7 +1,7 @@
-import { DisconnectRequest, ConnectRequest, FilterRequest, SelectRequest } from '.';
+import { DisconnectRequest, ConnectRequest, SelectRequest } from '.';
 
 /**
- * WebComponent, that is responsible for rendering the list of environments and a filter for them.
+ * WebComponent, that is responsible for rendering the list of available environments.
  * The connection and selection status is shown for each environment.
  * It is possible to change the connection status of each environment and to select different environments.
  */
@@ -28,13 +28,6 @@ export interface EnvironmentSelection extends HTMLElement {
    * - a server error appears while trying to disconnect from the provided environment
    */
   disconnect(disconnectRequest: DisconnectRequest): Promise<void>;
-  /**
-   * Filter the list of environments.
-   * Promise is resolved instantly.
-   * Promise can be rejected is such cases:
-   * - filterRequest is invalid;
-   */
-  filter(filterRequest: FilterRequest): Promise<void>;
   /**
    * Select a specific environment. Only one environment can be selected, so if any environment was selected
    * previously - it becomes unselected.

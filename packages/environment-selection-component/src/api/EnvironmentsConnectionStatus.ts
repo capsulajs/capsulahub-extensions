@@ -1,7 +1,7 @@
 import { Environment } from '.';
 
 /**
- * The information about the connection status change in environments
+ * The information about the connection statuses change in environments
  */
 export interface EnvironmentsConnectionStatus {
   /**

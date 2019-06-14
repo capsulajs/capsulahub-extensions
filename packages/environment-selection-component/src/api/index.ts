@@ -5,5 +5,4 @@ export { ConnectRequest } from './ConnectRequest';
 export { DisconnectRequest } from './DisconnectRequest';
 export { EnvironmentsConnectionStatus } from './EnvironmentsConnectionStatus';
 export { OnEnvironmentConnectionChange } from './OnEnvironmentConnectionChange';
-export { FilterRequest } from './FilterRequest';
 export { SelectRequest } from './SelectRequest';

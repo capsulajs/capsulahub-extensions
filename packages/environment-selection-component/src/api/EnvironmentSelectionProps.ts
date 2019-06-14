@@ -27,9 +27,4 @@ export interface EnvironmentSelectionProps {
    * @default ""
    */
   connectedEnvironment?: Environment;
-  /**
-   * Search query, that is used for filtering the list of environments. By default no filtering is applied.
-   * @default ""
-   */
-  searchQuery?: string;
 }
