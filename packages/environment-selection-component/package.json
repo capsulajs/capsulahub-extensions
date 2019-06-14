@@ -1,12 +1,10 @@
 {
   "name": "@capsulajs/capsulahub-extension-environment-selection-component",
-  "version": "0.0.2-alpha.0",
+  "version": "0.0.1",
   "description": "CapsulaJS - Web components Environment Selection",
   "main": "lib/index.js",
   "unpkg": "dist/index.js",
-  "module": "es/index.js",
+  "module": "lib/index.js",
   "types": "lib/index.d.ts",
-  "private": true,
-  "license": "MIT",
   "author": "Markets Pulse"
 }

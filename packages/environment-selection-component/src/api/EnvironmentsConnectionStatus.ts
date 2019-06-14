@@ -1,18 +1,15 @@
 import { Environment } from '.';
 
-export interface EnvironmentsConnectionStatusConnected {
-  connected: Environment;
+/**
+ * The information about the connection status change in environments
+ */
+export interface EnvironmentsConnectionStatus {
+  /**
+   * The name of the environment
+   */
+  environment: Environment;
+  /**
+   * The new status of connection for this environment
+   */
+  status: 'connected' | 'disconnected';
 }
-
-export interface EnvironmentsConnectionStatusDisconnected {
-  disconnected: Environment;
-}
-
-export interface EnvironmentsConnectionStatusConnectedAndDisconnected
-  extends EnvironmentsConnectionStatusConnected,
-    EnvironmentsConnectionStatusDisconnected {}
-
-export type EnvironmentsConnectionStatus =
-  | EnvironmentsConnectionStatusConnected
-  | EnvironmentsConnectionStatusDisconnected
-  | EnvironmentsConnectionStatusConnectedAndDisconnected;
