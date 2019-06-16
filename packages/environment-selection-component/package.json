@@ -1,0 +1,10 @@
+{
+  "name": "@capsulajs/capsulahub-extension-environment-selection-component",
+  "version": "0.0.1",
+  "description": "CapsulaJS - Web components Environment Selection",
+  "main": "lib/index.js",
+  "unpkg": "dist/index.js",
+  "module": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "author": "Markets Pulse"
+}
