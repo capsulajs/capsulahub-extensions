@@ -1,9 +1,5 @@
 export { Environment } from './Environment';
 export { EnvironmentSelectionProps } from './EnvironmentSelectionProps';
 export { OnSelect } from './OnSelect';
-export { ConnectRequest } from './ConnectRequest';
-export { DisconnectRequest } from './DisconnectRequest';
-export { EnvironmentsConnectionStatus } from './EnvironmentsConnectionStatus';
 export { OnConnect } from './OnConnect';
 export { OnDisconnect } from './OnDisconnect';
-export { SelectRequest } from './SelectRequest';
