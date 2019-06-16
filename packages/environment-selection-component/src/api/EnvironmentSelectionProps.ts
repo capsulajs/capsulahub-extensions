@@ -1,4 +1,4 @@
-import { Environment, OnEnvironmentSelected, OnEnvironmentConnectionChange } from '.';
+import { Environment, OnSelect, OnConnect, OnDisconnect } from '.';
 
 /**
  * The props that are passed to the EnvironmentSelection component
@@ -9,22 +9,25 @@ export interface EnvironmentSelectionProps {
    */
   environments: Environment[];
   /**
-   * Callback function, that will be called each time when an selection of a new environment happens
+   * Callback function, that will be called each time when a selection of a new environment is triggered
    */
-  onEnvironmentSelected: OnEnvironmentSelected;
+  onSelect: OnSelect;
   /**
-   * Callback function, that will be called each time when a connection to an environment happens or disconnection
-   * from an environment happens
+   * Callback function, that will be called each time when a connection to a new environment is triggered
    */
-  onEnvironmentConnectionChange: OnEnvironmentConnectionChange;
+  onConnect: OnConnect;
+  /**
+   * Callback function, that will be called each time when a disconnection from a currently connected environment is triggered
+   */
+  onDisconnect: OnDisconnect;
   /**
    * Currently selected environment. By default no environment is selected.
    * @default ""
    */
-  selectedEnvironment?: Environment;
+  selected?: Environment;
   /**
    * Currently connected environment. By default no environment is connected.
    * @default ""
    */
-  connectedEnvironment?: Environment;
+  connected?: Environment;
 }
