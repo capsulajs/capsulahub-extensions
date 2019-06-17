@@ -14,5 +14,5 @@ Scenario: EnvRegistry registers the provided environment
   Given A Workspace with EnvRegistry extension
   And  An environment with `envKey: dev` and `env: 'myEnv'`
   And EnvRegistry extension registers itself to the Workspace
-  And  EnvRegistry registers the environment
+  When  EnvRegistry registers the environment
   And  an EnvRegistry instance with this environment is available
