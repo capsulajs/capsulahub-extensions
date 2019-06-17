@@ -5,7 +5,7 @@ Scenario: EnvRegistry extension creates new instance of EnvRegistry while regist
   When  EnvRegistry extension registers itself to the Workspace
   Then  An EnvRegistry instance is available
 
-Scenario: EnvRegistry extension creates new instance of EnvRegistry while registering itself
+Scenario: Bootsrap function resolves before EnvRegistry is registered
   Given A Workspace with EnvRegistry extension
   When EnvRegistry extension returns a bootstrap function
   Then Bootstrap function is resolved
