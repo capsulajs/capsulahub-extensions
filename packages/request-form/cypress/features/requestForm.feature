@@ -173,19 +173,4 @@ Scenario: If content prop is changed, the form is updated correctly (2 editors r
     And   the content of the argument is updating in correspondence to requestArg value
     And   the input of the argument includes the string from requestArgs's array
     And   the language stays the same
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     
