@@ -12,7 +12,7 @@ Scenario: Click on 'env1' environment - "onSelect" prop callback is triggered
    Given  Environment Selection Component
    And    a valid environment 'env1'
    And    'env1' exists in the list of "environments" prop
-   And    'env1' environment is selected and has no open connection
+   And    'env1' environment is not selected and has no open connection
    When   I click on 'env1' environment
    Then   "onSelect" prop callback is triggered with 'env1' environment in its argument
    And    "selected" prop is passed to component
