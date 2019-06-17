@@ -15,4 +15,5 @@ Scenario: EnvRegistry registers the provided environment
   And  An environment with `envKey: dev` and `env: 'myEnv'`
   And EnvRegistry extension registers itself to the Workspace
   When  EnvRegistry registers the environment
-  And  an EnvRegistry instance with this environment is available
+  Then  Registration of the environment is performed with success
+  And   Subscribing to environments method returns 'myEnv'
