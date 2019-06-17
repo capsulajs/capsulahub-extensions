@@ -82,6 +82,8 @@ Scenario: Click on green circle next to 'env1' environment - "onDisconnect" prop
    When   I click on green circle next to 'env1' environment
    Then   "onDisconnect" prop callback is triggered with 'env1' environment in its argument
    And    the circle next to 'env1' environment name becomes spinning loader instead of green color
+   And    "connected" prop is passed to component with a value of an empty string
+   And    the spinning loader next to 'env1' environment name becomes a circle with a gray color
    And    'env1' is still selected
    And    the background of 'env1' item is gray
 
