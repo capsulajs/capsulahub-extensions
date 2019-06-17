@@ -8,7 +8,7 @@ Scenario: Check that initially no environment is selected and connected to
    And    the circles next to the environments name are gray
    And    the background of 'env1' and 'env2' item is black
 
-Scenario: Click on 'env1' environment - "onSelect" prop callback is triggered
+Scenario: Click on an environment when 'env1' environmnent is not selected
    Given  Environment Selection Component
    And    a valid environment 'env1'
    And    'env1' exists in the list of "environments" prop
@@ -18,7 +18,16 @@ Scenario: Click on 'env1' environment - "onSelect" prop callback is triggered
    And    "selected" prop is passed to component
    And    'env1' is selected
    And    the background of 'env1' item is changed to gray
-
+   
+Scenario: Click on 'env1' environment when 'env1' environmnent is already selected
+   Given  Environment Selection Component
+   And    a valid environment 'env1'
+   And    'env1' exists in the list of "environments" prop
+   And    'env1' environment is selected and has no open connection
+   When   I click on 'env1' environment
+   Then   nothing is happening
+   And    'env1' environment is still selected
+   
 Scenario: Click on gray circle next to 'env1' environment when there isn't open connection('env1' is selected and not connected)
    Given  Environment Selection Component
    And    a valid environment 'env1'
