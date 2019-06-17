@@ -13,6 +13,6 @@ Scenario: EnvRegistry extension tries to register with bad configuration
 Scenario: EnvRegistry registers the provided environment
   Given A Workspace with EnvRegistry extension
   And  An environment with `envKey: dev` and `env: 'myEnv'`
-  When EnvRegistry extension registers itself to the Workspace
+  And EnvRegistry extension registers itself to the Workspace
   And  EnvRegistry registers the environment
   And  an EnvRegistry instance with this environment is available
