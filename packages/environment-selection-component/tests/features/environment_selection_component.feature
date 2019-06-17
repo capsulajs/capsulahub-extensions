@@ -8,65 +8,88 @@ Scenario: Check that initially no environment is selected and connected to
    And    the circles next to the environments name are gray
    And    the background of 'env1' and 'env2' item is black
 
-Scenario: Connect to an environment when there isn't open connection
+Scenario: Click on 'env1' environment - "onSelect" prop callback is triggered
    Given  Environment Selection Component
-   And    there is no environment selected and connected
    And    a valid environment 'env1'
+   And    'env1' exists in the list of "environments" prop
+   And    'env1' environment is selected and has no open connection
    When   I click on 'env1' environment
-   And    I click on gray circle next to 'env1' environment name
-   Then   'env1' environment is selected
-   And    I am connected to 'env1' environment
-   And    the background of selected item is changed
-   And    the circle next to the environment changes it's color to green
+   Then   "onSelect" prop callback is triggered with 'env1' environment in its argument
+   And    "selected" prop is passed to component
+   And    'env1' is selected
+   And    the background of 'env1' item is changed to gray
 
-Scenario: Connect to 'env2' environment when there is an opened connection to 'env1' environment
+Scenario: Click on gray circle next to 'env1' environment when there isn't open connection('env1' is selected and not connected)
+   Given  Environment Selection Component
+   And    a valid environment 'env1'
+   And    'env1' exists in the list of "environments" prop
+   And    'env1' environment is selected and not connected
+   When   I click on gray circle next to 'env1' environment
+   Then   "onConnect" prop callback is triggered with 'env1' environment in its argument
+   And    the circle becomes spinning loader instead of gray color
+   And    "connected" prop is passed to component
+   And    the loader turns to a green circle
+   And    'env1' is connected
+
+ Scenario: Click on gray circle next to 'env2' environment when there is an opened connection to 'env1' environment
    Given  Environment Selection Component
    And    two valid environments 'env1', 'env2'
+   And    'env1' and 'env2' exists in the list of "environments" prop
    And    'env1' environment is selected and connected
-   When   I click on 'env2' environment
-   And    I click on gray circle next to 'env2' environment name
-   Then   I am disconnected from 'env1' environment
-   And    color of the circle next to 'env1' environment name changed to gray
-   And    the background of 'env1' item changes to black
-   And    'env2' environment is selected
-   And    I am connected to 'env2' environment
-   And    the background of selected item changes to gray
-   And    circle next to 'env2' environment changes it's color to green
+   When   I click on gray circle next to 'env2' environment
+   Then   "onDisconnect" prop callback is triggered with 'env1' environment in its argument
+   And    the circle next to 'env1' environment name becomes spinning loader instead of green color
+   And    "onConnect" prop callback is triggered with 'env2' environment in its argument
+   And    the circle next to 'env2' environment name becomes spinning loader instead of gray color
+   And    "onSelect" prop callback is triggered with 'env2' environment in its argument
+   And    "selected" prop is passed to component
+   And    'env2' is selected
+   And    the background of 'env2' item is changed to gray
+   And    "connected" prop is passed to component
+   And    the loader next to 'env2' environment name turns to a green circle
+   And    'env2' is connected
 
-Scenario: Connect to an environment when there is an opened connection to this environment
+Scenario: Click on gray circle next to 'env1' environment  ('env1' is not selected and not connected)
    Given  Environment Selection Component
    And    a valid environment 'env1'
-   And    'env1' environment is selected and connected
-   When   I click on green circle next to 'env1' environment name
-   Then   I am disconnected from 'env1' environment
-   And    color of the circle next to 'env1' environment name changed to gray
-   And    'env1' environment is still selected
-   And    the background of selected item is gray
+   And    'env1' exists in the list of "environments" prop
+   And    'env1' environment is not selected and not connected
+   When   I click on gray circle next to 'env1' environment
+   Then   "onConnect" prop callback is triggered with 'env1' environment in its argument
+   And    the circle becomes spinning loader instead of gray color
+   And    "onSelect" prop callback is triggered with 'env1' environment in its argument
+   And    "selected" prop is passed to component
+   And    'env1' is selected
+   And    the background of 'env1' item is changed to gray
+   And    "connected" prop is passed to component
+   And    the loader turns to a green circle
+   And    'env1' is connected
 
- Scenario: Connect to an environment when environment was not selected
+Scenario: Click on green circle next to 'env1' environment - "onDisconnect" prop callback is triggered
    Given  Environment Selection Component
    And    a valid environment 'env1'
-   And    'env1' environment is not selected and connected
-   And    the background of 'env1' item is black
-   When   I click on gray circle next to 'env1' environment name
-   Then   'env1' environment is selected and connected
-   And    color of the circle next to 'env1' environment name changed to green
-   And    the background of 'env1' item changed to gray
+   And    'env1' exists in the list of "environments" prop
+   And    'env1' environment is selected and connected
+   When   I click on green circle next to 'env1' environment
+   Then   "onDisconnect" prop callback is triggered with 'env1' environment in its argument
+   And    the circle next to 'env1' environment name becomes spinning loader instead of green color
+   And    'env1' is still selected
+   And    the background of 'env1' item is gray
 
- Scenario: "Connected" prop is passed to component and environment name doesn't exists in the list of "environments" prop
+ Scenario: Connect with an environment that doesn't exists in the list of "environments" prop
    Given  Environment Selection Component
    And    a valid environment 'env1'
    And    a valid environment 'env2' that doesn't exists in the list of "environments" prop
    And    no environment is selected and connected
    When   I pass "Connected" prop with 'env2' environment
    Then   'env2' and 'env1' environments are not connected
-   And    the circles next to 'env1' environment is gray
+   And    the circle next to 'env1' environment is gray
 
-  Scenario: "Selected" prop is passed to component and environment name doesn't exists in the list of "environments" prop
+  Scenario: Select an environment that doesn't exists in the list of "environments" prop
    Given  Environment Selection Component
    And    a valid environment 'env1'
    And    a valid environment 'env2' that doesn't exists in the list of "environments" prop
    And    no environment is selected and connected
    When   I pass "Selected" prop with 'env2' environment
    Then   'env2'and 'env1' environments are not connected
-   And    the the background of 'env1' item is black
+   And    the background of 'env1' item is black
