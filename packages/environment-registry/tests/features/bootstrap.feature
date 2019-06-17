@@ -1,30 +1,12 @@
-Background:
-  Given a valid token is a string
-  And   a valid configProvider is a ConfigurationProvider
-  And   a valid dispatcherUrl is a string
-  And   a valid configuration for EnvRegistry Service is an object with at least a token property
+Feature: Create Environment registry extension for CapsulaHub
 
-Scenario: Bootstrap with valid configuration and default provider
-  Given
-  When
-  Then
+Scenario: EnvRegistry extension creates new instance of EnvRegistry while registering itself
+  Given  A Workspace with EnvRegistry extension
+  When  EnvRegistry extension registers itself to the Workspace
+  Then  An EnvRegistry instance is available
 
-Scenario: Bootstrap with valid configuration and non default provider
-  Given
-  When
-  Then
-
-Scenario: Bootstrap with ko token
-  Given
-  When
-  Then
-
-Scenario: Bootstrap with ko configProvider
-  Given
-  When
-  Then
-
-Scenario: Bootstrap with ko dispatcherUrl
-  Given
-  When
-  Then
+Scenario: EnvRegistry extension tries to register with bad configuration
+  Given  A Workspace with EnvRegistry extension
+  When  EnvRegistry extension tries to register with a configuration with invalid format
+  Then  an error is thrown
+  
