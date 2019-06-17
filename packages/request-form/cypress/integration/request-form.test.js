@@ -294,7 +294,7 @@ describe('Request Form TCs', () => {
     });
 
     cy.changeArgsAmount(2)
-      .typeInEditor('return {{} test: }', 1)
+      .typeInEditor('return {{} test: }', 1, 'disabled')
       .submitRequest({ onSubmitSpy, callCount: 0 })
       .changeArgsAmount(1)
       .submitRequest({ onSubmitSpy, callCount: 1 })
