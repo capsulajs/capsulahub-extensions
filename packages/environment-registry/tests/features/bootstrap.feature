@@ -5,15 +5,8 @@ Scenario: EnvRegistry extension creates new instance of EnvRegistry while regist
   When  EnvRegistry extension registers itself to the Workspace
   Then  An EnvRegistry instance is available
 
-Scenario: EnvRegistry extension tries to register with bad configuration
+Scenario: EnvRegistry extension creates new instance of EnvRegistry while registering itself
   Given A Workspace with EnvRegistry extension
-  When  EnvRegistry extension tries to register with a configuration with invalid format
-  Then  An error is thrown
-  
-Scenario: EnvRegistry registers the provided environment
-  Given A Workspace with EnvRegistry extension
-  And   An environment with `envKey: dev` and `env: 'myEnv'`
-  And   EnvRegistry extension registers itself to the Workspace
-  When  EnvRegistry registers the environment
-  Then  Registration of the environment is performed with success
-  And   Subscribing to environments method returns 'myEnv'
+  When EnvRegistry extension returns a bootstrap function
+  Then Bootstrap function is resolved
+  And  EnvRegistry extension registers itself to the Workspace
