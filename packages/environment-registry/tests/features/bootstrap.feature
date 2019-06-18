@@ -1,12 +1,20 @@
 Feature: Create Environment registry extension for CapsulaHub
 
-Scenario: EnvRegistry extension creates new instance of EnvRegistry while registering itself
-  Given A Workspace with EnvRegistry extension
-  When  EnvRegistry extension registers itself to the Workspace
-  Then  An EnvRegistry instance is available
+Scenario: EnvRegistry extension bootstrap function resolves correctly and triggers the registration of an instance of EnvRegistry in Workspace
+   Given EnvRegistry extension
+   And   A valid EnvRegistry configuration with a token and configProvider
+   And   Workspace
+   When  EnvRegistry extension bootstrap function is called with a Workspace as a first argument and envRegistryService configuration as a second argument
+   Then  Correct EnvRegistry configuration is applied while creating an instance of EnvRegistryService
+   And   The registration of EnvRegistryService in Workspace is triggered with the correct arguments
+   And   The promise, that is returned from the call of the bootstrap function, resolves with no args
+   And   The returned promise from a call of registration function is resolved (only after the resolve of bootstrap function)
 
-Scenario: Bootstrap function resolves before EnvRegistry is registered
-  Given A Workspace with EnvRegistry extension
-  When EnvRegistry extension returns a bootstrap function
-  Then Bootstrap function is resolved
-  And  EnvRegistry extension registers itself to the Workspace
+Scenario: EnvRegistry extension bootstrap function rejects with an error if the creation of an instance of EnvRegistry throws an error
+   Given EnvRegistry extension
+   And   An invalid EnvRegistry configuration with a token and configProvider
+   And   Workspace
+   When  EnvRegistry extension bootstrap function is called with a Workspace as a first argument and envRegistryService configuration as a second argument
+   And   The creation of EnvRegistryService instance fails with an error "Error1"
+   Then  The promise, that is returned from the call of the bootstrap function, rejects with an error "Error1"
+   And   The registration of the service in Workspace was not triggered
