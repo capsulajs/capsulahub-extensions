@@ -7,13 +7,12 @@ import { dataComponentHoc } from '@capsulajs/capsulahub-extension-utils';
 import { ModalUIProps } from './api';
 
 export class Modal extends HTMLElement {
-  public mountPoint: string = '';
   public props$?: Observable<ModalUIProps>;
 
   public connectedCallback() {
     const Component: React.JSXElementConstructor<any> = this.props$
       ? dataComponentHoc<ModalUIProps>(ModalUI, this.props$)
       : ModalUI;
-    ReactDOM.render(<Component />, document.getElementById(this.mountPoint));
+    ReactDOM.render(<Component />, this);
   }
 }

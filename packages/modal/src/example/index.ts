@@ -1,11 +1,18 @@
+import { BehaviorSubject } from 'rxjs';
 import { Modal } from '../Modal';
 import { prepareWebComponent } from '@capsulajs/capsulahub-extension-utils';
-import { props$ } from './utils';
+import { basicProps } from './utils';
 
 class ModalWithData extends Modal {
-  public mountPoint: string = 'web-modal';
   public setProps() {
-    this.props$ = props$;
+    // In tests env modalPropsSubject is set before loading the page
+    // @ts-ignore
+    if (!window.modalPropsSubject) {
+      // @ts-ignore
+      window.modalPropsSubject = new BehaviorSubject(basicProps);
+    }
+    // @ts-ignore
+    this.props$ = window.modalPropsSubject!.asObservable();
   }
 }
 
