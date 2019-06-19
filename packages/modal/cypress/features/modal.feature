@@ -28,10 +28,3 @@ Scenario: Click on background - isOpen became false
   And   I have modal component opened (isOpen: true)
   When  I click on background
   Then  modal is closed (isOpen: false)
-
-Scenario: Click on toggle button - isOpen value is changing
-  Given ModalUIProps with title, children and isOpen property
-  And   I have modal component opened (isOpen: true)
-  When  I click on toggle button
-  Then  isOpen became false
-  And   modal is closed
