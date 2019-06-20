@@ -2,16 +2,21 @@ import { BehaviorSubject } from 'rxjs';
 import { Modal } from '../Modal';
 import { prepareWebComponent } from '@capsulajs/capsulahub-extension-utils';
 import { basicProps } from './utils';
+import { ModalUIProps } from '../api';
+
+declare global {
+  interface Window {
+    modalPropsSubject: BehaviorSubject<ModalUIProps>;
+    mountWebComponent: () => Promise<void>;
+  }
+}
 
 class ModalWithData extends Modal {
   public setProps() {
     // In tests env modalPropsSubject is set before loading the page
-    // @ts-ignore
     if (!window.modalPropsSubject) {
-      // @ts-ignore
       window.modalPropsSubject = new BehaviorSubject(basicProps);
     }
-    // @ts-ignore
     this.props$ = window.modalPropsSubject!.asObservable();
   }
 }
@@ -29,7 +34,6 @@ const mountWebComponent = async () => {
   document.getElementById(name)!.appendChild(webComponent);
 };
 
-// @ts-ignore
 window.mountWebComponent = mountWebComponent;
 
 export { mountWebComponent };
