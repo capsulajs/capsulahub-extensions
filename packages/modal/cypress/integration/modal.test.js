@@ -12,14 +12,14 @@ describe('Modal TCs', () => {
             isOpen: true,
           });
 
-          return cy.modalOpenend(modal);
+          return cy.expectIsModalOpened(modal);
         });
     });
   });
 
   it('Check default value of isOpen property', () => {
     cy.fixture('modal.js').then((modal) => {
-      return cy.visit('/').modalClosed(modal);
+      return cy.visit('/').expectIsModalClosed(modal);
     });
   });
 
@@ -35,10 +35,9 @@ describe('Modal TCs', () => {
           });
 
           return cy
-            .get('#web-modal')
-            .find('[data-cy=modal-close]')
+            .get('#web-modal [data-cy=modal-close]')
             .click()
-            .modalClosed(modal);
+            .expectIsModalClosed(modal);
         });
     });
   });
@@ -57,7 +56,7 @@ describe('Modal TCs', () => {
           return cy
             .get('body')
             .click()
-            .modalClosed(modal);
+            .expectIsModalClosed(modal);
         });
     });
   });

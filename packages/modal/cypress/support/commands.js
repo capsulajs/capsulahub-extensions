@@ -1,6 +1,6 @@
 const { Cypress, cy } = global;
 
-Cypress.Commands.add('modalClosed', ({ title, children }) => {
+Cypress.Commands.add('expectIsModalClosed', ({ title, children }) => {
   cy.get('#web-modal')
     .contains(title)
     .should('not.exist')
@@ -9,7 +9,7 @@ Cypress.Commands.add('modalClosed', ({ title, children }) => {
     .should('not.exist');
 });
 
-Cypress.Commands.add('modalOpenend', ({ title, children }) => {
+Cypress.Commands.add('expectIsModalOpened', ({ title, children }) => {
   cy.get('#web-modal')
     .contains(title)
     .get('#web-modal')
