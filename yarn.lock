@@ -1020,10 +1020,10 @@
     "@scalecube/scalecube-microservice" "0.1.3-alpha.10"
     uuid "^3.3.2"
 
-"@capsulajs/capsulahub-ui@^0.6.8":
-  version "0.6.8"
-  resolved "https://registry.npmjs.org/@capsulajs/capsulahub-ui/-/capsulahub-ui-0.6.8.tgz#a7f00ce56b9ae4d8aa43a3bf276e90f066dd9ce0"
-  integrity sha512-T6KA9ZY8rX6dL7aHrWKYdIkNYmIrftecEFDnMdo/vzpLADQzMfCnfumhx7ZSP3lKYgTsH+o7YGvwfscbmjr84A==
+"@capsulajs/capsulahub-ui@^0.7.0":
+  version "0.7.0"
+  resolved "https://registry.npmjs.org/@capsulajs/capsulahub-ui/-/capsulahub-ui-0.7.0.tgz#e83118a5edb2099af44eea79b68c55e3ff971add"
+  integrity sha512-jMJYa+rsMwyPb9LlQps2gCcSXQq0i18HLb4J3UnkI3/SLIW2zhbjjfO6GLRwr754iOCiYSzVRoiFhPIo3QC4AA==
   dependencies:
     lodash "^4.17.11"
     react "^16.8.1"
